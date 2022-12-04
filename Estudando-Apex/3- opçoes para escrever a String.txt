@@ -1,0 +1,13 @@
+//Para usar aspas dentro da string usa-se barra invertida "\"
+String texto = 'Meu time \'O CEROL\' é um time muito bom, \n É UM PUTA TIME!!!!';
+System.debug(texto);
+
+/* Outras opções são:
+\b - One blackspace character
+\n - New line
+\r - Carriage return
+\t - Tab
+\\ - One blackslash character
+\o - One ASCll null character
+
+*/

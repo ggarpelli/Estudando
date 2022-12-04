@@ -1,0 +1,46 @@
+// Do While sempre vai executar primeiro uma vez antes de falhar, devido a sua composição.
+
+Do {
+   code_block
+} while (condition);
+
+
+//Checa se é ano bissextoe imprime
+//até o valor setado deve imprimir todos anos bissexto
+
+//Variavel de ano para iniciar a checagem
+Integer anoAtual = 1800;
+//Variavel de ano para finalizar a checagem
+Integer anoTarget = 2022;
+
+//Variavel para guardar a quantidade de ano bissexto
+Integer qtdBissexto = 0;
+
+
+//Guardando variavel do primeiro valor pra usar na String Final
+Integer primeiroValor;
+primeiroValor = anoAtual;
+
+//Loop que irá realizar a checagem se o ano é bissexto até finalizar o while.
+Do { if(Math.mod(anoAtual, 4) == 0){
+    if(Math.mod(anoAtual, 100) == 0){
+        if(Math.mod(anoAtual, 400) == 0){
+            System.debug(anoAtual + ' é um ano Bissexto!!');
+            //Incremento para guardar a quantidade de ano bissexto
+            qtdBissexto++;
+        }
+    }
+    else{
+        System.debug(anoAtual + ' é um ano Bissexto!!');
+        //Incremento para guardar a quantidade de ano bissexto
+        qtdBissexto++;
+    }
+}
+    //Incremento para somar valor do ano e testar proximo ano.
+    anoAtual++;
+   } while (anoAtual <= anoTarget);
+
+//Imprime apos o while rodar todos valores
+System.debug('Quantidade de anos Bissexto nesse intervalo entre '+ primeiroValor + ' e ' +anoTarget + ' foi de: '+qtdBissexto);
+
+//Demanda 2 dev2

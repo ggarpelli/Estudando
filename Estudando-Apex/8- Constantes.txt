@@ -1,0 +1,22 @@
+Para criar uma constante é necessário utilizar na frente :final
+
+// declarando a constante PI
+final Decimal PI = 3,14159;
+System.debug(PI);
+
+// tentando update o valor de PI, porem nao pode sendo uma constante
+PI = 2,14159; 
+
+//Se a constante tiver o valor vazio ai é possivel atualizar o valor a primeira vez.
+
+final Decimal valor;
+
+//imprimindo constante valor vazia
+System.debug(valor);
+
+//Adocionando valor na constante
+valor = 5,3333;
+System.debug(valor);
+
+//Se eu tentar alterar o valor agora dará erro.
+valor = 3,333;

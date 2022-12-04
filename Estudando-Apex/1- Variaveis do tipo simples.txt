@@ -1,0 +1,31 @@
+https://developer.salesforce.com/docs/atlas.en-us.234.0.apexcode.meta/apexcode/langCon_apex_primitives.htm
+
+String ola = 'Hello World';
+System.debug(ola);
+
+String explicacao = 'This is my First Apex Class Project';
+System.debug(explicacao);
+
+Integer numerointeiro = 700000;
+System.debug(numerointeiro);
+
+Decimal numero1 = 1,5;
+System.debug(numero1);
+
+Boolean estouacordado = True;
+System.debug(estouacordado);
+
+Long numerolongo = 70000000000L;
+System.debug(numerolongo);
+
+Double muitorapido = 6000000/325645;
+System.debug(muitorapido);
+
+Date datahoje = date.newInstance(2022, 01, 07);
+System.debug(datahoje);
+
+Time datahora = time.newInstance(12, 58, 13, 07);
+System.debug(datahora);
+
+Datetime horadata = Datetime.newInstance(2022, 01, 07, 12, 58, 13);
+System.debug(horadata);

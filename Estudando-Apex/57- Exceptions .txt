@@ -1,0 +1,18 @@
+Uma exceção ocorre quando algo no codigo é quebrado
+
+// Math Exception --> nao se pode dividir por zero
+//Double result = 10/0;
+//System.debug('Result: '+result);
+
+// DML Exception --> precisa de uma campo obrigatorio Name para criar uma conta.
+//Account accRec = new Account();
+//insert accRec;
+
+
+// Null Pointer Exception --> não tem como atribuir toLowerCase pq a STR ainda está vazia 'nula'
+//String str;
+//System.debug(str.toLowerCase());
+
+
+// throw an exception Programmatically --> Um metodo de chamar a exceção
+throw new NullPointerException();

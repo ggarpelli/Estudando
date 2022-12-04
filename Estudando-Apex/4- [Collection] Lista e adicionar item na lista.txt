@@ -1,0 +1,75 @@
+Lista começa com o valor 0
+
+//passando os paramentros dos alunos
+Integer Aluno1 = 10000001;
+Integer Aluno2 = 10000002;
+Integer Aluno3 = 10000003;
+Integer Aluno4 = 10000004;
+
+//criando lista de alunos
+List<Integer> listaAlunos = new List<Integer>{Aluno1,Aluno2,Aluno3,Aluno4};
+System.debug('A lista de alunos é: '+listaAlunos);
+
+//passando os paramentros dos nomes
+String Nome1 = 'Guilherme';
+String Nome2 = 'BOB';
+String Nome3 = 'JACK';
+String Nome4 = 'Sapato';
+
+//criando nova lista de nomes
+List<String> listaNomes = new List<String>{Nome1,Nome2,Nome3,Nome4};
+System.debug('A lista de Nomes é: '+listaNomes);
+
+
+//adicionando itens na lista de alunos
+listaAlunos.add(10000005);
+listaAlunos.add(10000006);
+System.debug(listaAlunos);
+
+//adicionando itens na lista de nomes
+listaNomes.add('Pedro');
+System.debug(listaNomes);
+
+// Pegar tamanho da lista
+System.debug('Tamanho da Lista antes de Att: '+listaAlunos.size());
+
+// pegar item do index 1
+Integer fila1 = listaAlunos.get(1);
+System.debug('Item 1 da lista: '+ fila1);
+
+// pegar item do index 0 direto
+System.debug('Item 0 da lista: '+ listaAlunos.get(0));
+
+//pegar item do index 4
+Integer fila4 = listaAlunos.get(4);
+System.debug('Item 4 da lista: '+ fila4);
+
+//adicionar item no index 4
+listaAlunos.add (4, 10000007);
+System.debug('Lista Atualizada com novo Index 4: '+ listaAlunos);
+
+//pegar item do index 4
+Integer fila5 = listaAlunos.get(4);
+System.debug('Novo item 4 da lista: '+ fila5);
+
+// Pegar tamanho da lista depois de atualizar
+System.debug('Tamanho da Lista depois de Att: '+listaAlunos.size());
+
+// Remover um item da lista
+System.debug('O item que vai ser removido é o 0: '+ listaAlunos.get(0));
+listaAlunos.remove(0);
+System.debug('Tamanho da lista após remover o item 0: '+ listaAlunos.size());
+System.debug(listaAlunos);
+
+// Atualizar item 5 da lista
+listaAlunos.set(5, 0);
+System.debug('Lista com item 5 Atualizado: '+listaAlunos);
+
+// Pegar tamanho da lista depois de atualizar
+
+System.debug('Tamanho da lista após att: '+ listaAlunos.size());
+
+// limpar a lista
+listaAlunos.clear();
+System.debug('Tamanho da lista após limpar: '+ listaAlunos.size());
+System.debug('Lista: '+listaAlunos);

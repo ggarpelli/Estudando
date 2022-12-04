@@ -1,0 +1,46 @@
+//DML Insert -- criando uma nova conta chamada 'Conta Teste para autaliza'
+Account novaConta = new Account();
+novaConta.Name = 'Conta Teste para autaliza';
+
+//DML OPERATION
+insert novaConta;
+
+---------------------------------------------------------------------------------------------------------------
+
+//DML Update -- alterando o campo Phone e Noma da conta chamada 'Conta Teste para autaliza' para 'CONTA TESTE UPDATE DML'
+Account updateAccount = new Account();
+//Identificando qual conta a ser alterada.
+updateAccount = [SELECT Name, Phone FROM Account WHERE Name = 'Conta Teste para autaliza'];
+updateAccount.Phone = '32832248';
+updateAccount.Name = 'CONTA TESTE UPDATE DML';
+
+//DML OPERATION
+update updateAccount;
+
+
+--------------------------------------------------------------------------------------------------------------
+Account updateAccount = new Account();
+updateAccount = [SELECT Id FROM Account WHERE Name = 'CONTA TESTE UPDATE DML'];
+
+//DML OPERATION
+delete updateAccount;
+
+
+---------------------------------------------------------------------------------------------------------------
+
+UNDELETE DML OPERATION
+
+//SELECT Name, Phone FROM Account ALL ROWS //ALL ROWS --> significa que irá mostrar também as contas que foram excluidas (Recycle Bin)
+
+CASO EU QUEIRA SOMENTE RETORNAR AS CONTAS QUE FORAM DELETADAS EU PRECISO ACRESCENTAR NA QUERY A restrição 'IsDeleted=true' igual esta abaixo:
+//SELECT Name, Phone FROM Account WHERE IsDeleted=true ALL ROWS
+
+//CRIANDO LISTA CHAMADA deleteAccounts com as contas que foram deletadas
+List<Account> deleteAccounts = [SELECT Name, Phone FROM Account WHERE IsDeleted=true ALL ROWS];
+//For para imprimir cada conta individual
+for (Account imprimeContas : deleteAccounts){
+    system.debug('Conta deletada :'+imprimeContas);
+}
+
+//DML OPERATION to return Accounts deleted
+undelete deleteAccounts;

@@ -1,0 +1,44 @@
+The website has hundreds of technical articles - written by many users.
+
+Each article is assigned a category.
+
+One category can have multiple posts.
+
+
+Lista = permite valores repitidos, tem posição e começa do valor 0.
+Set = não permite valores repitidos, não tem posição 
+Map = você consulta a key para receber valor, todo valor está atribuido a uma key. 
+
+//Artigos tecnigos.
+List<String> artigosTec = new List<String>();
+artigosTec.add ('Primeiro Artigo');
+artigosTec.add ('Segundo Artigo');
+artigosTec.add ('Terceiro Artigo');
+
+System.debug('Lista com Artigos Tecnologicos: '+artigosTec);
+
+//Set com usuarios
+Set<String> usuarios = new Set<String>();
+usuarios.add ('Guilherme');
+usuarios.add ('Pamela');
+usuarios.add ('Lucia');
+System.debug('Set de usuarios: '+usuarios);
+
+//Set de categorias 
+Set<String> categ = new Set<String>();
+categ.add ('Fisica');
+categ.add ('Matematica');
+categ.add ('Geografia');
+System.debug('Set de categorias: '+categ);
+
+//Mapa pode armazenar uma coleção como seu valor.
+Map<String, List<String>> mapaLista = new Map<String, List<String>>();
+mapaLista.put('0', artigosTec);
+
+System.debug('Mapa Lista: '+mapaLista);
+
+Map<String, Set<String>> mapaSet = new Map<String, Set<String>>();
+mapaSet.put('Apex', usuarios);
+mapaSet.put('Lightining', categ);
+
+System.debug('Mapa Set: '+mapaSet);

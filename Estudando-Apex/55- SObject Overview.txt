@@ -1,0 +1,37 @@
+//O que é um SObject? São chamados SObject aqueles objetos padroes e também objetos customizados, por exemplo Account, Contact, Opportunitty, Book__c.
+
+Ou sejá, é permitido quando for instanciar um novo objeto, utilizar SObject ao invez do nome do objeto, por exemplo:
+
+List<Account> listaContas = [SELECT Name, Phone FROM Account]; 
+você pode substituir o Account por SObject;
+List<SObject> listaContas = [SELECT Name, Phone FROM Account]; 
+da na mesma coisa!! E ISSO SERVE PARA QUALQUER OBJETO, SEJA ELE PADRAO OU CUSTOMIZADO.
+
+//Caso utilize SObject ao invez do nome do objeto, na hora de trazer o valor do campo você deve utilizar .get('Campo');
+List<SObject> deleteAccounts = [SELECT Name, Phone FROM Account];
+for (SObject imprimeContas : deleteAccounts){
+    system.debug('Nome da Conta :'+imprimeContas.get('Name')+ ' Phone da conta: '+ imprimeContas.get('Phone'));
+}
+
+tem duas maneira de converter o valor recebido para string, que nesse caso é uma boa pratica!
+1- String.valueOf(campo) //String.valueOf(imprimeContas.get('Name'))
+2- (String)campo //(String)imprimeContas.get('Phone'))
+
+EX:system.debug('Nome da Conta :'+String.valueOf(imprimeContas.get('Name'))+ ' Phone da conta: '+ (String)imprimeContas.get('Phone'));
+
+//Caso queira pegar o valor do pai ou filho de algum campo, porem chamando por SObject é preciso utilizar  //book.getSObject('Author__r').get('Name'))
+
+// Retrieve all books and assign to a List collection
+List<SObject> books = [SELECT Name, Price__c, Author__r.Name FROM Book__c];
+for(SObject book : books){
+    System.debug('Book Name: '+String.valueOf(book.get('Name'))+' Book Price: '+(Decimal)book.get('Price__c')+ ' Book Author: '+ (String)book.getSObject('Author__r').get('Name'));
+}
+
+//Criando um novo SObject
+SObject newAccount = (SObject) Type.forName('Account').newInstance();
+//para atribuir valor para os campos é necessario utilizar .put('nomeCampo', 'Valor a ser atribuido');
+newAccount.put ('Name', 'Conta SObject test');
+newAccount.put ('Phone', '(19)9 97494747');
+
+//DML OPERATION (INSERT)
+insert newAccount;

@@ -1,0 +1,26 @@
+// Convertendo String to Number and others
+String palavra = '53';
+String legal = '15';
+
+Integer numero = 23;
+Integer maisNumero = 14;
+
+//Somando string + string (Palavra)
+String somaPalavra = palavra+legal;
+System.debug(somaPalavra);
+
+//Somando Numero + string convertida em Numero (Calculo)
+Integer somaNumeroPalavra = numero + Integer.valueOf(palavra);
+System.debug(somaNumeroPalavra);
+
+//Somando String + Numero (Palavra)
+String somaPalavraNumero = maisNumero + legal;
+System.debug(somaPalavraNumero);
+
+//Somando e convertendo para String
+String somaTudo = String.valueOf(numero+maisNumero);
+//Somando 2 string
+somaTudo += palavra; // somaTudo = somaTudo + palavra;
+System.debug(somaTudo);
+
+//demanda

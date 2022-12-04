@@ -1,0 +1,18 @@
+Access modifier no Apex classes.
+
+Private - modificador de acesso mais restritivo
+Protected - Classes internas do mesmo metodo pode acessar
+Public - Todos do mesmo "ambiente" vê
+Global - Modificador de acesso mais aberto
+
+
+Se voce nao declarar nada, por padrao fica private.
+
+Se o seu metodo for global (mais aberto) e sua classe for public(menos aberto que o global), não poderá acessar o metodo. Terá que tornar a classe no acesso global tambem. 
+
+Ou seja, os conteiner internos nao podem ter um acesso mais aberto do que os conteiner externos.
+
+Voce pode usar o modificador de acesso para:
+Classes
+Metodos
+Variaveis

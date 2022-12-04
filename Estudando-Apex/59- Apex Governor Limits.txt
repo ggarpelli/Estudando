@@ -1,0 +1,67 @@
+Link to all Governor Limits : https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_apexgov.htm
+
+Governor Limits Challange!
+Criar uma picklist chamado 'Profile' em opportunity com os valores : High / Medium / Low
+
+Escreva uma função que:
+1 - Traz a lista de oportunidade para um determinado ID
+2 - Adicionar condição se Amount < 10000, então, atualize o perfil para 'Low'
+3 - Se Amount >10k e <50k, atualize o perfil para 'Medium'
+4 - Se Amount >50k, atualize o perfil para 'High'
+
+public class OpportunityController {
+
+    public static void updateProfile(List<Id> oppIds){
+        for(Id oppId : oppIds){
+            // get opp record
+            Opportunity opp = [SELECT Id, Amount, Profile__c FROM Opportunity WHERE Id =: oppId];
+            if(opp.Amount <10000){
+                opp.Profile__c = 'Low';
+            } else if (opp.Amount > 50000){
+                opp.Profile__c = 'High';
+            } else{
+                opp.Profile__c = 'Medium';
+            }
+            // update opportunity
+            update opp;
+        }
+    }
+}
+//DEV CONSOLE - pra chamar
+List<Opportunity> oppRecords = [SELECT Id FROM Opportunity];
+
+List<Id> oppIds = new List<Id>();
+
+for(Opportunity opp : oppRecords){
+    oppIds.add(opp.Id);
+}
+
+
+OpportunityController.updateProfile(oppIds);
+
+=========================================================================================================================================================================================================
+Agora adicional: Adicionar um checkbox acionado para contas acima de 50k como VIP Profile.
+public class CheckVIP {
+    
+    public static void isVIP(List<Id> listaId){
+        for(Id checkId : listaId){
+            Opportunity attOpp = [SELECT Id, Profile__c, VIP_Profile__c  FROM Opportunity WHERE Id =:checkId];
+            if(attOpp.Profile__c == 'High'){
+                attOpp.VIP_Profile__c=true;
+            } else{
+                attOpp.VIP_Profile__c=false;
+            }
+            update attOpp;
+        }
+    }
+}
+//DEV CONSOLE - pra chamar
+List<Opportunity> asOpp = [SELECT Id FROM Opportunity];
+List<Id> osIds = new List<Id>();
+
+for(Opportunity idIndividual : asOpp){
+    osIds.add(idIndividual.Id);
+}
+
+CheckVIP.isVIP(osIds);
+ 

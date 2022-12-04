@@ -1,0 +1,28 @@
+//no apex nao existe diferenciação entre minusculo e maiusculo, porém por convenção tem algumas manieras corretas de escrever as palavras.
+
+//Sempre escrever uma variavel ou metodo ou uma classe da mesma forma, nunca alterar de maiusculos para minusculo, mesmo continuando funcionando.
+
+//Para nome de CLASSES a convenção que o Salesforce recomenda utilizar é a Pascal Case, ou seja:
+DeveSerEscritoAssim. --> sempre com a primeira palavra tambem começando em letra maiuscula.
+
+//Para nome de VARIAVEIS a convenção que o Salesforce recomenda utilizar é a Camel Case, ou seja:
+deveSerEscritoAssim. --> sempre com a primeira palavra começando em letra minuscula.
+
+//Para nome de METODOS, assim como variavel a convenção que o Salesforce recomenda utilizar é a Camel Case, ou seja:
+deveSerEscritoAssim. --> sempre com a primeira palavra começando em letra minuscula.
+
+//Para nome de VARIAVEIS CONSTANTES a convenção que o Salesforce recomenda utilizar é tudo maiuscula separado por _ , ou seja:
+DEVE_SER_ESCRITO_ASSIM. --> sempre com a primeira palavra começando em letra minuscula.
+
+obs: para usar variaveis constantes é necessario colocar 'final' na frente.
+ex: final String DEVE_SER_ESCRITO_ASSIM = 'Olá';
+
+//Por convenção do Salesforce não é possivel começar uma variavel com um numero, ou seja, a primeira letra nao pode ser numero.
+ex: String 132palavra = 'Ola';
+
+//Por convenção do Salesforce não é possivel começar ou terminar uma variavel/classe/metodo com _ .
+ex: String _palavra = 'Ola';
+    String palavra_ = 'Ola';
+
+//Não é permitido duas classes com o mesmo nome. 
+//Nao é permitido duas variaveis com mesmo nome dentro do mesmo escopo.

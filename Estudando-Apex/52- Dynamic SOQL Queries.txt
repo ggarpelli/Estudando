@@ -1,0 +1,19 @@
+//QUERY A PARTIR DE UMA STRING UTILIZANDO Database.query(query em string) //Ex: String minhaQuery = 'SELECT Name FROM Account'; // Database.query(minhaQuery);
+
+String classeConta = 'Classe2';
+    
+String dyQuery = 'SELECT Name, Phone, Rating, Industry FROM Account';
+
+if (classeConta == 'Classe1'){
+    
+    dyQuery += ' WHERE Rating = \'Warm\' AND Industry = \'Energy\'';
+} else if(classeConta == 'Classe2'){
+    dyQuery += ' WHERE Rating = \'Hot\' AND Industry = \'Electronics\'';
+} else {
+     dyQuery += ' WHERE Industry = \'Energy\'';
+}
+
+//Para utilizar uma query de String. Porem eu criei uma condição dentro do if para incrementar restriçoes nessa query caso atenda ao if.
+List<Account> contas = Database.query(dyQuery);
+System.debug('Tamanho da lista de conta: '+contas.size());
+System.debug('Conta: '+contas);

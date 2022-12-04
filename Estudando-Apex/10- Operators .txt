@@ -1,0 +1,51 @@
+Integer x = 15;
+// operation de adição
+x = x + 5;
+System.debug(x);
+
+// operation de subtração
+x = x - 5;
+System.debug(x);
+
+// operation de divisão
+x = x / 5;
+System.debug(x);
+
+// operation da multiplicação
+x = x * 5;
+System.debug(x);
+
+//Increment Operator
+x++; //x = x+1;
+System.debug(x);
+
+//Decrement Operator
+x--; // x = x-1;
+System.debug(x);
+
+// additional assignment operator
+x +=5; // x = x + 5;
+x +=1; // x = x +1; or x++;
+System.debug(x);
+
+// Subtration assignment operator
+x -=5; // x = x - 5;
+x -=1; // x = x -1; or x--;
+System.debug(x);
+
+// multiplication assignment operator
+x *=5; // x = x * 5;
+System.debug(x);
+
+// dividision assignment operator
+x /=5; // x = x / 5;
+System.debug(x);
+
+// addition assignment operator strings
+x +=5; // x = x + 5;
+System.debug('Addition string operator '+x);
+
+String hello = 'hello';
+String world = 'World';
+
+System.debug(hello + ' ' + world);

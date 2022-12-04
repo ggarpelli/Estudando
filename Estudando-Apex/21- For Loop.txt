@@ -1,0 +1,38 @@
+for (Integer ano=0;ano<=200;i++){
+	Loop code block;
+}
+
+//Sempre mesma ordem para for:
+
+for (Declaração da variavel ; condição ; variavel de Incrementar){
+	Loop code block;
+}
+
+
+//For loop é igual o While, primeiro checa a condição e depois executa o bloco de codigo.
+
+// Descobrindo se o ano é bissexto utilizando Foor loop.
+
+Integer count = 0;
+
+for (Integer anoAtual = 1985; anoAtual<2020; anoAtual++){
+    if(Math.mod(anoAtual, 4) == 0){
+        if(Math.mod(anoAtual, 100) == 0){
+            if(Math.mod(anoAtual, 400) == 0){
+                System.debug(anoAtual + ' é um ano Bissexto!!');
+                count++;
+            }
+            else{
+                System.debug(anoAtual + ' não é um ano Bissexto!!22');
+            }
+        }
+        else{
+            System.debug(anoAtual + ' é um ano Bissexto!!');
+            count++;
+        }
+    }
+    else{
+        System.debug(anoAtual + ' não é um ano Bissexto!!44');
+    }
+}
+System.debug('A quantidade de ano Bissexto é :' +count);

@@ -1,0 +1,54 @@
+https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_string.htm
+
+String texto = 'eu estou muito feliz! ';
+System.debug('Hoje: '+texto);
+
+// capitilize string
+System.debug('Hoje: '+texto.capitalize());
+
+// contains example
+System.debug('Contem a palavra muito?' + texto.contains('muito'));
+
+// convert to Upper Case
+System.debug('Letra Maiuscula: '+texto.toUpperCase());
+
+// convert to Lower Case
+System.debug('Letra Minuscula: '+texto.toLowerCase());
+
+// Use endsWith method
+System.debug('Termina com?'+texto.endsWith('iz'));
+
+// equals
+System.debug('É igual a feliz: '+texto.equals('feliz'));
+String str1 = 'Guilherme';
+String str2 = 'guilherme';
+System.debug('str1 = str2?' + str1.toLowerCase().equals(str2.toLowerCase()));
+
+// indexOf
+System.debug('Qual a posição de feliz? '+ texto.indexOf('feliz'));
+
+// length
+System.debug('Qual o tamanho do texto ? '+ texto.length());
+
+//remove
+System.debug('Remover muito: '+ texto.toUpperCase().remove('MUITO'));
+
+//replace
+System.debug('Replace Muito ' + texto.replace('muito', 'mega'));
+
+// split
+System.debug('Split Method ' + texto.split(' '));
+
+//trim 
+System.debug('Trim Method ' + texto.trim());
+
+//isBlank
+String texto2 = ' ';
+System.debug('Está vazio texto 1: '+ string.isBlank(texto));
+System.debug('Está vazio texto 2: '+ string.isBlank(texto2));
+
+//isNumeric
+String numer = '13253315';
+String numer1 = '13215f351';
+System.debug('numer É só numero?: ' + numer.isNumeric());
+System.debug('numer1 É só numero?: ' + numer1.isNumeric());

@@ -1,0 +1,26 @@
+List<String> listaContas = new List<String>();
+    listaContas.add ('Burlington Textiles Corp of America');
+	listaContas.add ('Dickenson plc');
+	listaContas.add ('Edge Communications');
+	listaContas.add ('Grand Hotels & Resorts Ltd');
+	listaContas.add ('Pyramid Construction Inc.');
+	listaContas.add ('Sample Account for Entitlements');
+
+List<Account> contas = [SELECT Id, Name, Rating FROM Account WHERE Name IN:listaContas];
+//Imprime quantidade de contas dentro de contas
+System.debug('Quantidade de contas: '+contas.size());
+
+//Imprime Id, Name, Rating das contas encontradas na pesquisa do listaContas
+System.debug('Contas: '+contas);
+
+//PRIMEIRO CRIEI UMA LISTA DE STRING PARA SER O NOME DAS CONTAS QUE TO PESQUISANDO Restrição =(WHERE Name IN:listaContas)
+
+//Caso eu nao desejasse utilizar a lista de String para pesquisar, se fosse somente um valor, eu Criaria uma String para armazenar esse valor e utilizar na restrição.
+
+Ex:
+List<Account> contas = [SELECT Id, Name, Rating FROM Account WHERE Name IN ('Burlington Textiles Corp of America')];
+//Imprime quantidade de contas dentro de contas
+System.debug('Quantidade de contas: '+contas.size());
+
+//Imprime Id, Name, Rating das contas encontradas na pesquisa do listaContas, nesse caso somente da 'Burlington Textiles Corp of America'
+System.debug('Contas: '+contas);

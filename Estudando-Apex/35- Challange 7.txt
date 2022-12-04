@@ -1,0 +1,28 @@
+public class Fitness {
+    
+    public Decimal calculateBMI(Decimal peso, Decimal altura){
+        
+        Decimal imc = peso/(altura*altura);
+        return imc;
+    }
+    
+    public Decimal calculatePace(Decimal tempoMin, Decimal distanciaKm){
+        
+        //km por min
+        Decimal pace = tempoMin/distanciaKm;
+        return pace;
+    }
+}
+
+//Chama classe
+Fitness chamaClasse = new Fitness();
+Decimal imc = chamaClasse.calculateBMI(32,1.80);
+imc = imc.setScale(2);
+System.debug('O seu imc está em: '+imc);
+
+Decimal pace = chamaClasse.calculatePace(76,15);
+pace = pace.setScale(2);
+System.debug('O seu pace está em: '+pace+'min/km');
+Decimal paceKmH = (60/pace);
+paceKmH = paceKmH.setScale(2);
+System.debug('O seu pace está em: '+paceKmH+'km/h');

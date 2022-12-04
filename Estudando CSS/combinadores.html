@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinadores</title>
+    <style>
+        ul {
+            color: blue;
+        }
+        div {
+            background-color: rgb(111, 138, 37);
+            width: 235px;
+            height: 250px;
+        }
+        div h1 {
+            color: brown;
+        }
+        ul div span {
+            color: greenyellow;
+        }
+        ul > p {
+            color: rgb(160, 15, 160);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <div>
+            <h1>Lista</h1>
+            <p>Item 1, dentro da div</p>
+            <p>Item 2, dentro da div</p>
+            <p>Item 3, dentro da div</p>
+            <p>Item 4, dentro da div</p>
+            <span>
+                <p>Item 5, dentro da div, dentro da span</p>
+                <p id="item6">Item 6, dentro da div, dentro da span</p>
+            </span>
+        </div>
+        <p>Item 7, fora da div</p>
+        <p>Item 8, fora da div</p>
+    </ul>
+</body>
+</html>

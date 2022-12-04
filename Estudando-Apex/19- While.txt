@@ -1,0 +1,7 @@
+//What is the difference between while and do while?
+-While, before check the condition and than execute. 
+-Do While, first execute at least once and than check the condition.
+
+
+
+

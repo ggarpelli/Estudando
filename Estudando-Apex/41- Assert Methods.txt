@@ -1,0 +1,64 @@
+//System.assert(a == b); //retorna boolean
+//System.assert(a == b, 'Envia msg de erro'); //envia mensagem de erro
+//System.assertEquals(a, b);//retorna boolean
+//System.assertEquals(a, b, 'A diferente do B'); //envia mensagem de erro
+//System.assertNotEquals(a, b);//retorna boolean
+//System.assertNotEquals(a, b, 'A igual ao B');  //envia mensagem de erro
+
+//UTILIZANDO ASSERT EM UMA CLASSE DE TESTE FITNESS.
+
+public class Fitness {
+    
+    public Decimal calculateBMI(Decimal peso, Decimal altura){
+        Decimal imc;
+        
+        if((peso <= 0) || (altura <= 0)){
+            System.debug('Dados de peso ou altura incompativel!!');  
+            imc = 0;
+        } else{
+            imc = peso/(altura*altura);
+        }
+        return imc.setScale(5);
+        
+    }
+    public Decimal calculatePace(Decimal tempoMin, Decimal distanciaKm){
+        Decimal pace;
+        
+        if((tempoMin <= 0) || (distanciaKm <= 0)){
+            System.debug('Dados de tempo ou distancia incompativel!!');  
+            pace = 0;  
+        }else{
+            //km por min
+            pace = tempoMin/distanciaKm;
+        }
+        return pace.setScale(5);
+    }
+}
+
+//Classe de teste
+@isTest
+public class FitnessTest {
+    
+    @isTest
+    public Static void chamaMetodo(){
+        
+        Fitness chamaClasse = new Fitness();
+        Decimal pace =chamaClasse.calculatePace(72, 7);
+        Decimal pace2 =chamaClasse.calculatePace(-3, 7);
+        Decimal bmi = chamaClasse.calculateBMI(33,158);
+        Decimal bmi2 = chamaClasse.calculateBMI(-55,158);
+        
+        System.debug('Pace :'+ pace.setScale(5));
+        System.assertEquals(10.28571, pace, 'Não deu certo o Equals do pace');
+        
+        System.debug('Pace2 :'+ pace2.setScale(5));
+        System.assertEquals(0.0000, pace2, 'Não deu certo o Equals do pace');
+        
+        System.debug('BMI :'+ bmi.setScale(5));
+        System.assertEquals(0.00132, bmi, 'Não deu certo o Equals do bmi');
+        
+        System.debug('BMI2 :'+ bmi2.setScale(5));       
+        System.assertEquals(0.0000, bmi2, 'Não deu certo o Equals do bmi');
+        
+    }
+}

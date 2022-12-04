@@ -1,0 +1,19 @@
+//Break statement pode ser usado em qualquer tipo de loop.
+Serve para quebrar a regra do loop;
+
+//Testando break statement.
+
+Integer target = 24;
+Integer limite = 100;
+
+for (Integer i=0;i<limite;i++){
+    
+    if(i==target){
+        System.debug('Target '+target+' Encontrado!!!');
+        Break;
+    }
+    else {
+        System.debug(i);
+    }
+    
+}

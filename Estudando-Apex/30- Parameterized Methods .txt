@@ -1,0 +1,51 @@
+// Hello word using Apex Classes
+
+// Hello word using Apex Classes
+
+public class helloWorld {
+    
+    private String saudacoes = 'Seja muito bem vindo';
+    
+    public void primeiroMetodo(){
+        
+        System.debug(saudacoes);
+        
+    }
+    
+    public void imprimeQlkMensagem(String msg, Integer numb, String msg2){
+        
+        System.debug(msg + ' ' + numb + ' ' + msg2);
+        
+    }
+    
+    public String imprimeDay(Integer numb){
+        
+        String diaSemana = '';
+        
+        switch on numb{
+            when 0 {
+                diaSemana = 'Domingo';
+            }
+            when 1 {
+                diaSemana = 'Segunda';
+            }
+            when else{
+                diaSemana = 'Valor Invalido';
+            }
+        }
+        
+        System.debug(diaSemana);
+        return diaSemana;            
+    }     
+    
+}
+
+------- Para testar Chama :----
+
+helloWorld chamaClasse = new helloWorld();
+//para chamar metodo de imprimir 1 só variavel
+chamaClasse.primeiroMetodo();
+//para chamar metodo de imprimir qlk variavel, precisa passar os parametros estabelecidos na classe. (No caso: imprimeQlkMensagem(String msg, Integer numb, String msg2))
+chamaClasse.imprimeQlkMensagem('Fala meu garoto', 325, 'Ganhei');
+//para chamar metodo de adivinhar dia pelo numero.
+chamaClasse.imprimeDay(0);

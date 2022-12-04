@@ -1,0 +1,21 @@
+// Sequencia de fibonnaci using while
+/* 
+Print first 20 fibonacci numbers:
+
+0,1 - 2 primeiros numeros
+
+0,1,1,2,3,5,8,13,... */
+
+Integer contador = 0;
+Integer num0 = 0;
+Integer num1 = 1;
+Integer num3 = 0;
+
+while (contador <= 20){
+     System.debug(num0);
+    num3 = num0 + num1;
+    num0 = num1;
+    num1 = num3;
+    contador++;
+}
+System.debug('Fora do intervalo');

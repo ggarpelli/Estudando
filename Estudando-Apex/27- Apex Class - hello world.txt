@@ -1,0 +1,33 @@
+// Hello word using Apex Classes
+
+public class helloWorld {
+    
+    String saudacoes = 'Hello World';
+    
+    public void recebimento() {
+        
+        System.debug(saudacoes);        
+    }
+    
+    public Integer numbGols () {
+        
+        integer gols = 55 + 5;
+        
+        System.debug('Numero de gols foi: '+gols);
+        return gols;        
+    }    
+    
+}
+
+---------------------------------------------------------
+Chama Apex Class
+
+//Chama Apex Class helloWorld e armazena seus valores na variavel chamaClasse
+helloWorld chamaClasse = new helloWorld();
+
+//Acessando o metodo dentro da classe para receber os valores. 
+chamaClasse.recebimento();
+chamaClasse.numbGols();
+
+helloWorld chamaGols = new helloWorld();
+System.debug('Chamando novamente: '+chamaGols.numbGols());

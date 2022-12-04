@@ -1,0 +1,28 @@
+//Account is Parent object of Contact //Contact is Parent object of Cases //Todos objetos padrão, entao nao usaremos __c nem __r
+
+STEP 1 - Trazer o Name, Departament and Title of all Contacts.
+Resposta: SELECT Id, Name, Department, Title FROM Contact
+
+STEP 2 - Aproveitar a query do STEP 1 e adicionar todos os Cases do Contato, trazendo os campos CaseNumber, Subjetct (FILHO)
+PAI - SELECT Name, Department, Title FROM Contact
+FILHO - SELECT CaseNumber, Subject FROM Case // Child Relationship Name	Cases
+Resposta: SELECT Name, Department, Title, (SELECT CaseNumber, Subject FROM Cases) FROM Contact
+
+STEP 3 - Pegar dados do pai Account, trazendo os campos Name, Rating para cada contato.
+(PAI DE CONTACT) Field Name: Account
+Resposta: SELECT Name, Department, Title, (SELECT CaseNumber, Subject FROM Cases), Account.Name, Account.Rating FROM Contact
+
+STEP 4 - Precisa organizar as colunas da lista de exibição, Primeira deve conter os Nomes da Account, o segundo deve ser o Account Rating e entao voce pode colocar no resto os campos de Contact e Cases.
+Resposta: SELECT Account.Name, Account.Rating, Name, Department, Title, (SELECT CaseNumber, Subject FROM Cases) FROM Contact
+
+STEP 5 - Trazer como resultado Account Rating = 'is Hot'
+Resposta: SELECT Account.Name, Account.Rating, Name, Department, Title, (SELECT CaseNumber, Subject FROM Cases) FROM Contact WHERE Account.Rating = 'Hot'
+
+STEP 6 - Mostrar os resultados ordenados por ContactName
+Resposta: SELECT Account.Name, Account.Rating, Name, Department, Title, (SELECT CaseNumber, Subject FROM Cases) FROM Contact WHERE Account.Rating = 'Hot' ORDER BY Name
+
+STEP 7 - Colocar restrição em Cases, (use isClosed Checkbox field value)
+Resposta: SELECT Account.Name, Account.Rating, Name, Department, Title, (SELECT CaseNumber, Subject FROM Cases WHERE isClosed = False) FROM Contact WHERE Account.Rating = 'Hot' ORDER BY Name
+
+STEP 8 - Colocar restrição em Contact (Department = 'Technology')
+Resposta: SELECT Account.Name, Account.Rating, Name, Department, Title, (SELECT CaseNumber, Subject FROM Cases WHERE isClosed = False) FROM Contact WHERE (Account.Rating = 'Hot' AND Department = 'Technology') ORDER BY Name

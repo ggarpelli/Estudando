@@ -1,0 +1,120 @@
+//Classe é usada para armazenar as propriedades e comportamentos de um objeto.
+- Propriedades são chamada de variaveis
+- Comportamento sao chamados de metodos ou funçoes
+
+
+//Class / Class Name
+class Student {
+String name;
+Integer age;            <<-- //Variaveis/Propriedades
+Integer rollNumber;
+String className;
+
+
+//Method para definir o comportamento do objeto
+void atenderPedido(){
+	System.debug('lalalala');
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+//4 Pilares do OOPS (Programaçao orientada a objetos)
+-Encapsulation (Encapsulamento); Para agrupar seu codigo
+-Abstraction (Abstração); Trata-se de ocultar seu codigo
+-Inheritance (Herança); Sobre projetar o layout do codigo
+-Polymosphism (Polimorfismo); Trata de fornecer varias definições
+
+//Encapsulation (Junta variavel/ propriedades /comportamento do objeto)
+class Student {
+String name;
+Integer age;           
+Integer rollNumber;
+String className;
+
+
+//Method para definir o comportamento do objeto
+void atenderPedido(){
+	System.debug('Atender');
+	}
+void suspenderPedido(){
+	System.debug('Suspender');
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+//Abstraction (Public / Private / Global são chamados de modificadores de acesso, que controla o nuvel de abstração de um método, classe ou variavel)
+public class Student {
+private String name;
+private Integer age;           
+private Integer rollNumber;
+private String className;
+
+
+//Method para definir o comportamento do objeto
+public void atenderPedido(){
+	System.debug('Atender');
+	}
+public void suspenderPedido(){
+	System.debug('Suspender');
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+//Inheritance (Herança)
+public interface Shape {  // Shape Interface (deve ter um layout basico para um Shape, e tb seus comportamentos(no caso getArea e getPerimeter)
+Double getArea();
+Double getPetimeter();
+}
+
+//Classe para o retangulo, no qual vai herdar nossa interface chamada Shape
+
+public class Retangle implements Shape { //Ou seja, classe publica chamada Retangulo está herdando a interface chamada Shape
+	private Double width;
+	private Double height;
+
+	public Double getArea() {
+		return width*height;
+	}
+	public Double getPerimeter() {
+		return 2*(width+height);
+	}
+}
+//Se uma classe herda uma interface, ela deve dar a definição a todos os métodos dessa interface
+
+//Classe para o triangulo, no qual vai herdar nossa interface chamada Shape
+
+public class Triangle implements Shape { //Ou seja, classe publica chamada Triangle está herdando a interface chamada Shape
+	private Double side1;
+	private Double side2;
+	private Double side3;
+
+	public Double getArea() {
+		...
+	}
+	public Double getPerimeter() {
+		return side1+side2+side3;
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+//Polymorphism - Trata-se de dar multiplas definições a um método com o mesmo nome. Porém essas definições(funçoes) não podem ter os mesmos parametros.
+
+Ex:
+//o nome da classe é o mesmo (send) porem os parametros são diferentes: String text, blob singleImage, List<blob> multipleImage. 
+
+     |assinatura da função|
+void send(String text){
+	System.debug('Sending a text message');
+}
+void send(blob singleImage){
+	System.debug('Sending a single image');
+}
+void send(List<blob> multipleImage){
+	System.debug('Sending multiple images or videos');
+}
+
+
+https://www.quora.com/What-are-the-practical-real-life-examples-of-polymorphism-inheritance-composition-overriding-encapsulation-abstraction-and-other-important-concepts-of-OOPS/answer/Vikas-Kutty

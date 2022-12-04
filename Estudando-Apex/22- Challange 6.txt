@@ -1,0 +1,37 @@
+// For Loop Challenge
+https://medium.com/edureka/pattern-programs-in-java-f33186c711c8
+
+n=1;
+1
+
+n=2;
+1
+11
+
+n=5;
+1
+11
+111
+1111
+11111
+
+n=10;
+
+1
+11
+111
+1111
+11111
+111111
+1111111
+
+//Challenge 6 - For Loop
+Integer n=10;
+String adc = '*';
+
+for (Integer i=0; i<n; i++){
+
+System.debug(adc);
+adc = adc + '*';
+
+}

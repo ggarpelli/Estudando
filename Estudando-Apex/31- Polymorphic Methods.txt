@@ -1,0 +1,54 @@
+// Hello word using Apex Classes
+
+public class helloWorld {
+      
+    public String imprimeDay(Integer numb){
+        
+        String diaSemana = '';
+        
+        switch on numb{
+            when 0 {
+                diaSemana = 'Domingo';
+            }
+            when 1 {
+                diaSemana = 'Segunda';
+            }
+            when else{
+                diaSemana = 'Valor Invalido';
+            }
+        }
+        
+        System.debug(diaSemana);
+        return diaSemana;            
+    }     
+    
+    public String imprimeDay(String abreviacao){
+        
+        String diaSemana = '';
+        switch on abreviacao{
+            when 'Dom'{
+                diaSemana = 'Domingo';
+            }
+            when 'Seg'{
+                diaSemana = 'Segunda';
+            }
+            when 'Ter'{
+                diaSemana = 'Terça';
+            } 
+            when else{
+                diaSemana = 'Valor Invalido';
+            }        
+        }
+        
+        System.debug(diaSemana);
+        return diaSemana;        
+    }
+    
+}
+
+//Acessar a classe e chamar os metodos
+helloWorld chamaClasse = new helloWorld();
+//Chama classe de mesmo nome porem com parametro em Integer
+chamaClasse.imprimeDay(0);
+//Chama classe de mesmo nome porem com parametro em String
+chamaClasse.imprimeDay('Seg');

@@ -1,0 +1,14 @@
+//List/Set interation using For loop
+Basicamente semana está recebendo e percorrendo por todos valores da lista diaSemana.
+
+for (Loop Variavel : List name){}
+
+
+List<String> diaSemana = new List<String>{'Segunda','Terça','Quarta','Quinta','Sexta','Sabado','Domingo'};
+    
+    for (String semana : diaSemana){
+        if(semana=='Terça'){
+            continue;
+        }
+        System.debug('Dia da semana: '+semana);
+    }

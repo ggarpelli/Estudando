@@ -1,0 +1,46 @@
+// quando você nao define um construtor para sua classe apex, o proprio APEX cria um construtor vazio.
+
+ex: public void Covid19(){  // () entre parenteses vazio significa que o construtor está em branco.
+
+}
+
+//O construtor necessita ter o mesmo nome da Classe principal.
+//O construtor é automaticamente chamado quando você chama a classe, ele executa antes do metodo que voce for chamar.
+//o Construtor respeita a regra de polimosfismo que vimos em metodos, pode ter o mesmo nome, porem deve ter parametros diferentes.
+
+//this dentro do contrutor serve para chamar outro contrutor. Se o construtor que você chamou é um com parametro, e você queira chamar um sem parametro é so colocar dentro this(); ou se quise chamar outro construtor é so colocar this(parametro do construtor);
+
+
+public class Covid19 {
+    
+    public Integer recuperadosCidade = 10;
+    public Static Integer recuperadosPais = 10;
+    
+    public Covid19(){
+        System.debug('Constructor está sendo chamado');
+    }
+    public Covid19(Integer recuperadosCidade){
+        this();
+        System.debug('Constructor2 está sendo chamado');
+        this.recuperadosCidade = recuperadosCidade;
+        recuperadosPais = recuperadosCidade;
+    }
+    
+    public void pacientesTratados(){
+        recuperadosCidade++;
+        recuperadosPais++;        
+    } 
+    
+    public Static void pacientesPais(){
+        System.debug('Numero de casos no Pais :' + recuperadosPais);
+    }
+    
+}
+
+=== chama classe ====
+
+Covid19 piracicaba = new Covid19(80);
+
+System.debug('Casos Piracicaba: '+piracicaba.recuperadosCidade);
+
+Covid19.pacientesPais();

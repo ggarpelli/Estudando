@@ -1,0 +1,76 @@
+public class DividirConta {
+    
+    public void contaIndividual(Integer numeroPedacos){
+        
+        // Valor da conta
+        Integer contaPessoa;
+        
+        //Tabela de preço
+        Integer umaFatia = 8; //para consumo de 1.
+        Integer duasOuTres = 7; //para consumo de 2 ou 3.
+        Integer quatroFatias = 6; //para consumo de +3.
+        
+        //Utilizando if - else para imprimir pedaços quando for >0 e !=1, ou pedaço quando foi 1 ou 0
+        if ((numeroPedacos!=1)&&(numeroPedacos >0)){
+            //Ternary operator
+            contaPessoa = (numeroPedacos>=4) ? (numeroPedacos*quatroFatias) : (numeroPedacos*duasOuTres);
+                System.debug('Valor da Conta para quem comeu '+numeroPedacos + ' pedaços é igual a'+': '+contaPessoa + ' reais');          
+        }else {
+            contaPessoa = numeroPedacos*umaFatia;
+            System.debug('Valor da Conta para quem comeu '+numeroPedacos + ' pedaço é igual a'+': '+contaPessoa + ' reais');   
+        } 
+    }
+}
+
+
+//chamar classe --> dentro do () inserir a quantidade de pedaços que a pessoa comeu.
+dividirConta chamaClasse = new dividirConta();
+chamaClasse.contaIndividual(1);
+chamaClasse.contaIndividual(2);
+chamaClasse.contaIndividual(3);
+chamaClasse.contaIndividual(4);
+chamaClasse.contaIndividual(5);
+chamaClasse.contaIndividual(6);
+chamaClasse.contaIndividual(7);
+chamaClasse.contaIndividual(8);
+
+//======================================================================================================================================
+
+//OUTRO METODO 
+public class DividirConta {
+    
+    public Integer contaIndividual(Integer numeroPedacos){
+        
+        // Valor da conta
+        Integer contaPessoa;
+        
+        //Tabela de preço
+        Integer umaFatia = 8; //para consumo de 1.
+        Integer duasOuTres = 7; //para consumo de 2 ou 3.
+        Integer quatroFatias = 6; //para consumo de +3.
+        
+        //Utilizando if - else para imprimir pedaços quando for >0 e !=1, ou pedaço quando foi 1 ou 0
+        if ((numeroPedacos!=1)&&(numeroPedacos >0)){
+            //Ternary operator
+            contaPessoa = (numeroPedacos>=4) ? (numeroPedacos*quatroFatias) : (numeroPedacos*duasOuTres);  
+        }else {
+            contaPessoa = numeroPedacos*umaFatia;   
+        }
+        return contaPessoa;
+    }
+}
+
+//chamar classe --> dentro do () inserir a quantidade de pedaços que a pessoa comeu.
+dividirConta chamaClasse = new dividirConta();
+
+Integer contaPamela = chamaClasse.contaIndividual(1);
+Integer contaGuilherme = chamaClasse.contaIndividual(7);
+Integer contaFelipe = chamaClasse.contaIndividual(15);
+Integer contaLuiz = chamaClasse.contaIndividual(8);
+Integer contaLucia = chamaClasse.contaIndividual(6);
+
+System.debug('Valor da conta da Pamela é: '+contaPamela);
+System.debug('Valor da conta da Guilherme é: '+contaGuilherme);
+System.debug('Valor da conta da Felipe é: '+contaFelipe);
+System.debug('Valor da conta da Luiz é: '+contaLuiz);
+System.debug('Valor da conta da Lucia é: '+contaLucia);

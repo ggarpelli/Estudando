@@ -1,0 +1,23 @@
+
+//As annotations tambem recebem algums modificadores, por exemplo: (cacheable=true)
+
+public Class AccountController{
+	@AuraEnabled (cacheable=true)
+	public Static List<Account> getAllAccount(){
+	return accounts;
+	}
+
+}
+//Não é obrigado cada annotations ter um modificador, eles servem para adicionar algumas propriedades a sua anotação.
+Exmplo de annotations:
+@AuraEnabled  //permite se chamado por LWC e Aura componente
+@Deprecated  //metodo obsoleto
+@Future   //
+@InvocableVariable  //variaveis podem ser chamado atravez de process builder ou fluxos visuais(visual flow)
+@InvocableMethod   //metodo pode ser chamado atravez de process builder ou fluxos visuais(visual flow)
+@IsTest
+@ReadyOnly
+@RemoteAction
+@TestSetup
+@TestVisible
+

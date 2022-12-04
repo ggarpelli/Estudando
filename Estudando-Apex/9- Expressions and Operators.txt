@@ -1,0 +1,30 @@
+DateTime currentDateTime = DateTime.newInstance(2020,05,18,3,25,0);
+
+     Variavel          Operator         Expression
+
+
+
+List<Integer> listaAlunos = new List<Integer>{Aluno1,Aluno2,Aluno3,Aluno4};
+
+     Variavel        Operator         Expression
+
+
+
+Double lightSpeed = 1321515/6546465;
+
+ Variavel    Operator  Expression
+
+
+
+Tudo o que está depois do '=' é chamado de expressão e serve para avaliar e dar um valor em troca.
+
+O '=' é chamado de Operator. É usado para atribuir o valor da expressão do lado direito a variavel do lado esquerdo.
+
+Tudo a esqueda do '=' é chamado de Variavel.
+
+Segundo Commit
+
+
+
+
+

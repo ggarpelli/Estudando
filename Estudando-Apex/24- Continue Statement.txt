@@ -1,0 +1,36 @@
+//Utilizando o Continue Statement
+//Igual ao Break, também funciona com todo os loops
+
+//Caso 1
+Integer skipNumb = 7;
+
+for (Integer numb = 0;numb<=10;numb++){
+    if (numb == skipNumb){
+        continue;
+    }
+    System.debug(numb);
+}
+
+
+// Caso 2
+//Utilizando Continue Statement in a List
+
+List<String> diaSemana = new List<String>{'Segunda','Terça','Quarta','Quinta','Sexta','Sabado','Domingo'};
+    
+//Passa para listSize o tamanho da lista
+Integer listSize = diaSemana.size();
+
+//Imprime o tamanho da lista
+System.debug('Tamanho da lista semana: '+listSize);
+
+String folga = 'Sexta';
+
+//Loop para checar até o ultimo item da lista (listSize)
+for(Integer i=0; i<listSize; i++){
+    if(diaSemana.get(i) == folga){
+        continue;
+        //System.debug('Hoje é: '+diaSemana.get(i)+' coma Batata');
+    } else{
+        System.debug('Hoje é: '+diaSemana.get(i)+' coma Frango');
+    }
+}

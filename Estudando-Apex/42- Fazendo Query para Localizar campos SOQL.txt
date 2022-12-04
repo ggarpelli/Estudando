@@ -1,0 +1,80 @@
+//Se você deseja fazer uma query para pegar alguns campos um modo de fazer é digita CTRL+Shift+O
+//Digitar o nome do objeto que quer procurar os campos
+//Com o botal do CTRL pressionado selecione todos os campos que deseja
+//Clique em query 2 vezes e verá sua query aparecer no Query Editor;
+//Isso serve para objetos padrao e customizados.
+
+//Entendendo uma SOQL - Salesforce Object Query Language
+
+SELECT BillingLatitude, ShippingState, ShippingAddress, PhotoUrl, TickerSymbol, Fax, Id FROM Account
+
+SELECT - Para selecionar os campos;
+FROM - Para selecionar qual objeto;
+
+
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue, State, City FROM Lead WHERE ((Status = 'Closed - Not Converted' OR Status = 'Closed - Converted') AND (Country = 'USA'))
+
+SELECT - Para selecionar os campos;
+FROM - Para selecionar qual objeto;
+filtros
+WHERE - indicar onde selecionar (Qual campo e com que valor)
+OR - Serve para unir duas condiçoes
+AND - Serve para selecionar ainda mais restrito
+
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue, State, City FROM Lead WHERE ((Status = 'Closed - Not Converted' OR Status = 'Closed - Converted') AND (Country = 'USA'))
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue, State, City FROM Lead WHERE Status IN ('Closed - Not Converted', 'Closed - Converted') AND (Country = 'USA')
+
+IN - Substitui o OR na classe de cima. O retorno é o mesmo das 2
+//Porem o processamento utilizando IN é mais rapido e o codigo é mais curto.
+
+
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue, State, City FROM Lead WHERE Status IN ('Closed - Not Converted', 'Closed - Converted') AND (Country LIKE 'USA%')
+
+LIKE 'USA%' - Like faz procurar tudo que tenha USA no começo do nome. E o % serve para representar zero ou mais caracteres. 
+Ex: Ali reproduziria se achasse Country com o nome do tipo: 
+USA;
+USA4Ever;
+USAsa;
+
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue, State, City FROM Lead WHERE Status LIKE 'Closed%' AND (Country LIKE 'USA%')
+//Exibe mesma coisa de cima;
+
+//Caso eu utilize LIKE '%USA%'
+olaUSA; //tb será exibido.
+
+//Caso eu utilize LIKE '_SAS'
+USAS;
+ISAS;
+LSAS;
+
+//É melhor utilizar o IN do que o LIKE, devido ao LIKE piora o desempenho da query, devido ele buscar em todas as correspondencias até encontrar a palavra.
+WHERE Status IN ('Closed - Not Converted', 'Closed - Converted')
+WHERE Status LIKE 'Closed%'
+
+//Os dois imprime a mesma coisa(Pois só tem 2 valores de Closed), porem o LIKE demora mais o processamento.
+
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue, State, City FROM Lead WHERE Status LIKE 'Closed%' AND (Country LIKE 'USA%') ORDER BY FirstName
+
+ORDER BY - Serve para ordenar de acordo com o campo que vier depois, por padrão ele ordena por ordem crescente;
+
+//Caso queira chamar em ordem decrecente, você deve adicionar DESC depois do campo: 
+
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue, State, City FROM Lead WHERE Status LIKE 'Closed%' AND (Country LIKE 'USA%') ORDER BY CreatedDate DESC
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue, State, CreatedDate, City FROM Lead WHERE Status LIKE 'Closed%' AND (Country LIKE 'USA%') ORDER BY CreatedDate ASC //caso queira na ordem crescente.
+
+//Caso esteja querendo ordenar valores nulos, no lugar de DESC e ASC, você pode utilizar:
+NULLS FIRST - Todos os valores nulos vem para o topo da query
+NULLS LAST - Todos os valores nulos vai para o final da query
+
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue,CreatedDate, State, City FROM Lead WHERE Status LIKE 'Closed%' AND (Country LIKE 'USA%') ORDER BY CreatedDate DESC LIMIT 5
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue,CreatedDate, State, City FROM Lead LIMIT 5
+
+LIMIT - Seta a quantidade de items que será retornado, se a sua query tem 50 items, porem você colocar LIMIT 2, só irá mostrar 2 valores.
+
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue,CreatedDate, State, City FROM Lead WHERE Status LIKE 'Closed%' AND (Country LIKE 'USA%') ORDER BY CreatedDate OFFSET 5
+
+OFFSET - Retira os items que venha antes da lista, por exemplo OFFSET 5 da lista acima, irá excluir os 5 primeiro valores e imprimirá todos depois desses 5.
+
+SELECT Id, LastName,Status, FirstName, Country, AnnualRevenue,CreatedDate, State, City FROM Lead WHERE Status LIKE 'Closed%' AND (Country LIKE 'USA%') ORDER BY CreatedDate DESC LIMIT 5 OFFSET 5
+//significar que Mostre os campos(SELECT), Do objeto(FROM), (restrição onde o campo(WHERE), contenha a palavra (LIKE), %no final representa que qlk coisa com Closedqlkcoisa é aceito
+//adiciona restrição(AND/OU), ordena a lista por (ORDER BY) (DESC /ASC(default)), limita a quantidade de dados exibidos(LIMIT), pula os items primeiros (OFFSET).

@@ -1,0 +1,90 @@
+//Bulkification significa executar mais de uma operação em uma mesma chamada.
+
+REGRA GERAL DE Bulkification
+1- Nunca escrever uma SOQL QUERY ou DML OPERATION dentro de um loop.
+public with sharing class AttProfileToOpp {
+    
+    public static void updateOpp(List<Id> listId){
+        //Query fora do loop  --> agora faz uma query em opportunity passando como restrição a Lista de Id
+        List<Opportunity> chamaOpp = [SELECT Id, Amount, Profile__c FROM Opportunity WHERE Id IN: listId];
+        for (Opportunity opp : chamaOpp) {
+            if (opp.Amount == null){
+                opp.Profile__c = '';
+            } else if(opp.Amount > 50000){
+                opp.Profile__c = 'High';
+            } else if(opp.Amount < 10000){
+                opp.Profile__c = 'Low';
+            } else {
+                opp.Profile__c = 'Medium';
+            }  update opp;
+        } 
+    }
+}
+
+//CONSOLE DEV - PARA CHAMAR
+List<Opportunity> asOpp = [SELECT Id FROM Opportunity];
+List<Id> osIds = new List<Id>();
+
+for(Opportunity idIndividual : asOpp){
+    osIds.add(idIndividual.Id);
+}
+
+AttProfileToOpp.updateOpp(osIds);
+
+========================================================================================================================================
+//REMOVENDO DML DE DENTRO DO LOOP
+public with sharing class AttProfileToOpp {
+    
+    public static void updateOpp(List<Id> listId){
+        
+        List<Opportunity> chamaOpp = [SELECT Id, Amount, Profile__c FROM Opportunity WHERE Id IN: listId];
+		//Lista para receber a conta para atualizar
+        List<Opportunity> attDML = new List<Opportunity>();
+		
+        for (Opportunity opp : chamaOpp) {
+            if (opp.Amount == null){
+                opp.Profile__c = '';
+            } else if(opp.Amount > 50000){
+                opp.Profile__c = 'High';
+            } else if(opp.Amount < 10000){
+                opp.Profile__c = 'Low';
+            } else {
+                opp.Profile__c = 'Medium';
+            }  attDML.add(opp);
+        } update attDML; 
+    }
+}
+
+//CONSOLE DEV - PARA CHAMAR
+List<Opportunity> asOpp = [SELECT Id FROM Opportunity];
+List<Id> osIds = new List<Id>();
+
+for(Opportunity idIndividual : asOpp){
+    osIds.add(idIndividual.Id);
+}
+
+AttProfileToOpp.updateOpp(osIds);
+
+
+
+
+OU
+
+public with sharing class AttProfileToOpp {
+    
+    public static void updateOpp(List<Id> listId){
+        
+        List<Opportunity> chamaOpp = [SELECT Id, Amount, Profile__c FROM Opportunity WHERE Id IN: listId];
+        for (Opportunity opp : chamaOpp) {
+            if (opp.Amount == null){
+                opp.Profile__c = '';
+            } else if(opp.Amount > 50000){
+                opp.Profile__c = 'High';
+            } else if(opp.Amount < 10000){
+                opp.Profile__c = 'Low';
+            } else {
+                opp.Profile__c = 'Medium';
+            }
+        } update chamaOpp; //ATUALIZA DIRETO A LISTA QUE ESTÁ COM AS OPORTUNIDADES.
+    }
+}

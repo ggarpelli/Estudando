@@ -1,0 +1,47 @@
+https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_set.htm
+
+Igual uma lista, armazena dados do mesmo tipo. Porém eles nao tem uma ordem de armazenamento.
+O set nao permite um conjunto de dados duplicados.
+
+//passando os paramentros dos alunos
+Integer Aluno1 = 10000001;
+Integer Aluno2 = 10000002;
+Integer Aluno3 = 10000003;
+Integer Aluno4 = 10000004;
+
+//criando lista de alunos
+Set<Integer> listaAlunos = new Set<Integer>{Aluno1,Aluno2,Aluno3,Aluno4};
+System.debug('O Set de alunos é: '+listaAlunos);
+
+//adicionando itens no Set de alunos
+listaAlunos.add(10000005);
+listaAlunos.add(10000006);
+System.debug(listaAlunos);
+
+// Pegar tamanho do Set
+System.debug('Tamanho do Set antes de Att: '+listaAlunos.size());
+
+//checar se o item está no Set
+System.debug(listaAlunos.contains(10000006));
+System.debug(listaAlunos.contains(10000007));
+
+// checa se o set está vazio
+System.debug(listaAlunos.isEmpty());
+
+/*// limpar o Set
+listaAlunos.clear();
+System.debug('Tamanho do Set após limpar: '+ listaAlunos.size());
+System.debug('Lista: '+listaAlunos);*/
+
+// checa se o set está vazio
+System.debug(listaAlunos.isEmpty());
+
+//Criando novo Set
+Set<Integer> animalNome = new Set<Integer>{131};
+animalNome.add (151);
+System.debug('Set com nome de animais: ' + animalNome);
+
+//Juntando o valor do Set 1 no Set 2
+Boolean juntaSet = listaAlunos.addAll(animalNome);
+System.debug('Set 1 com valores do Set 2: ' + listaAlunos);
+System.debug('Set com nome de animais: ' + animalNome);

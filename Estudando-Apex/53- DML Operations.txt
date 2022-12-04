@@ -1,0 +1,72 @@
+//Data Manipulation Languange - DML
+
+Insert Operation: Add a new row/record //Row identifications is not required
+
+Update Operation: Update an existing row/record //Row identifications is required
+
+Delete Operation: Delete an existing row/record //Row identifications is required
+
+UnDelete Operation: Reinsert a deleted row/record //Row identifications is required
+
+//Criar uma conta a partir do codigo APEX.(CRTL+E NO DEVELOP CONSOLE)
+Account novaConta = new Account();
+novaConta.Name = 'Conta Criada pelo Apex';
+novaConta.Phone = '32832248';
+
+insert novaConta;
+
+//INSERIR UMA LISTA DE CONTAS
+List<Account> listaContas = new List<Account>();
+
+Account conta1 = new Account();
+conta1.Name = 'Conta Criada pelo Apex';
+conta1.Phone = '32832248';
+conta1.Rating = 'Hot';
+listaContas.add (conta1);
+
+Account conta2 = new Account();
+conta2.Name = 'Conta Criada pelo Apex 1';
+conta2.Phone = '32832249';
+conta2.Rating = 'Hot';
+listaContas.add (conta2);
+
+insert listaContas; //se voce inserir assim, e alguma conta falhar na hora da inserção, todas as outras tb vão falhar. e você nao verá nenhum 
+
+//Database.insert(listaContas);
+//Database.insert(listaContas, allOrNon); //esse segundo parametro é um boolean, caso esteja 'true', todos serão criados ou nenhum, ou seja o comportamento é igual o (insert), caso esteja 'false' todas as contas que deram certo irão ser criadas e as que falharam não, entao entende-se que por default Database.insert(listaContas); vem como false
+
+//Criar um Account Controller com os metodos abaixo!
+InsertAccount
+InsertAccounts
+getAllAccounts
+printAllAccounts
+getAccountSize
+
+public class AccountController {
+    
+    public Static Account insertAccount(Account accountToInsert){
+        insert accountToInsert;
+        return accountToInsert;
+    }
+    public Static List<Account> insertAccounts(List<Account> accountToInsert){
+        insert accountToInsert;
+        return accountToInsert;
+    }
+    public Static List<Account> getAllAccounts(){
+        List<Account> contas = [SELECT Name, Phone FROM Account];
+        return contas;
+    }
+    
+    public void printAllAccounts(){
+        List<Account> printAll = getAllAccounts();
+        
+        for (Account imprimir : printAll){
+            System.debug('Account Name: '+imprimir.Name+ 'Phone Number: '+imprimir.Phone);
+        }
+    }
+    public integer getAccountSize(){
+        List<Account> tamanhoLista = getAllAccounts();
+        Integer size = tamanhoLista.size();
+        return size;
+    }
+}

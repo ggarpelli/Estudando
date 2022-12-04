@@ -1,0 +1,17 @@
+//Utilizando a Query do ultimo challange, vamos fazer essa aula.
+//Apenas removendo os WHERE da query para aumentar a quantidade de campos.
+SELECT Account.Name, Account.Rating, Name, Department, Title, (SELECT CaseNumber, Subject FROM Cases) FROM Contact ORDER BY Name
+
+//Armazenando os valores dentro de uma lista de contatos chamada listaContato
+List<Contact> listaContato = [SELECT Account.Name, Account.Rating, Name, Department, Title, (SELECT CaseNumber, Subject FROM Cases) FROM Contact ORDER BY Name];
+
+for(Contact chamaLista : listaContato){
+    
+    System.debug('Nome da Avô: '+chamaLista.Account.Name+ ' Nome do Pai: '+chamaLista.Name);
+    //Para imprimir o filho é necessario outro loop, pois um Contato pode ter varios Cases. Ja o Contato tem 1 Conta só, por isso para o pai nao precisa.
+    for(Case chamaFilho : chamaLista.Cases){
+        
+        System.debug('Nome do filho: '+chamaFilho.Subject);
+        
+    }
+}

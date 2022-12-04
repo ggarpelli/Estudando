@@ -1,0 +1,63 @@
+STEP 1 - Criar uma nova conta, chamada 'WingNut Films' e o campo 'Rating = Warm'
+Resp:
+Account contaNova = new Account(Name = 'WingNut Films', Rating = 'Warm');
+insert contaNova;
+
+STEP 2 - Criar uma Oportunidade 'Lord Of The Rings' para essa conta. E com os campos de oportunidade preenchidos:
+Stage - Qualification
+Closed Date - Today 
+Resp:	
+Opportunity newOpp = new Opportunity (Name = 'Lord Of The Rings', StageName = 'Qualification', CloseDate = Date.today());
+newOpp.AccountId = '0015f00000K2bDmAAJ';
+insert newOpp;
+
+STEP 3 - Atualizar o nome da conta criada para 'New Line Cinema'
+Resp:
+Account updateName = [SELECT Id FROM Account WHERE Id = '0015f00000K2bDmAAJ'];
+updateName.Name = 'New Line Cinema';
+update updateName;
+
+STEP 4 - Atualizar o status de oportunidade para 'Closed-Won'
+Resp:
+Opportunity updateOpp = [SELECT Id FROM Opportunity WHERE Id = '0065f000008ShuOAAS'];
+updateOpp.StageName = 'Closed Won';
+update updateOpp;
+
+STEP 5 - Deletar a oportunidade da conta.
+Resp:
+Opportunity deleteOpp = [SELECT Id FROM Opportunity WHERE Id = '0065f000008ShuOAAS'];
+delete deleteOpp;
+
+STEP 6 - Undelete a oportunidade.
+Resp: 
+Opportunity undeleteOpp = [SELECT Id FROM Opportunity WHERE Id = '0065f000008ShuOAAS' ALL ROWS];
+undelete undeleteOpp;
+
+-----------------------------------------------------------------------------------------------------------------------
+
+STEP 7 - REFAZER O DESAFIO UTILIZANDO SObject.
+SObject newAccount = (SObject) Type.forName('Account').newInstance();
+newAccount.put ('Name', 'WingNut Films');
+newAccount.put ('Rating', 'Warm');
+insert newAccount;
+
+SObject newOpp = (SObject) Type.forName('Opportunity').newInstance();
+newOpp.put ('Name', 'Lord Of The Rings');
+newOpp.put ('StageName', 'Qualification');
+newOpp.put ('CloseDate', Date.today());
+newOpp.put ('AccountId', '0015f00000K2bG7AAJ');
+insert newOpp;
+
+SObject updateAccount = [SELECT Id FROM Account WHERE Id = '0015f00000K2bG7AAJ'];
+updateAccount.put ('Name', 'New Line Cinema 2');
+update updateAccount;
+
+SObject updateOpp = [SELECT Id FROM Opportunity WHERE Id = '0065f000008ShuxAAC'];
+updateOpp.put ('StageName', 'Closed Won');
+update updateOpp;
+
+SObject deleteOpp = [SELECT Id FROM Opportunity WHERE Id = '0065f000008ShuxAAC'];
+delete deleteOpp;
+
+SObject undeleteOpp = [SELECT Id FROM Opportunity WHERE Id = '0065f000008ShuxAAC' ALL ROWS];
+undelete undeleteOpp;

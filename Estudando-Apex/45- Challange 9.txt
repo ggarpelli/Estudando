@@ -1,0 +1,28 @@
+STEP 1
+//Recuperar todos os registros de contato da minha conta Salesforce na minha ORG //Contendo o Nome do contato, Titulo, telefone, email
+Resposta: SELECT Name, Title, Phone, Email FROM Contact
+
+STEP 2
+//Modificar a consulta e incluir os registros de contato com titulo 'VP, Technology'
+Resposta: SELECT Name, Title, Phone, Email FROM Contact WHERE Title = 'VP, Technology'
+
+STEP 3
+//Modificar a query e incluir o campo 'Department', a resposta deve ser o 2 item da lista (OFFSET)
+Resposta: SELECT Name, Title, Phone, Email, Department FROM Contact WHERE Title = 'VP, Technology' OFFSET 2
+
+STEP 4
+//pegar a etapa 2 e adicionar uma condição: 'Department' = 'Finance'
+Resposta: SELECT Name, Title, Phone, Email FROM Contact WHERE Department = 'Finance'
+
+STEP 5
+//Modificar a consulta e incluir os registros de contato com titulo 'SVP and VP (%VP), Technology' (MANTENDO A CONDIÇÃO STEP 4)
+Resposta: SELECT Name, Title, Phone, Department, Email FROM Contact WHERE (Department = 'Finance' AND Title LIKE '%VP%')
+
+STEP 6
+//Ordenar o resultado por Nome em ordem Decrescente (DESC)
+Resposta: SELECT Name, Title, Phone, Department, Email FROM Contact WHERE (Department = 'Finance' AND Title LIKE '%VP%') ORDER BY Name DESC
+
+STEP 7
+//Limitar o resultado da query em apenas 3 resultados (LIMIT)
+Resposta: SELECT Name, Title, Phone, Department, Email FROM Contact WHERE (Department = 'Finance' AND Title LIKE '%VP%') ORDER BY Name DESC LIMIT 3
+

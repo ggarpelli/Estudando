@@ -1,0 +1,39 @@
+//Semelhante a um construtor, porem mais facil ainda de utilizar é o Bloco de Inicialização.
+
+Ex: Public class Covid19(){
+	//inicializador - Bloco de inicialização
+	{
+		//Bloco de inicialização
+	}
+	{
+		//Bloco de inicialização 2
+	}
+	//inicializador - Bloco de construtor
+	public Covid19(){
+		//bloco do construtor
+	}
+	
+	//inicializador estatico
+	Static{
+	
+	}
+
+	public void numeroDeTratados(){
+	
+	//bloco do metodo.
+	
+	}
+
+}
+
+//Dentro do bloco de incialização é possivel definir valores para variaveis que vão se inicializar assim que a classe for chamada.
+
+//Qual a diferença entre bloco de incialização e construtor? 
+//O bloco de incialização nao pode receber valores atribuidos pelo usuario. se quiser receber valores do usuario para inicializar é necessário utilizaro construtor.
+//Você pode ter varios blocos de incialização porem eles são executados na ordem que sao definidos.
+
+//Como vemos acima temos 3 tipos de inicializador assim que chamamos a classe. (Instanciamos a classe)
+//Caso tenha na mesma classe os 3 tipos de inicializador, a ordem de execução eles é a seguinte:
+1 - ESTATICO
+2 - BLOCO DE INICIALIZAÇÃO
+3 - CONSTRUTOR

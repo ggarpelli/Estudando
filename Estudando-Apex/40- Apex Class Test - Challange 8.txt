@@ -1,0 +1,109 @@
+//Para fazer deploy do seu apex code, é necessario ter uma cobertura de pelo menos 75% em sua classe.
+
+@IsTest                //Representa teste
+public void MyClass{
+ 
+ @IsTest                //Representa teste
+ public Static void MyTest(){    //Sempre precisa ser Static e void. //Um teste nunca retorna nada. //Um teste só pode ser global ou public.
+		//block_code;
+	}
+ }
+ 
+ 
+============ DividirContaTest ====================
+@isTest
+public class DividirContaTest {
+    @isTest
+    public Static void chamaMetodo(){
+        
+        Integer pedacos = 18;
+        Integer pecado = 0;
+        
+        
+        DividirConta chamaClasse = new DividirConta();
+        chamaClasse.contaIndividual(pedacos);
+        chamaClasse.contaIndividual(pecado);
+    }
+    
+}
+
+
+============ Covid19Test ====================
+@isTest
+public class Covid19Test {
+    
+    
+    @isTest
+    public Static void ChamaCovid(){
+        
+        Covid19 chamaClasse = new Covid19(13);
+        chamaClasse.pacientesTratados();
+        Covid19.pacientesPais(); 
+    }
+}
+
+============ FitnessTest ====================
+@isTest
+public class FitnessTest {
+    
+    @isTest
+    public Static void chamaMetodo(){
+        
+        Fitness chamaClasse = new Fitness();
+        chamaClasse.calculateBMI(33,158);
+        chamaClasse.calculatePace(72, 7);
+        
+    }
+
+}
+
+============ EmpresaTest ====================
+@isTest
+public class EmpresaTest {
+    
+    @isTest
+    public Static void chamaMetodo(){
+        
+        Empresa chamaClasse = new Empresa();
+        chamaClasse.adicionarCliente('Joao','joao.com.br','joao@gmail.com',1316516156L);
+        chamaClasse.imprimeTodosClientes();        
+    }
+
+}
+
+============ helloWorldTest ====================
+@isTest
+public class helloWorldTest {
+    
+    @isTest
+    public Static void testImprimeQlkMensagem(){
+        
+        helloWorld chamaClasse = new helloWorld();
+        chamaClasse.imprimeQlkMensagem('ola',3213,'joao');
+        chamaClasse.imprimeDay(0);
+        chamaClasse.imprimeDay(1);
+        chamaClasse.imprimeDay(33333);
+        chamaClasse.imprimeDay('Dom');
+        chamaClasse.imprimeDay('Seg');
+        chamaClasse.imprimeDay('Ter');
+        chamaClasse.imprimeDay('Ters');
+        chamaClasse.primeiroMetodo();
+        
+    }
+    
+}
+
+============ novaContaTeste ====================
+@isTest
+public class novaContaTeste {
+
+    @isTest
+    public Static void chamaMetodo(){
+        
+        novaConta.newAccount();
+        novaConta.attCampos();
+        novaConta.newContact();
+        
+    }
+    
+}

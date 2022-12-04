@@ -1,0 +1,37 @@
+Curso Apex Salesforce.
+
+Referencias Necessárias:
+Apex Development Guide
+https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dev_guide.htm
+
+Aura Component Library
+https://developer.salesforce.com/docs/component-library/overview/components
+
+Lightning Design Systems/SLDS
+https://www.lightningdesignsystem.com/
+
+SFDX Guide
+https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm
+
+MDN Javascript Docs
+https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+Learn JS from Scratch
+https://www.learn-js.org/
+
+Learn HTML from Scratch
+https://www.learn-html.org/
+
+Declarative Tools In Salesforce
+Workflow Rule - Used to Send Email & Outbound Message / Create Task / Update Record
+Not allow child record Update (Only allow update father record update)
+
+Process Builder - Multiple Steps / More actions / Child record update; / Can call apex classes;
+Not allow delete a record and cannot update unrelated records
+
+Visual Flow - Execution is slower than Apex / Debugguing can be difficult sometimes.
+
+Seção 4: Apex Fundamentals
+System.debug ('Hello World');
+System é a classe
+debug é um metodo dentro dessa classe

@@ -1,0 +1,16 @@
+Link: https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_classes_exception_methods.htm
+
+try{
+    Account newAccount = new Account(Phone = '32584488');
+    //newAccount.Name = 'Sabugo Espiga';
+    insert newAccount;
+
+} Catch (Exception e){
+    System.debug('Deu muito ruim '+ 'Tipo do Exception: '+e.getCause() + ' Linha do Erro: '+ e.getLineNumber()+ ' Mensagem do Erro: '+ e.getMessage()+ 'Get Stack Trace: '+e.getStackTraceString());
+} finally{
+    System.debug('Esse roda de qualquer jeito');
+}
+
+Resposta Debug: Deu muito ruim Tipo do Exception: null Linha do Erro: 4 Mensagem do Erro: Insert failed. First exception on row 0; first error: REQUIRED_FIELD_MISSING, Required fields are missing: [Name]: [Name]Get Stack Trace: AnonymousBlock: line 4, column 1
+
+//Assim como já é padrao do SF, como vimos temos varios metodos de Exception: MathException, DmlException,.... e varios outros, nos também podemos Criar nosso exception personalizado.

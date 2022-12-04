@@ -1,0 +1,19 @@
+//Operators
+
+Equals ( = )  // NAME = 'Guilherme'
+
+Not Equals ( != )  // NAME != 'JOAO'
+
+Less than ( < )   // Amount < 1000  //normalmente utilizado para Inteiro, decimal, long, Double, data, time e dateTime
+
+Less than or equals ( <= )
+
+Greater than ( > )   // Amount > 1000  //normalmente utilizado para Inteiro, decimal, long, Double, data, time e dateTime
+
+Greater than or equals ( >= )
+
+LIKE //Name LIKE 'Garp%' //Garpelli irá aparecer Garp tb Garpel tb...
+
+IN //Aceita 2 parametros //Name IN ('Guilherme', 'Garpell')
+
+NOT IN //Oposto de IN, não aceita os parametros.

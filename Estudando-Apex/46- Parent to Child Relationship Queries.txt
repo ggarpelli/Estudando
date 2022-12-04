@@ -1,0 +1,28 @@
+SELECT Id, Name, Phone, Type, (SELECT Id, FirstName, Title, MailingCountry FROM Contacts) FROM Account
+
+//A query do filho entra como se fosse um campo do pai. porem é necessario saber o nome da relação dos 2.
+O Resultado que vai obter é Uma lista com os campos de Account na respectiva ordem Id, Name, Phone, Type, Contacts (aqui dentro vem os valores do filho (Id, FirstName, Title, MailingCountry))
+
+Por exemplo Quando você quer olhar para Contato que está em uma relação com Account que é o pai, você precisa ir no filho, dentro de SETUP, Contact procura Fields & Relationship, procura Lookup(Account) e clica, dentro você vai ver o nome Child Relationship Name.
+
+Ex fazendo relação do pai Contato para o filho Case, ordenando a lista por ordem crescente de Nome
+SELECT Id, FirstName, Title, MailingCountry, (SELECT Id, Type, Status, Origin, Subject, Priority FROM Cases) FROM Contact ORDER BY Name ASC
+
+//Caso eu coloque uma restrição dentro da minha query filha, eu estarei restringindo apenas os dados da filha de ser exibida.
+SELECT Id, FirstName, Title, MailingCountry, (SELECT Status, Subject, Priority FROM Cases WHERE Priority = 'High') FROM Contact ORDER BY Name ASC
+//No exemplo acima, a lista continuou a exibir 20 itens, porem alguns items da lista na coluna Cases ficou em branco pois nao atendeu a restrição da query filha. Somente as com Priority = 'High' apareceram.
+
+Agora se você colocar uma restrição no pai, a lista a ser exibida irá diminuir...
+
+EU POSSO TER Mais de 1 query filha dentro da pai... //No caso abaixo o pai é Contact e os filhos Cases e Opportunities
+SELECT Name, Title, (SELECT Status, Priority FROM Cases WHERE Priority = 'High'), (SELECT Id, Name, Probability, Amount FROM Opportunities) FROM Contact ORDER BY Name ASC
+
+É Impossivel eu querer fazer outra query filha dentro da filha!!!(Parte comentada abaixo)
+SELECT Name, Title, (SELECT Status, Priority, //(SELECT FROM)// FROM Cases WHERE Priority = 'High'), (SELECT Id, Name, Probability, Amount FROM Opportunities) FROM Contact ORDER BY Name ASC
+
+//NO CASO DE OBJETO CUSTOMIZADO Livro__c. na hora de usar o filho, tem que ver o nome do relacionamento dentro de SETUP igual faz no objeto standard, porem tem que adicionar __r na frente do nome.
+Ex: SELECT Name, (SELECT Name FROM Livros__r) FROM Autor__c
+
+QUANDO SE FALA DE RELACIONAMENTO DE PAI PARA FILHO, TEMOS 2 TIPOS DE LIMITAÇÕES
+1- Suporta somente 1 level de parent to child, ou seja, não pode buscar query dentro da query filha.
+2- Suporta somente 20 objetos relacionados, Exemplo: o pai é Contato e os filhos Cases e Opportunities, sobra mais 18 objetos para ser filho.

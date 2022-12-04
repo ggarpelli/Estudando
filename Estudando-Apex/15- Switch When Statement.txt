@@ -1,0 +1,35 @@
+//Quando se tem uma unica expressão ou variavel usa-se Switch When, caso contrario, utiliza-se If-Else
+
+O Switch when statement não suporta condição dentro da instrução when. ( exemplo: valor > 12) (tem que ser when 1,2,3,4,5,6,7,8,9,10,11,12)
+
+//Check if is weekday
+
+String dataHoje = 'Sabado';
+
+switch on dataHoje{
+    when 'Segunda','Terça','Quarta','Quinta','Sexta'{
+        System.debug('Dia da semana');
+    }
+    when 'Sabado'{
+        System.debug('Sabadão');
+    }
+    when else{
+        System.debug('Domingão');
+    }
+}
+
+//Check o valor do numero
+
+Integer valorNumero = 1;
+
+switch on valorNumero{
+    when 1,2,3,4,5{
+        System.debug('O valor está entre 1~5');
+    }
+    when 6,7,8,9,10{
+        System.debug('O valor está entre 6~10');
+    }
+    when else {
+        System.debug('Valor Fora do intervalo');
+    }
+}

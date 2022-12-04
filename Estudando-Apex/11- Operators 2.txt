@@ -1,0 +1,82 @@
+//AND Operator
+Boolean primeiro = true;
+Boolean segundo = false;
+Boolean terceiro = true;
+Boolean quarto = false;
+Boolean resultado1;
+
+
+resultado1 = primeiro & terceiro;
+System.debug('Resultado de True e True: '+resultado1); //true
+
+resultado1 = primeiro & segundo;
+System.debug('Resultado de True e false: '+resultado1); //false
+
+resultado1 = segundo & primeiro;
+System.debug('Resultado de False e True: '+resultado1); //false
+
+resultado1 = segundo & quarto;
+System.debug('Resultado de False e False: '+resultado1); //false
+
+//OR operator, se 1 dos valores forem verdadeiro = true , ambos falso = false;
+resultado1 = primeiro || terceiro;
+System.debug('Resultado de True e True: '+resultado1); //true
+
+resultado1 = primeiro || segundo;
+System.debug('Resultado de True e false: '+resultado1); //true
+
+resultado1 = segundo || quarto;
+System.debug('Resultado de false e false: '+resultado1); //false
+
+//Equality operator, compare two values and return true or false
+resultado1 = primeiro == segundo;
+System.debug('Equality :' +resultado1); //false
+
+resultado1 = primeiro == terceiro;
+System.debug('Equality :' +resultado1); // true
+
+resultado1 = segundo == quarto;
+System.debug('Equality :' +resultado1); // true
+
+//Compare string and Number
+resultado1 = 5 == 5;
+System.debug('Resultado equality String: '+resultado1); //true
+
+// Less than operator
+resultado1 = 6 > 5;
+System.debug('Resultado equality String: '+resultado1); //true
+
+resultado1 = 'Passaro' == 'Passáros';
+System.debug('Resultado Equality Number: '+resultado1); //false
+
+// Greater than or equal to operator
+resultado1 = 6 >= 5; //true
+System.debug('Espera-se True: '+resultado1);
+
+resultado1 = 4 >= 5; //False
+System.debug('Espera-se False: '+resultado1);
+
+// Lower than or equal to operator
+resultado1 = 6 <= 5; //False
+System.debug('Espera-se False: '+resultado1);
+
+resultado1 = 4 <= 5; //True
+System.debug('Espera-se True: '+resultado1);
+
+// NOT operator
+resultado1 = primeiro; //true
+System.debug('Espera-se True: '+resultado1);
+resultado1 = !primeiro; //False
+System.debug('Espera-se False: '+resultado1);
+
+//Ternary operator
+Integer Horas = 09;
+String saudacoes;
+
+saudacoes = (Horas <= 12) ? 'Bom dia' : 'Boa tarde';
+System.debug('Saudações as 09h:'+saudacoes);
+
+Horas = 14;
+saudacoes = (Horas <= 12) ? 'Bom dia' : 'Boa tarde';
+System.debug('Saudações as 14h:'+saudacoes);
+

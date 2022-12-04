@@ -1,0 +1,30 @@
+/*
+Challange 2 / split tip
+1 slice 8$
+2-3 slice 7$
+>3 slice 6$
+*/
+
+//Consumo
+Integer consumoRoss = 3;
+Integer consumoChandler = 1;
+Integer consumoJoey = 4;
+
+// Valor da conta
+Integer contaRoss;
+Integer contaChandler;
+Integer contaJoey;
+
+//Tabela de preço
+Integer umaFatia = 8; //para consumo de 1.
+Integer duasOuTres = 7; //para consumo de 2 ou 3.
+Integer quatroFatias = 6; //para consumo de +3.
+
+contaRoss = (consumoRoss == 1) ? (consumoRoss*umaFatia) : (consumoRoss>=4) ? (consumoRoss*quatroFatias) : (consumoRoss*duasOuTres);
+System.debug('Valor da Conta do Ross: '+contaRoss + ' reais');
+contaChandler = (consumoChandler == 1) ? (consumoChandler*umaFatia) : (consumoChandler>=4) ? (consumoChandler*quatroFatias) : (consumoChandler*duasOuTres);
+System.debug('Valor da Conta do Ross: '+contaChandler + ' reais');
+contaJoey = (consumoJoey == 1) ? (consumoJoey*umaFatia) : (consumoJoey>=4) ? (consumoJoey*quatroFatias) : (consumoJoey*duasOuTres);
+System.debug('Valor da Conta do Ross: '+contaJoey + ' reais');
+
+//change dev2

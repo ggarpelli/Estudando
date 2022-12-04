@@ -1,0 +1,70 @@
+Difference between Ternary Operator and If Else
+Ternary Operator is a programming statement. “If-Else” is a programming block. The statement is, of course, faster than Block.
+
+//If-Else Statement
+
+Boolean estaChovendo = true;
+
+String chuva = 'Traga seu Guarda Chuva';
+String sol = 'Não precisa de Guarda Chuva';
+Integer numb = 1;
+
+
+//Invertendo o valor de estaChovendo
+//estaChovendo =!estaChovendo;
+
+//If Else Statement
+if(estaChovendo==true)
+{ //block start
+    System.debug(chuva);
+    numb++;
+    System.debug('Numb adicionado: '+numb);
+}//block end
+else
+{ //block start
+    System.debug(sol);
+    numb--;
+    System.debug('Numb reduzido: '+numb);
+} //block end
+
+//Pagando a conta de acordo com a idade. 
+//Idade > 10 anos (Paga)
+
+Integer pedro = 15;
+Integer luan = 11;
+Integer marcelo = 10;
+
+Integer idade = pedro;
+if(idade>0 && idade<15){
+    System.debug('Vc Paga');
+}else{
+    System.debug(idade + ': Vc não Paga');
+}
+idade = luan;
+if(idade>10){
+    System.debug('Vc Paga');
+}else{
+    System.debug(idade + ': Vc não Paga');
+}
+idade = marcelo;
+if(idade>10){
+    System.debug('Vc Paga');
+}else{
+    System.debug(idade + ': Vc não Paga');
+}
+
+//Exemplo da Chuva
+
+Boolean taChovendo = false;
+Boolean estaTrabalhando = true;
+Boolean estaSol = true;
+
+if(taChovendo == true){
+    System.debug('Ficar em casa, esta chovendo');
+} else if(estaSol == false){
+    System.debug('Ficar em casa, nao esta sol');
+} else if(estaTrabalhando == true){ //por defaut boolean sem == é true, entao se eu escrever else if(estaTrabalhando){ da na mesma.
+    System.debug('Ficar em casa, voce está trabalhando');
+} else{
+     System.debug('Dia de MALDADE');
+}

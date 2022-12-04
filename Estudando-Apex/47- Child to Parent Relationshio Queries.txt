@@ -1,0 +1,25 @@
+//Mais simples do que as Parent to child.
+
+SELECT Name, id, CreatedBy.Name FROM Lead
+
+No caso acima, Lead é o filho e o CreatedBy é o pai no caso. Já chama o pai direto e . o nome do campo
+
+//No Parent to child dentro de SETUP devemos pegar o campo Child Relationship Name. Já de Child to Parent devemos utilizar o campo Field Name seguido de . e o campo
+
+SELECT Name, Account.Name, Account.Type FROM Contact
+//No caso acima, contact é o filho e Account é o pai. Na lista de exibição está mostrando Name do contato e Name da conta pai e Type da conta pai
+
+//Com o Child to Parent é possivel subir mais de um nivel na mesma query.
+SELECT Name, Account.Name, Account.Type, Account.Owner.Name FROM Contact
+
+Contact é o filho, Account o pai e Owner o avô
+
+Quando se tratar de uma query de objeto customizado, o pai também precisa receber o __r
+
+SELECT Name, Autores__r.Name, Autores__r.Owner.Name FROM Livro__c
+				//Pai		  //Pai   	//Avô			//Filho
+				
+
+//Limitações do CHILD TO PARENT;
+1- Apenas 5 niveis são suportados
+2- 55 objetos relacionados

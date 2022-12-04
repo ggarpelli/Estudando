@@ -1,0 +1,92 @@
+//Voce pode usar Static antes de uma classe, um metodo ou uma variavel.
+
+//Declarando a classe de covid
+public class Covid19 {
+    
+    public Integer recuperadosCidade = 0;
+//variavel do tipo statica, ou seja, ela pertence a classe e pode ser incrementada a partir de varios metodos.
+    public Static Integer recuperadosPais = 0;
+    
+    public void pacientesTratados(){
+        recuperadosCidade++;
+        recuperadosPais++;        
+    } 
+    
+}
+
+---------- Para chamar a classe a cima --------
+
+//Para instanciar a classe para laranjal utilizar
+Covid19 laranjal = new Covid19();
+
+//Somando casos na variavel de cidade
+System.debug('Case number laranjal: '+laranjal.recuperadosCidade);
+//Somando casos na variavel statica de pais, ou seja voce acessa pela classe.
+System.debug('Case number Pais: '+Covid19.recuperadosPais);
+
+laranjal.pacientesTratados();
+
+System.debug('Case number laranjal: '+laranjal.recuperadosCidade);
+System.debug('Case number Pais: '+Covid19.recuperadosPais);
+
+Covid19 piracicaba = new Covid19();
+
+piracicaba.pacientesTratados();
+
+System.debug('Case number piracicaba: '+piracicaba.recuperadosCidade);
+System.debug('Case number Pais: '+Covid19.recuperadosPais);
+
+O EXEMPLO ACIMA FOI UM DE VARIAVEL ESTATICA, no caso do metodo ser estatico, dentro dele só é permitido que tenha variaveis estaticas tambem.
+
+Se fizermos isso que está abaixo vai dar erro, pois a variavel recuperadosCidade nao é estatica e está dentro de um metodo estatico.
+
+public class Covid19 {
+    
+    public Integer recuperadosCidade = 0;
+    public Static Integer recuperadosPais = 0;
+    
+    public static void pacientesTratados(){
+        recuperadosCidade++;
+        recuperadosPais++;        
+    } 
+    
+}
+
+-------------- Exemplo com metodo statico --------------
+public class Covid19 {
+    
+    public Integer recuperadosCidade = 0;
+    public Static Integer recuperadosPais = 0;
+    
+    public void pacientesTratados(){
+        recuperadosCidade++;
+        recuperadosPais++;        
+    } 
+    
+    public Static void pacientesPais(){
+        System.debug('Numero de casos no Pais :' + recuperadosPais);
+    }
+    
+}
+
+// para chamar 
+
+//Para instanciar a classe para laranjal utilizar
+Covid19 laranjal = new Covid19();
+
+//Somando casos na variavel de cidade
+System.debug('Case number laranjal: '+laranjal.recuperadosCidade);
+Covid19.pacientesPais();
+
+laranjal.pacientesTratados();
+
+System.debug('Case number laranjal: '+laranjal.recuperadosCidade);
+Covid19.pacientesPais();
+
+Covid19 piracicaba = new Covid19();
+
+piracicaba.pacientesTratados();
+
+System.debug('Case number piracicaba: '+piracicaba.recuperadosCidade);
+Covid19.pacientesPais();
+

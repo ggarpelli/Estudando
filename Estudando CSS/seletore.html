@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha de CSS</title>
+
+    <style> /* CSS DENTRO DO HTML */
+        /* Seletores de TAG */
+        #lista0 #item3 {
+            color: rgb(170, 4, 4);
+        }
+        /* Seletores de Descendentes */
+        li li {
+            color: rgb(3, 243, 3);
+        }
+        /* Seletores de Classes (.) */
+        .CorAzul {
+            color: blue;
+        }
+        /* Seletores de ID (#) */
+        #lista2 {
+            color: aqua;
+        }
+        .itemroxo {
+            color: blueviolet;
+        }
+    </style>
+
+</head>
+<body>
+<ul id="lista0">
+    <li>
+        <div>Lista</div>
+        <ul id="lista1">
+            <li>Item 1</li>
+            <li class="CorAzul">Item 2</li>
+            <li id="item3">Item 3</li>
+            <li style="color: rgb(192, 226, 0);">Item 4</li>
+            <li class="itemroxo">Item 5</li>
+        </ul>
+        <br>
+<ul id="lista2">
+        <div>Sites:</div>
+        <li><a href="https://www.linkedin.com/in/guilhermegarpelli/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://trailblazer.me/id/ggarpelli" target="_blank">Trailhead</a></li>
+        <li><a href="https://github.com/ggarpelli" target="_blank">Git</a></li>
+        <p>fazendo mais uma alteração aqui</p>
+        <p>Dentro do Head de bugFix</p>
+        <p>Dentro do Head de bugFix2</p>
+        <p>Dentro do Head de bugFix3</p>
+    </li>
+</ul>
+</ul>
+</body>
+</html>

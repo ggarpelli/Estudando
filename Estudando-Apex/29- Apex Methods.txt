@@ -1,0 +1,62 @@
+public static Integer add (Integer numb1, Integer numb2){
+
+Integer sum = numb1 + numb2;
+
+return sum;
+
+}
+
+public - access modifier (opcional)
+static - Special keyword (opcional) --> pode ser static/override
+Integer - Return Type(Required) --> se nao retornar nada pode ser void; (Integer,String,void,list, set, map, datatype)
+add - Method Name (Required) --> metodo pode ter o mesmo nome, porem precisa ter return type diferentes)
+(Integer numb1, Integer numb2) - Parametros (Opcional)  --> quando quer chamar o metodo é necessario passar os parametros, caso contrario nao é possivel chamar.
+Tudo entre {} - Body Method 
+add (Integer numb1, Integer numb2) - assinatura do metodo (Nome + parametro)
+return sum - Return Statement --> precisa estar em todos return type exceto void.
+
+-  Polimorfismo  -
+Se a assinatura do metodo for diferente é possivel criar com msm nome, por exemplo:
+
+public String nomeMetodo(String palavra1, String palavra2){}
+public Integer nomeMetodo(Integer numero1, Integer numero2){}
+
+public String chamaMetodo(String palavra1, String palavra2){}
+public Integer chamaMetodo(Integer numero1, Integer numero2){}
+
+são metodos diferentes com mesmo nome.
+
+Voce consegue acessar variaveis privadas a partir de classes de metodos, por exemplo:
+
+public class helloWorld {
+    
+   private String saudacoes = 'Hello World';  // --> variavel privada ou sem nada, só da para acessar pelo metodo
+    
+    public void recebimento() {
+        
+        System.debug(saudacoes);        
+    }
+}
+
+//Chamar variavel pelo metodo, pois ela está privada e nao é visivel direto
+
+helloWorld chamaVariavel = new helloWorld();
+chamaVariavel.saudacoes;
+
+Agora caso a variavel estivesse publica, voce poderia acessa-la diretamente:
+
+public class helloWorld {
+    
+   public String saudacoes = 'Hello World';  // --> variavel privada ou sem nada, só da para acessar pelo metodo
+    
+    public void recebimento() {
+        
+        System.debug(saudacoes);        
+    }
+}
+
+//Chamar variavel direto
+System.debug(helloWorld.saudacoes);
+ou
+variavel = helloWorld.saudacoes;
+System.debug(variavel);

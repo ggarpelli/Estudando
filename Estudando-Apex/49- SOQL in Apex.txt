@@ -1,0 +1,33 @@
+//Sempre dentro de [] é uma query no Apex: [SELECT Name, Phone FROM Account]
+//porem para armazenar os valores da query é necessario uma Lista, no caso essa vai armazenar de Account.
+
+List<Account> listaContas = [SELECT Name, Phone FROM Account];
+
+//agora para você imprimir cada valor da lista vai um for
+
+//Esse loop faz a imprimeContas percorrer por todos valores de listaContas
+for (Account imprimeContas : listaContas){
+
+	System.debug('Nome da conta: '+imprimeContas.Name+ ' Phone da Conta: '+imprimeContas.Phone);
+
+}
+
+//AGORA ARMAZENANDO ESSES DADOS EM UM MAPA
+
+//Nesse caso precisa instanciar um mapa, pois o valor retornado na Query é em formato de Lista, por isso a lista está sendo passada de parametro para o novo Mapa
+
+Map<id, Account> mapContas = new Map<id, Account>([SELECT Name, Phone FROM Account]);
+
+//como mapContas é um mapa, para retornar os valores dela é necessario .values
+for(Account imprimeContas : mapContas.values()){
+    
+   System.debug('Nome da conta Map: '+imprimeContas.Name+ ' Phone da Conta Map: '+imprimeContas.Phone);    
+}
+
+//Lista de Opportunity
+List<Opportunity> listaOpp = [SELECT Name, Amount FROM Opportunity];
+
+for(Opportunity imprimeContas : listaOpp){
+    
+   System.debug('Nome da Opp: '+imprimeContas.Name+ ' Amount da Opp: '+imprimeContas.Amount);    
+}

@@ -1,0 +1,46 @@
+https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_map.htm
+
+Voce precisa de uma key para acessar um valor. Cada valor ta atribuido a uma key, e para chamar o valor você precisa passar o valor da key.
+Voce pode inserir uma lista/set como valor/key no mapa.
+
+
+key = Integer / Value = String
+
+Map<Integer, String> mapName = new Map<Integer, String>();
+
+Map<Key, Value> mapName = new Map<Key, Value>();
+
+//Criando um Map.
+Map<Integer,String> newMap = new Map<Integer,String>();
+newMap.put(10,'Guilherme');
+
+System.debug('Meu Mapa é : '+ newMap);
+
+//Atualizando valor da chave 10
+newMap.put(10,'Felipe');
+newMap.put(12,'Guilherme');
+newMap.put(13,'Luiz');
+newMap.put(14,'Pamela');
+newMap.put(09,'Lucia');
+
+System.debug('Meu novo Mapa é : '+ newMap);
+
+//Pegando o valor de uma chave
+System.debug('O valor da chave 10 é: '+newMap.get(10));
+
+//Removendo um valor de chave
+System.debug('O valor da chave removida é: '+newMap.remove(12));
+
+//Mostrando o Map atualizados
+System.debug('Mapa atualizado: '+newMap);
+
+//Obter todas as chaves do Map.
+Set<Integer> rollKeys = newMap.keyset();
+System.debug('Todas as chaves do meu mapa: '+ rollKeys);
+
+//Obter todas os valores do Map.
+List<String> rollValues = newMap.values();
+System.debug('Todas os valores do meu mapa: '+ rollValues);
+
+//Checa se o mapa possui um valor de key
+System.debug('Checando se o mapa possui o valor da chave 09: ' +newMap.containsKey(09));
