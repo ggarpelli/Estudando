@@ -18,5 +18,7 @@ abre lá, e fecha aqui
 const sobreNome = 'Parise Garpelli'
 const numeroCPF = 42209887852
 const brasileiro = true
+const numeroVazio = null
+
 console.log(sobreNome,':', numeroCPF,':', brasileiro);
 console.log(typeof sobreNome, typeof numeroCPF, typeof brasileiro);
