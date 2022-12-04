@@ -7,11 +7,8 @@
 
 //comentando do JS
 
-/* é igual no apex
-
-abre lá, e fecha aqui
-
-*/
+/* é igual no apex 
+abre lá, e fecha aqui */
 
 //console.log("Aqui NÃO ESTÁ COMENTANDO MAIS");
 
