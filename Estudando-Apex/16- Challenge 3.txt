@@ -10,7 +10,7 @@ Ex: 2000/4 = 500 true | 2000/100 = 20 true | 2000/400 = 5 true (Bissexto)
 Ex: 2200/4 = 550 true | 2200/100 = 22 true | 2200/400 = 5,5 false (Não Bissexto)
 
 Math.mod (x , y) --> retorna o valor da sobra da divisão de x/y.
-Exemplo Math.mod(103, 100) o valor retornado vai ser 3.
+Exemplo Math.mod(300, 100) o valor retornado vai ser 3.
 
 //Checa se é ano bissexto
 
