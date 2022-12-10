@@ -26,9 +26,22 @@ if(Math.mod(anoAtual, 4) == 0){
         }
     }
     else{
-        System.debug(anoAtual + ' é um ano Bissexto!!');
+        System.debug(anoAtual + ' não é um ano Bissexto!!');
     }
 }
 else{
     System.debug(anoAtual + ' não é um ano Bissexto!!44');
 }
+
+//atualizando em 12/2022
+Integer anoAtual = 2000;
+
+if(Math.mod(anoAtual, 4) == 0 && (Math.mod(anoAtual, 100) == 0) && (Math.mod(anoAtual, 400) == 0)){
+
+            System.debug(anoAtual + ' é um ano Bissexto!!');
+        }
+        else
+        {
+            System.debug(anoAtual + ' não é um ano Bissexto!!22');
+
+        }
