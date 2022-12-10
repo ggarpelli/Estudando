@@ -38,10 +38,10 @@ Integer anoAtual = 2000;
 
 if(Math.mod(anoAtual, 4) == 0 && (Math.mod(anoAtual, 100) == 0) && (Math.mod(anoAtual, 400) == 0)){
 
-            System.debug(anoAtual + ' é um ano Bissexto!!');
-        }
-        else
-        {
-            System.debug(anoAtual + ' não é um ano Bissexto!!22');
+        System.debug(anoAtual + ' é um ano Bissexto!!');
+    }
+    else
+    {
+        System.debug(anoAtual + ' não é um ano Bissexto!!22');
 
-        }
+    }
