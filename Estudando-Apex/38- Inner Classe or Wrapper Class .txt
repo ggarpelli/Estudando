@@ -45,3 +45,66 @@ Empresa chamaClasse = new Empresa();
 chamaClasse.adicionarCliente('pato', 'patolegal', 'pato2', 84613518616L);
 
 chamaClasse.imprimeTodosClientes();
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Uma inner classe ou wrapper classe é uma classe que é definida dentro de outra classe em Apex. Ela é usada para agrupar lógica e dados relacionados a um determinado objeto ou recurso. Inner classes são úteis porque permitem que os desenvolvedores organizem seu código de forma mais clara e legível, ao mesmo tempo em que oferecem acesso restrito aos membros da classe externa. É comum ver inner classes sendo utilizadas em casos em que é preciso encapsular comportamentos específicos em uma classe aninhada, como em casos de herança, implementação de interfaces ou em situações em que é necessário criar classes de utilidade que só serão usadas dentro de uma classe maior.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Diferenças entre inner classe e wrapper classe?
+As classes de wrapper e inner são duas maneiras diferentes de lidar com classes em Apex, que é o idioma de programação para o Salesforce.
+Uma classe de wrapper é uma classe que envolve ou "embrulha" uma outra classe. Isso permite que você acesse os membros da classe envolvida de uma forma mais simples ou com sintaxe diferente. Por exemplo, você pode criar uma classe de wrapper para uma classe de terceiros que não tenha uma interface de usuário amigável e fornecer uma interface mais fácil de usar para os seus próprios desenvolvedores.
+Uma classe interna, por outro lado, é uma classe que é definida dentro de outra classe. Isso permite que a classe interna acesse os membros privados da classe externa e vice-versa. Isso pode ser útil quando você quer criar uma classe que é relacionada a outra classe, mas que não tem um propósito geral o suficiente para ser um componente independente da aplicação.
+Em resumo, as classes de wrapper são usadas para fornecer uma interface mais amigável para classes existentes, enquanto as classes internas são usadas para criar classes relacionadas a outras classes.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Uma inner classe é uma classe que é definida dentro de outra classe, enquanto uma wrapper classe é uma classe que envolve (ou "embrulha") um tipo de dados primitivo para fornecer métodos adicionais que não estão disponíveis nos tipos primitivos.
+Uma inner classe pode acessar os membros (inclusive os membros privados) da classe externa que a contém. Isso permite que a inner classe tenha acesso aos recursos da classe externa que a contém, o que pode ser útil em algumas situações.
+Uma wrapper classe, por outro lado, é usada principalmente para fornecer funcionalidades adicionais para tipos primitivos. Por exemplo, a classe Integer é uma wrapper classe para o tipo primitivo int em Java, e fornece métodos adicionais para trabalhar com números inteiros.
+Em resumo, as principais diferenças entre inner classes e wrapper classes são as seguintes:
+Uma inner classe é definida dentro de outra classe, enquanto uma wrapper classe envolve um tipo primitivo.
+Uma inner classe pode acessar os membros da classe externa que a contém, enquanto uma wrapper classe fornece funcionalidades adicionais para tipos primitivos.
+
+Exemplo de inner class:
+public class OuterClass {
+  private Integer x = 10;
+
+  // Inner class
+  public class InnerClass {
+    public void printX() {
+      System.debug(x); // A inner class pode acessar os membros da classe externa
+    }
+  }
+}
+
+Exemplo de wrapper class:
+public class Main {
+  public static void main(String[] args) {
+    // Cria um objeto Integer a partir de um int
+    Integer num = 10;
+
+    // Chama um método da classe Integer (um wrapper class)
+    System.debug(num.format()); // Imprime "10"
+  }
+}
+
+Exemplo de inner class:
+public class OuterClass {
+  private Integer x = 10;
+
+  // Inner class
+  public class InnerClass {
+    public Integer addX(Integer y) {
+      return x + y; // A inner class pode acessar os membros da classe externa
+    }
+  }
+}
+
+Exemplo de wrapper class:
+public class Main {
+  public static void main(String[] args) {
+    // Cria um objeto Integer a partir de um int
+    Integer num = new Integer(10);
+
+    // Chama um método da classe Integer (um wrapper class)
+    System.debug(num.longValue()); // Imprime "10"
+  }
+}
+
+Nesse exemplo, a inner class InnerClass define um método chamado addX() que recebe um número inteiro y como argumento e retorna a soma de x (que é um membro da classe externa OuterClass) e y. A wrapper class Integer é usada para criar um objeto a partir de um valor inteiro e, em seguida, o método longValue() é chamado para retornar o valor do objeto como um long.
