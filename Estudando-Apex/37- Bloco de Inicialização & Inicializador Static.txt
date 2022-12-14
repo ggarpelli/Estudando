@@ -37,3 +37,52 @@ Ex: Public class Covid19(){
 1 - ESTATICO
 2 - BLOCO DE INICIALIZAÇÃO
 3 - CONSTRUTOR
+
+Um bloco de inicialização é uma seção de código em uma classe que é executada quando uma instância da classe é criada. Ele é usado para inicializar variáveis de instância e realizar outras configurações iniciais antes que o objeto seja usado.
+
+Um construtor é um método especial que é chamado quando uma nova instância de uma classe é criada. Ele é usado para inicializar os atributos de uma nova instância com valores específicos.
+
+A principal diferença entre os dois é que um bloco de inicialização é executado automaticamente quando uma instância é criada, enquanto que um construtor é um método que deve ser chamado explicitamente para criar uma nova instância. Além disso, um construtor pode aceitar parâmetros para inicializar os atributos de uma nova instância com valores específicos, enquanto que um bloco de inicialização não aceita parâmetros.
+qui está um exemplo de um bloco de inicialização em uma classe chamada Foo:
+class Foo {
+  int x;
+  int y;
+  
+  // Bloco de inicialização
+  {
+    x = 1;
+    y = 2;
+  }
+}
+
+E aqui está um exemplo de um construtor para a classe Foo:
+class Foo {
+  int x;
+  int y;
+  
+  // Construtor
+  public Foo(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+Neste exemplo, o construtor aceita dois parâmetros, x e y, que são usados para inicializar os atributos da nova instância criada.
+Aqui está um exemplo mais simples de um bloco de inicialização:
+class Foo {
+  int x;
+  
+  // Bloco de inicialização
+  {
+    x = 10;
+  }
+}
+E aqui está um exemplo de um construtor simples para a classe Foo:
+class Foo {
+  int x;
+  
+  // Construtor
+  public Foo() {
+    x = 10;
+  }
+}
+Neste exemplo, o bloco de inicialização é usado para inicializar a variável x com o valor 10 quando uma nova instância da classe Foo é criada. O construtor também é usado para inicializar x com o valor 10, mas ele não aceita parâmetros.
