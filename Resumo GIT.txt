@@ -55,3 +55,31 @@ E caso queira excluir algum arquivo do github, coloque:
 $ git rm nomeDoArquivo.txt
 
 Após utilizar o comando de exclusão, repita os comandos de commit e push.
+
+14/12/2022
+
+Para remover um commit que você acabou de dar no Git, você pode usar o comando git revert. Isso criará um novo commit que desfaz as alterações do commit anterior.
+
+Por exemplo, se o último commit no seu repositório foi com o ID abc123, você pode usar o comando a seguir para desfazer esse commit:
+git revert abc123
+
+Isso criará um novo commit com as alterações necessárias para desfazer o commit abc123. Você também pode adicionar uma mensagem de commit opcional com o comando, assim:
+git revert abc123 -m "Mensagem opcional do commit"
+
+Lembre-se de que o comando git revert não excluirá o commit original, mas sim criará um novo commit com as alterações necessárias para desfazer as alterações do commit original. Isso é útil porque permite que você mantenha o histórico do seu repositório intacto, enquanto ainda desfaz as alterações indesejadas.
+
+Se você não deseja criar um novo commit para desfazer as alterações do último commit, pode usar o comando git reset em vez do git revert. O comando git reset permite que você desfaça alterações em commits anteriores, mas em vez de criar um novo commit, ele simplesmente descarta as alterações.
+
+Para usar o git reset para desfazer o último commit, você pode usar o comando a seguir:
+git reset --hard HEAD~1
+
+O parâmetro --hard indica que queremos descartar as alterações do commit e também qualquer trabalho não commitado. O parâmetro HEAD~1 indica que queremos desfazer o último commit.
+
+Lembre-se de que, diferentemente do git revert, o comando git reset irá excluir permanentemente o commit original e qualquer trabalho não commitado. Portanto, use esse comando com cuidado e certifique-se de que você tem uma cópia de segurança do seu repositório antes de usá-lo.
+
+Se você já tem o número do commit em que deseja desfazer as alterações, pode usá-lo no lugar do parâmetro HEAD~1 no comando git reset. Por exemplo, se o número do commit que você deseja desfazer for abc123, você pode usar o comando a seguir:
+git reset --hard abc123
+
+Isso desfará as alterações do commit abc123 e descartará qualquer trabalho não commitado. Novamente, lembre-se de que o comando git reset excluirá permanentemente o commit original e qualquer trabalho não commitado, então use-o com cuidado.
+
+git push --force origin main, caso tente usar git push origin mainnão vai dar pois fala que o git está a frente do repositorio local, pois você deletou a alteração e no git ainda tem.
