@@ -9,3 +9,27 @@ SELECT Name, Status, LeadSource, Company, Email, CreatedDate FROM Lead WHERE Cre
 
 // Get all leads created in last 10 days
 SELECT Name, Status, LeadSource, Company, Email, CreatedDate FROM Lead WHERE CreatedDate=LAST_N_DAYS:10
+
+-----------------------------------------------------------------------------------
+
+Os literais de data são valores que representam datas e horas específicas e são usados em consultas SQL e SOQL para especificar datas e horas em cláusulas WHERE e ORDER BY. Por exemplo, você pode usar um literal de data para especificar uma data específica em uma consulta para recuperar todas as contas criadas antes dessa data.
+
+Os literais de data são escritos usando a seguinte sintaxe:
+
+DATE 'YYYY-MM-DD'
+
+Onde YYYY é o ano, MM é o mês e DD é o dia. Por exemplo, o literal de data "DATE '2022-12-15'" representa 15 de dezembro de 2022.
+
+Além dos literais de data, o SOQL também suporta literais de data e hora, que são escritos usando a seguinte sintaxe:
+
+
+DATETIME 'YYYY-MM-DDThh:mm:ss.sssZ'
+
+Onde YYYY é o ano, MM é o mês, DD é o dia, hh é a hora, mm é o minuto, ss é o segundo e sss é a fração de segundo. O "T" é usado como separador entre a data e a hora e o "Z" indica que o horário é no fuso horário UTC. Por exemplo, o literal de data e hora "DATETIME '2022-12-15T14:30:00.000Z'" representa 2:30 PM UTC em 15 de dezembro de 2022.
+
+Aqui está um exemplo de uma consulta SOQL que usa um literal de data para recuperar todas as contas criadas antes de 15 de dezembro de 2022:
+
+List<Account> accounts = [SELECT Id, Name, CreatedDate FROM Account WHERE CreatedDate < DATE '2022-12-15'];
+Nesse exemplo, o literal de data "DATE '2022-12-15'" é usado na cláusula WHERE para especificar que apenas contas criadas antes desse momento devem ser retornadas. Isso permite que você recupere apenas contas que foram criadas em uma data específica ou em um intervalo de datas específico.
+
+Em resumo, os literais de data são valores que representam datas e horas específicas e são usados em consultas SQL e SOQL para especificar datas e horas em cláusulas WHERE e ORDER BY. Eles permitem que você escreva consultas precisas e eficientes que recuperam dados baseados em datas específicas ou intervalos de datas. Isso é útil em muitas situações, como a recuperação de dados históricos ou a criação de relatórios com base em períodos
