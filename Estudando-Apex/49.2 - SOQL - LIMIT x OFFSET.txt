@@ -1,0 +1,15 @@
+A cláusula LIMIT e OFFSET são usadas em consultas SQL e SOQL para limitar o número de resultados retornados e controlar a posição inicial dos resultados. Isso é útil em situações em que você deseja recuperar apenas uma parte dos resultados de uma consulta ou paginar os resultados.
+
+A cláusula LIMIT especifica o número máximo de resultados que devem ser retornados pela consulta. Por exemplo, se você quiser recuperar apenas os primeiros 10 resultados de uma consulta, pode usar a cláusula LIMIT assim:
+
+List<Account> accounts = [SELECT Id, Name, Industry FROM Account WHERE Industry = 'Technology' LIMIT 10];
+
+Nesse exemplo, a cláusula LIMIT é usada para limitar o número de resultados retornados para 10. Isso significa que apenas os primeiros 10 resultados da consulta serão retornados.
+
+A cláusula OFFSET especifica a posição inicial dos resultados retornados pela consulta. Por exemplo, se você quiser pular os primeiros 10 resultados de uma consulta e começar a recuperar resultados a partir do décimo primeiro, pode usar a cláusula OFFSET assim:
+
+List<Account> accounts = [SELECT Id, Name, Industry FROM Account WHERE Industry = 'Technology' OFFSET 10];
+
+Nesse exemplo, a cláusula OFFSET é usada para especificar que os primeiros 10 resultados devem ser pulados e a recuperação dos resultados deve começar no décimo primeiro resultado. Isso é útil se você quiser implementar paginação nos resultados da sua consulta.
+
+Em resumo, as cláusulas LIMIT e OFFSET são usadas em consultas SQL e SOQL para limitar o número de resultados retornados e controlar a posição inicial dos resultados. Elas permitem que você recupere apenas uma parte dos resultados de uma consulta ou implemente paginação nos resultados. Isso é útil em situações em que você deseja trabalhar com grandes conjuntos de dados e deseja recuperar os resultados de forma eficiente.
