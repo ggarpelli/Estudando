@@ -1,0 +1,13 @@
+SOQL é a linguagem de consulta de dados do Salesforce Apex, que é usada para pesquisar e recuperar dados da organização do Salesforce. Ele é semelhante ao SQL, mas é específico para o Salesforce e é usado dentro do Apex.
+
+O SOQL permite que você escreva consultas que recuperem dados específicos de sua organização do Salesforce. Por exemplo, você pode usar o SOQL para recuperar todas as contas cujo nome começa com "A" ou todos os casos de suporte que foram criados nos últimos 30 dias.
+
+Uma consulta SOQL consiste em um comando SELECT seguido pelos campos que você deseja recuperar, um FROM clause especificando a fonte de dados e, opcionalmente, um WHERE clause para especificar quais dados devem ser incluídos na consulta. Aqui está um exemplo de uma consulta SOQL básica:
+
+List<Account> accounts = [SELECT Id, Name, Industry FROM Account WHERE Industry = 'Technology'];
+
+Essa consulta recupera uma lista de contas cujo campo de indústria é "Tecnologia". A consulta retorna uma lista de objetos Account, cada um contendo os campos Id, Name e Industry das contas que correspondem aos critérios da consulta.
+
+O SOQL também permite que você use funções e operações matemáticas em suas consultas, assim como agrupar e ordenar os resultados. Além disso, você pode usar o SOQL em conjunto com o Apex para realizar operações de banco de dados mais avançadas, como inserir, atualizar e excluir dados.
+
+Em resumo, o SOQL é uma ferramenta importante para qualquer pessoa que deseja trabalhar com dados no Salesforce Apex. Ele permite que você escreva consultas precisas e eficientes para recuperar os dados que você precisa da sua organização do Salesforce.
