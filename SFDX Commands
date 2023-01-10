@@ -1,0 +1,5 @@
+sfdx force:mdapi:deploy --deploydir=Covid19 --testlevel=RunAllTestsInOrg 
+sfdx force:source:convert --manifest=manifest/Covid19.xml --outputdir=Covid19  (from manifest)
+sfdx force:source:convert --rootdir=force-app --outputdir=convert  (from XML)
+sfdx force:user:displaysfdx force:user:display
+sfdx force:user:display
