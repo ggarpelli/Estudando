@@ -1,5 +1,9 @@
+sfdx force:org:create -s -f config/project-scratch-def.json
 sfdx force:mdapi:deploy --deploydir=Covid19 --testlevel=RunAllTestsInOrg 
 sfdx force:source:convert --manifest=manifest/Covid19.xml --outputdir=Covid19  (from manifest)
 sfdx force:source:convert --rootdir=force-app --outputdir=convert  (from XML)
-sfdx force:user:displaysfdx force:user:display
 sfdx force:user:display
+sfdx force:org:list
+sfdx force:config:set defaultusername=DevOrg
+sfdx force:auth:web:login --setalias DevOrg2 --instanceurl https://login.salesforce.com --setdefaultusername
+sfdx force:org:create -f config\project-scratch-def.json --setalias DevOrgScratch --durationdays 30 --setdefaultusername --json --loglevel fatal
