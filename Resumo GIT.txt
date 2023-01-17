@@ -87,3 +87,195 @@ git push --force origin main, caso tente usar git push origin mainnão vai dar p
 #Para fazer retrieve e salvar em um diretorio diferente do force-app
 1-precisa alterar criar uma pasta e colocar a past no path dentro do arquivo json da org.
 2-usar o comando: sfdx force:source:retrieve --manifest  manifest\Package.xml 'apontando o nome do arquivo .xml que quer fazer retrieve'
+
+Glosário de Termos Git e GitHub
+
+árvore de objetos: é a estrutura de dados interna utilizada pelo Git para armazenar o histórico de alterações do repositório, onde cada nó representa um commit específico e suas relações com os commits anteriores e posteriores.
+
+atualização de segurança: é o processo de aplicar correções de segurança em um software ou sistema para protegê-lo de vulnerabilidades ou ameaças potenciais.
+
+blob: objeto armazenado no repositório Git que representa um arquivo.
+
+branch: é uma ramificação do repositório original, onde é possível realizar alterações e testes sem afetar o código principal.
+
+bug: é um erro no código que causa o comportamento inesperado do sistema.
+
+centralizado: referente a um sistema de controle de versão em que existe uma única cópia centralizada do código-fonte e todas as alterações são enviadas para essa cópia única para serem integradas, diferentemente da colaboração descentralizada oferecida pelo Git.
+
+check-in de código: adicionar ou fazer upload de alterações no código para o repositório central de controle de versão. É a operação inversa de "check-out".
+
+check-out de código: baixar ou pegar uma cópia de um código existente de um repositório para trabalhar localmente. Isso pode incluir mudar para um branch específico ou verificar uma versão específica do código.
+
+cherry-pick: aplicar uma ou mais alterações de um commit específico em outro branch.
+
+classe: é um modelo para criar objetos (instâncias) que possuem atributos e comportamentos específicos, compartilhando a mesma estrutura e dados.
+
+CLI: command Line Interface.
+
+clonar: criar em sua máquina local uma cópia exata de um repositório Git, para poder trabalhar nele e enviar suas alterações de volta ao repositório original.
+
+clone: é uma cópia exata de um repositório remoto, incluindo todo o histórico de commits, branches e outras informações relacionadas ao projeto. É criado utilizando o comando "git clone" para baixar o repositório em sua máquina local.
+
+código aberto: referente ao software cujo código-fonte é disponibilizado livremente para ser modificado e compartilhado por qualquer pessoa, permitindo a colaboração e manutenção.
+
+código estável: referente a um código que passou por testes e correções de bugs, e é considerado seguro e confiável para uso em produção.
+
+código-fonte: é o conjunto de arquivos que contém as instruções escritas em uma linguagem de programação que formam um software ou aplicação.
+
+colaboração descentralizada: referente ao processo de trabalhar em um projeto com vários desenvolvedores, onde cada um tem uma cópia completa do repositório e pode fazer commits e criar branches sem precisar de uma única fonte central de controle.
+
+colaboração em projetos: referente à prática de trabalhar em conjunto com outros desenvolvedores em projetos.
+
+collaborator: pessoa com permissão para contribuir em um repositório.
+
+command Line Interface (CLI): Interface de linha de comando para interagir com o Git.
+
+commit: salvar e registrar uma nova versão de um arquivo ou conjunto de arquivos no repositório, geralmente com uma mensagem descrevendo as alterações feitas.
+
+commitar: é o ato de registrar as alterações feitas em um arquivo ou conjunto de arquivos em um repositório.
+
+comunidade do projeto: conjunto de desenvolvedores, colaboradores e outros interessados que trabalham juntos para aprimorar e expandir um projeto de código aberto ou privado.
+
+conflict: situação quando duas alterações diferentes tentam modificar a mesma linha de um arquivo.
+
+conflitos de merge: situações em que duas ou mais branches contêm alterações conflitantes em um mesmo arquivo ou linha, quando isso impede a mesclagem das alterações em um único branch.
+
+controle de versão de código: é a técnica de gerenciamento de alterações no código fonte de um projeto, permitindo que as versões anteriores possam ser recuperadas e que colaboradores trabalhem juntos com a integração de mudanças.
+
+créditos: reconhecimento das pessoas ou organizações que contribuíram para um projeto, geralmente listadas em um arquivo de créditos ou no README do projeto.
+
+DAG (Directed Acyclic Graph): gráfico de controle de versão que representa as relações entre commits.
+
+deployment: processo de publicar uma aplicação em produção.
+
+diff: visualização das diferenças entre commits ou branches.
+
+feature branch: branch utilizado para desenvolvimento de uma nova funcionalidade.
+
+fork: é a ação de criar uma cópia de um repositório já existente no GitHub, para que possa ser trabalhado de forma independente, sem afetar o repositório original.
+
+gerenciamento de código-fonte: é o processo de controlar e rastrear as alterações feitas no código-fonte de um projeto, permitindo que os desenvolvedores colaborem e revertam alterações indesejadas, com ferramentas como commits, branches e merges.
+
+gist: compartilhamento rápido de fragmentos de código no GitHub.
+
+Git: é um sistema de controle de versão de código distribuído, utilizado para gerenciar alterações em projetos de software e colaboração em equipe.
+
+GitHub: é uma plataforma de hospedagem de código-fonte com recursos de colaboração e gerenciamento de projetos, que utiliza o sistema de controle de versão Git.
+
+gitignore: arquivo que indica quais arquivos ou pastas devem ser ignorados pelo Git e GitHub.
+
+graph: visualização da história do branch.
+
+GUI: Interface gráfica para interagir com o Git.
+
+HEAD: referencia para o commit mais recente no branch atual.
+
+histórico de alterações: referente às mudanças registradas no código ao longo do tempo, mostrando quais arquivos foram alterados, quem os alterou e quando isso aconteceu; usando o Git. É uma maneira de acompanhar e rastrear as mudanças no código e pode ser usada para revertê-las se necessário.
+
+hook: script executado automaticamente em eventos específicos no Git.
+
+index: é uma área intermediária onde as alterações feitas em arquivos são armazenadas antes de serem confirmadas no repositório (com um "commit").
+
+integração contínua: referente ao processo automatizado de compilação, teste e implantação de código frequentemente para detectar e corrigir erros rapidamente e garantir que o código esteja sempre em um estado estável.
+
+integração de branches: processo de combinar o trabalho de um ou mais branches (ramificações) em um único branch, geralmente o branch principal, com o objetivo de consolidar as alterações e manter o código sincronizado e estável.
+
+issue: é uma forma de rastrear problemas, bugs ou sugestões para um projeto no GitHub, geralmente usado para facilitar a comunicação e colaboração na resolução desses problemas.
+
+LFS (Large File Storage): extensão que permite o armazenamento de arquivos grandes no GitHub.
+
+licença: permissão dada para o uso, modificação e distribuição de um projeto de código aberto, geralmente definida pelos mantenedores do projeto.
+
+lightweight tag: tipo de tag que aponta para um commit específico sem criar um novo commit.
+
+linter: ferramenta para analisar o código e detectar problemas de estilo e padrões.
+
+Linus Torvalds: é o criador do sistema de controle de versão Git e é conhecido como uma liderança importante na comunidade de desenvolvimento de software.
+
+log: Registro de commits em ordem cronológica.
+
+manutenção de código: processo de garantir que o código-fonte de um projeto esteja sempre em boas condições, atualizado e pronto para ser usado.
+
+markdown: formato de marcação em texto utilizado para documentação no GitHub.
+
+master: é o nome padrão para a ramificação principal de um repositório, que é considerada a versão estável e de produção do código.
+
+mensagens de commit: descrevem as alterações feitas em cada commit, permitindo que os colaboradores do projeto possam entender as alterações específicas e rastrear as atividades de desenvolvimento.
+
+merge: combinar duas ou mais ramificações diferentes de um repositório, juntando as alterações de uma ramificação a outra para criar uma única versão atualizada do código.
+
+merge commit: commit específico gerado quando branches são mesclados.
+
+merge conflict: Conflito que ocorre quando duas ou mais alterações conflitam ao serem combinadas em um mesmo arquivo.
+
+mesclar: unir ou juntar duas ou mais ramificações diferentes de um repositório, combinando as alterações de uma ramificação a outra para criar uma única versão atualizada do código.
+
+OAuth: protocolo de autorização utilizado para acesso a recursos no GitHub.
+
+object: entidade armazenada no repositório git, como arquivos, commits e tags.
+
+origin: o nome padrão dado ao repositório remoto quando é clonado pela primeira vez.
+
+patch: conjunto de alterações que podem ser aplicadas a um ou mais arquivos.
+
+plataforma de hospedagem: serviço online que oferece armazenamento e compartilhamento de repositórios Git, permitindo que os usuários acessem, compartilhem e colaborem em projetos de código-fonte
+
+projeto: conjunto de arquivos e pastas relacionadas que compõem uma aplicação, biblioteca ou outro tipo de software, geralmente com um objetivo ou propósito específico.
+
+pull: receber alterações de um repositório remoto.
+
+pull request: solicitação para incorporar as alterações em uma ramificação específica de um repositório em outra ramificação, geralmente a ramificação "master", e geralmente utilizado para revisar e discutir essas mudanças com outros colaboradores antes de serem mescladas no projeto principal.
+
+pull request review: avaliação das alterações propostas em um pull request antes de serem aceitas.
+
+push: é o processo de enviar as alterações locais de um repositório para um repositório remoto.
+
+rebase: modificação da história do branch ao combinar as alterações com o branch principal.
+
+release: versão publicada de um projeto no GitHub.
+
+remote: repositório que está hospedado em outro local ou em outra máquina.
+
+remote-tracking branch: branch que rastreia o branch remoto.
+
+repositório: é um local onde os arquivos de um projeto, incluindo o histórico de suas alterações, são armazenados e gerenciados utilizando o sistema de controle de versão Git. Ele permite que os usuários colaborem, façam alterações, rastreie mudanças e mantenha a integridade dos arquivos do projeto.
+
+repository settings: configurações do repositório, como permissões de colaborador e integrações de terceiros.
+
+reset: descarte de alterações no branch atual.
+
+rollback: desfazer o ultimo commit.
+
+SHA: o "hash" único gerado para cada commit no Git.
+
+sistema de controle de versão de código: ferramenta ou tecnologia que permite rastrear e gerenciar alterações no código-fonte de um projeto, permitindo a colaboração entre desenvolvedores, revertendo mudanças, mantendo diferentes versões e facilidade para voltar a versões anteriores. Git é um exemplo de sistema de controle de versão de código muito popular.
+
+software livre: que é livre para usar, estudar, modificar e distribuir, geralmente com uma licença de código aberto, como a licença MIT ou a licença GPL. Isso significa que qualquer pessoa pode baixar, modificar e distribuir o código-fonte desse software sem restrições, contanto que siga as condições específicas da licença aplicável.
+
+squash: combina vários commits em um único
+
+SSH key: chave utilizada para autenticação segura ao acessar repositórios remotos.
+
+stage: "stage" ou "área de preparação" é um conceito que se refere aos arquivos que foram selecionados e marcados para serem incluídos no próximo commit. Isso permite que os usuários possam selecionar somente as alterações desejadas para incluir no commit, e não incluir arquivos irrelevantes ou não desejados. No GitHub, a stage área é por vezes chamada como "index".
+
+staging branch: é uma branch específica utilizada para preparar e testar alterações antes de serem mescladas na branch principal.
+
+Stash: armazenamento temporário de alterações não confirmadas.
+
+submodule: módulo git dentro de outro repositório git.
+
+subtree: subdivisão de um repositório em outro repositório git independente.
+
+tag: marcação específica em um commit para indicar uma versão ou release.
+
+template: modelo de arquivos ou pastas utilizado para criar novos repositórios ou issues.
+
+trunk: branch principal de desenvolvimento.
+
+upstream: o repositório do qual o repositório remoto foi criado.
+
+versão: referente a um estado específico do código-fonte de um projeto, registrado através de um commit. Cada commit no histórico de um repositório representa uma versão única do projeto, e os usuários podem navegar entre essas versões para ver as alterações e voltar a versões anteriores se necessário.
+
+version control: gerenciamento de mudanças em arquivos.
+
+webhooks: mecanismo para notificações automatizadas quando um evento ocorre no repositório.
