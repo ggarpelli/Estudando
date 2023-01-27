@@ -1,5 +1,5 @@
 sfdx force:org:create -s -f config/project-scratch-def.json
-sfdx force:mdapi:deploy --deploydir=Covid19 --testlevel=RunAllTestsInOrg 
+sfdx force:mdapi:deploy --deploydir=Covid19 --testlevel=RunLocalTests 
 sfdx force:source:convert --manifest=manifest/Covid19.xml --outputdir=Covid19  (from manifest) --> Criar pasta Covid19 para receber os metadados do XML
 sfdx force:source:convert --rootdir=force-app --outputdir=convert  (from XML) --> Criar pasta convert para receber os metadados covertidos da pasta force-app
 sfdx force:user:display
