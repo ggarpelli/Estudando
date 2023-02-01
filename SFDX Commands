@@ -16,7 +16,7 @@ Create a manifest
 sfdx force source manifest create --fromorg [your org alias] --manifestname=allMetadata --outputdir manifest --> Criar um xml com todos metadados da org.
 
 Retrieve metadata: https://developer.salesforce.com/docs/atlas.en-us.242.0.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_retrieve_pack_xml.htm
-sfdx force:mdapi:retrieve -r ./force-app -k ./manifest/Metadata3.xml --> retrieve para pasta force-app a partir do manifest Metadata3
+sfdx force:mdapi:retrieve -r ./force-app -k ./manifest/Metadata3.xml --> retrieve para pasta force-app a partir do manifest Metadata3 (Vem um .zip com todos arquivos do package, porém não convertidos)
 sfdx force:source:retrieve -n MyPackageNameTo -r path/to/unpackaged --> retrieve all metadata from a package | --r para alterar o diretorio padrão do sfdx-project.json (sfdx force:source:retrieve --help)
 
 Convert metadata source to source format: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_convert_mdapi.htm
