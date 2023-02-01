@@ -24,11 +24,12 @@ Retrieve source from an org (Source Format)
 sfdx force:source:retrieve -x manifest/Metadata4.xml --> retrieve all metadata from a package (dados convertido, xml formato. Diferente do ANT, sem udar o mdapi)
 sfdx force:source:retrieve -x manifest/Metadata4.xml -r path/to/unpackaged --> retrieve all metadata from a package | --r para alterar o diretorio padrão do sfdx-project.json (sfdx force:source:retrieve --help)
 
-Convert source into Metadata API format: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_convert_mdapi.htm
+
+To convert source-formatted files into the metadata format: https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm#cli_reference_force_source_convert
 sfdx force:source:convert --manifest=manifest/Covid19.xml --outputdir=Covid19  (from manifest) --> Criar pasta Covid19 para receber os metadados do XML
 sfdx force:source:convert --rootdir=force-app --outputdir=convert  (from XML) --> Criar pasta convert para receber os metadados covertidos da pasta force-app
 
-To convert Metadata API–formatted files into the source format
+To convert Metadata API–formatted files into the source format: https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_mdapi.htm#cli_reference_force_mdapi_convert
 sfdx force:mdapi:convert
 
 Deploy: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_develop_any_org.htm
