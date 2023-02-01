@@ -1,5 +1,10 @@
 Salesforce DX Developer Guide --> https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm
 
+Steps:
+1-create a manifest
+2-retrieve metadata
+3-convert metadata source to source format
+
 sfdx force:org:create -s -f config/project-scratch-def.json
 sfdx force:mdapi:deploy --deploydir=Covid19 --testlevel=RunLocalTests 
 sfdx force:source:convert --manifest=manifest/Covid19.xml --outputdir=Covid19  (from manifest) --> Criar pasta Covid19 para receber os metadados do XML
