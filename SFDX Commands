@@ -1,25 +1,27 @@
 Salesforce DX Developer Guide --> https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm
 
-Steps:
-1-create a manifest
-2-retrieve metadata
-3-convert metadata source to source format
-
-sfdx force:org:create -s -f config/project-scratch-def.json
-sfdx force:mdapi:deploy --deploydir=Covid19 --testlevel=RunLocalTests 
+Create a manifest
+sfdx force source manifest create --fromorg [your org alias] --manifestname=allMetadata --outputdir manifest --> Criar um xml com todos metadados da org.
+Retrieve metadata
+sfdx force:source:retrieve -n MyPackageNameTo -r path/to/unpackaged --> retrieve all metadata from a package | --r para alterar o diretorio padrão do sfdx-project.json (sfdx force:source:retrieve --help)
+Convert metadata source to source format
 sfdx force:source:convert --manifest=manifest/Covid19.xml --outputdir=Covid19  (from manifest) --> Criar pasta Covid19 para receber os metadados do XML
 sfdx force:source:convert --rootdir=force-app --outputdir=convert  (from XML) --> Criar pasta convert para receber os metadados covertidos da pasta force-app
-sfdx force:user:display
-sfdx force:org:list
-sfdx force:config:set defaultusername=DevOrg
-sfdx force:auth:web:login --setalias DevOrg2 --instanceurl https://login.salesforce.com --setdefaultusername
-sfdx force:org:create -f config\project-scratch-def.json --setalias DevOrgScratch --durationdays 30 --setdefaultusername --json --loglevel fatal
-sfdx force:user:password:generate --targetusername <username> or sfdx force:user:password:generate
-sfdx force:user:display -u username (to show alias, pw, username, url)
-sfdx force source manifest create --fromorg [your org alias] --manifestname=allMetadata --outputdir manifest --> Criar um xml com todos metadados da org.
-sfdx force:source:retrieve -n MyPackageNameTo -r path/to/unpackaged --> retrieve all metadata from a package | --r para alterar o diretorio padrão do sfdx-project.json (sfdx force:source:retrieve --help)
+Deploy
+sfdx force:mdapi:deploy --deploydir=Covid19 --testlevel=RunLocalTests --> Deploy de um especifico diretorio e rodar os testes locais (Apex)
 
+Authorize an org and then when you create a scratch org.
+sfdx force:auth:web:login --setalias DevOrg2 --instanceurl https://login.salesforce.com --setdefaultusername  --> Autenticar uma nova Org (no caso DevOrg2)
+sfdx force:org:create -s -f config/project-scratch-def.json  --> Criar Scratch Org
+sfdx force:org:create -f config\project-scratch-def.json --setalias DevOrgScratch --durationdays 30 --setdefaultusername --json --loglevel fatal
+
+
+Configs Scratch Org em Geral:
+sfdx force:user:display -u username (to show alias, pw, username, url) --> Listar as informações do user
+sfdx force:user:display  --> Listar as informações do user
+sfdx force:org:list --> Listar as orgs e Scratch Orgs
+sfdx force:config:set defaultusername=DevOrg
+sfdx force:user:password:generate --targetusername <username> or sfdx force:user:password:generate
 
 O comando "convert" no Salesforce DX (SFDX) é usado para converter projetos de organizações tradicionais (ou seja, que usam o modelo de desenvolvimento baseado em Metadata API) para o modelo de desenvolvimento baseado em Scratch Orgs. Isso permite que os desenvolvedores trabalhem com projetos de forma mais ágil e colaborativa, utilizando recursos como Scratch Orgs e Git.
-
 Ao usar o comando "convert", os projetos de organizações tradicionais são convertidos para um formato compatível com Scratch Orgs, incluindo arquivos de configuração e arquivos de código. Isso significa que os desenvolvedores podem usar recursos como o Fluxo de Trabalho de Desenvolvimento de Nuvem (Cloud Development Workflow) para desenvolver, testar e implementar soluções no Salesforce, usando ferramentas como o Git e o Visual Studio Code.
