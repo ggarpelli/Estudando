@@ -10,6 +10,7 @@ sfdx force:org:create -f config\project-scratch-def.json --setalias DevOrgScratc
 sfdx force:user:password:generate --targetusername <username> or sfdx force:user:password:generate
 sfdx force:user:display -u username (to show alias, pw, username, url)
 sfdx force source manifest create --fromorg [your org alias] --manifestname=allMetadata --outputdir manifest --> Criar um xml com todos metadados da org.
+sfdx force:source:retrieve -n MyPackageNameTo -r path/to/unpackaged --> retrieve all metadata from a package | --r para alterar o diretorio padrão do sfdx-project.json (sfdx force:source:retrieve --help)
 
 
 O comando "convert" no Salesforce DX (SFDX) é usado para converter projetos de organizações tradicionais (ou seja, que usam o modelo de desenvolvimento baseado em Metadata API) para o modelo de desenvolvimento baseado em Scratch Orgs. Isso permite que os desenvolvedores trabalhem com projetos de forma mais ágil e colaborativa, utilizando recursos como Scratch Orgs e Git.
