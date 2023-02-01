@@ -17,13 +17,19 @@ Create a manifest
 sfdx force source manifest create --fromorg [your org alias] --manifestname=allMetadata --outputdir manifest --> Criar um xml com todos metadados da org.
 
 Retrieve metadata: https://developer.salesforce.com/docs/atlas.en-us.242.0.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_retrieve_pack_xml.htm
+Retrieve metadata from an org using Metadata API (Uses Metadata API to retrieve a .zip of XML)
 sfdx force:mdapi:retrieve -r ./force-app -k ./manifest/Metadata3.xml --> retrieve para pasta force-app (unpackage.zip) a partir do manifest Metadata3 (dados igual ANT, não convertido, pq está usando mdapi (metadata api)
+
+Retrieve source from an org (Source Format)
 sfdx force:source:retrieve -x manifest/Metadata4.xml --> retrieve all metadata from a package (dados convertido, xml formato. Diferente do ANT, sem udar o mdapi)
 sfdx force:source:retrieve -x manifest/Metadata4.xml -r path/to/unpackaged --> retrieve all metadata from a package | --r para alterar o diretorio padrão do sfdx-project.json (sfdx force:source:retrieve --help)
 
-Convert metadata source to source format: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_convert_mdapi.htm
+Convert source into Metadata API format: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_convert_mdapi.htm
 sfdx force:source:convert --manifest=manifest/Covid19.xml --outputdir=Covid19  (from manifest) --> Criar pasta Covid19 para receber os metadados do XML
 sfdx force:source:convert --rootdir=force-app --outputdir=convert  (from XML) --> Criar pasta convert para receber os metadados covertidos da pasta force-app
+
+To convert Metadata API–formatted files into the source format
+sfdx force:mdapi:convert
 
 Deploy: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_develop_any_org.htm
 sfdx force:mdapi:deploy --deploydir=Covid19 --testlevel=RunLocalTests --> Deploy de um especifico diretorio e rodar os testes locais (Apex)
