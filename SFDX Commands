@@ -27,8 +27,8 @@ Convert source into Metadata API format: https://developer.salesforce.com/docs/a
 sfdx force:source:convert --manifest=manifest/Covid19.xml --outputdir=Covid19  (from manifest) --> Criar pasta Covid19 para receber os metadados do XML
 sfdx force:source:convert --rootdir=force-app --outputdir=convert  (from XML) --> Criar pasta convert para receber os metadados covertidos da pasta force-app
 
-Convert metadata from the Metadata API format into the source format: https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_mdapi.htm#cli_reference_force_mdapi_convert
-sfdx force:mdapi:convert
+Convert Metadata API format into the source format: https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_mdapi.htm#cli_reference_force_mdapi_convert
+sfdx force:mdapi:convert --rootdir=force-app --outputdir=convert  (from XML) --> Criar pasta convert para receber os metadados covertidos da pasta force-app
 
 Deploy metadata to an org using Metadata API: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_develop_any_org.htm
 sfdx force:mdapi:deploy --deploydir=Covid19 --testlevel=RunLocalTests --> Deploy de um especifico diretorio e rodar os testes locais (Apex)
