@@ -1,0 +1,1 @@
+Objects, classes, Visualforce pages, custom permissions, and page layouts are the five profile-based settings you'll need to select in your package.xml file. Field level security and record type settings will be selected by selecting objects. You'll need to do a describe to find all standard objects available for your org, because you can't wildcard standard objects.
