@@ -1,0 +1,46 @@
+Diagrama do GitHub
+
+Modelo de ramificação GIT
+O repositório central possui duas branches principais (com vida útil infinita):
+-master
+-develop
+Consideramos origin/master como a branch principal onde o código-fonte do HEAD sempre reflete o estado pronto para produção.
+Consideramos origin/develop como a branch principal onde o código-fonte do HEAD sempre reflete um estado com as últimas mudanças de desenvolvimento para a próxima versão. Esta é a branch de integração, onde as compilações automáticas são construídas.
+Quando o código-fonte na branch develop alcança um ponto estável e está pronto para ser lançado, todas as mudanças devem ser mescladas de volta para a master e marcadas com um número de versão.
+
+Ao lado das branches principais (master e develop), o modelo de desenvolvimento utiliza branches de suporte que auxiliam o desenvolvimento paralelo entre membros da equipe, preparam para lançamentos de produção e correções rápidas em produção. Ao contrário das branches principais, essas têm um tempo de vida limitado e serão removidas eventualmente:
+-feature branches
+-release branches
+-hotfix branches
+Cada uma dessas branches tem um propósito específico e está sujeita a regras rigorosas sobre quais branches podem ser a branch de origem e quais branches devem ser os alvos de mesclagem.
+
+-Feature branches
+pode derivar de: develop
+deve mesclar de volta para: develop
+convenção de nomeação: qualquer coisa, exceto master, develop, release-* ou hotfix-*
+Feature branches são usadas para desenvolver novos recursos para lançamentos futuros ou distantes. Uma Feature branches deve existir enquanto o recurso estiver em desenvolvimento, mas eventualmente será mesclada de volta em develop ou descartada (no caso de um experimento decepcionante).
+
+-Release branches
+pode derivar de: develop
+deve mesclar de volta para: develop e master
+convenção de nomeação: release-*
+Release branches suportam a preparação de um novo lançamento de produção. Elas permitem correções de bugs menores e a preparação de metadados para um lançamento. Ao fazer todo esse trabalho em uma Release branches, a branch develop é liberada para receber recursos para o próximo grande lançamento.
+O momento de derivar uma nova Release branches de develop é quando develop reflete (quase) o estado desejado do novo lançamento. Todos os recursos direcionados para lançamentos futuros devem esperar até depois que a Release branches seja derivada. O número do lançamento é atribuído quando o lançamento é criado, com base nas regras do projeto sobre números de versão.
+Quando uma Release branches está pronta para se tornar um lançamento real, algumas ações precisam ser executadas:
+1 - the release branch is merged into master
+2 - the master is tagged for future references
+3 - the release branch is merged into develop, so that future release also contain bug fixes done directly on the release branch.
+4 - delete the release branch
+
+-Hotfix branches
+pode derivar de: master
+deve mesclar de volta para: develop e master
+convenção de nome da branch: hotfix-*
+Hotfix branches são muito parecidos com release branches.
+Quando um bug crítico em uma versão de produção precisa ser resolvido imediatamente, uma Hotfix branches pode ser ramificado da marca master que marca a versão de produção.
+A essência é que o trabalho (no ramo de desenvolvimento) pode continuar, enquanto outra pessoa está preparando uma correção rápida de produção.
+Quando um Hotfix branches estiver pronto, as seguintes ações devem ser executadas:
+1 - the hotfix branch is merged into master
+2 - the master is tagged for future references
+3 - the hotfix branch is merged into develop
+4 - delete the hotfix branch
