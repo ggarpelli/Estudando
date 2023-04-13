@@ -1,0 +1,9 @@
+So, basically, you need to commit the first time to save a version of the file. Here's how I did it:
+Initialize a local repository: git init
+Add all files to the repository: git add .
+Commit the changes with a commit message: git commit -m 'Your commit Message'
+Then, I replaced all the files in the folder, and Git showed me the differences. I used the '+' arrow to add files one by one to the staging area, because if I use git add . again, it would add all files.
+To add a particular file, use the following command: $ git add path/to/file
+To add all changed files, use the following command: $ git add .
+To add all changed files of a directory, use the following command: $ git add path/to/directoryOnly
+Once you have finished adding all your changes, you can commit again, and now your new source of truth is the folder where you made the changes.
