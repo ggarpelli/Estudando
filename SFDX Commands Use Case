@@ -1,0 +1,84 @@
+Steps to retrieve metadata API format from org
+
+Step 1: Install Salesforce CLI (SFDX)
+If you haven't already, install Salesforce CLI (SFDX) by following the instructions from the official Salesforce CLI documentation.
+
+Step 2: Open VS Code
+Open Visual Studio Code (VS Code), a popular code editor.
+
+Step 3: Open the Command Palette
+Press Ctrl+Shift+P (Windows/Linux) or Cmd+Shift+P (Mac) to open the Command Palette in VS Code.
+
+Step 4: Create a Salesforce Project
+In the Command Palette, type "SFDX: Create Project with Manifest" and press Enter.
+Choose a directory where you want to create your Salesforce project and press Enter.
+Enter a project name and press Enter.
+Choose "Default (manifest/package.xml)" as the project type to create a project with a manifest file.
+VS Code will create a new directory for your project with the specified name, and a default manifest file (package.xml) will be created in the "manifest" folder.
+
+Step 5: Authenticate a Salesforce Org
+In the Command Palette, type "SFDX: Authorize an Org" and press Enter.
+Choose "Production/Sandbox" or "Developer Edition" as the Salesforce Org type, depending on your requirements.
+Follow the prompts to enter your Salesforce Org username and password, and complete the authentication process.
+
+Step 6: Navigate to the Manifest Folder
+In your Salesforce project directory in VS Code, go to the "manifest" folder. This is the default location for the manifest file (package.xml) in a Salesforce project created with manifest.
+
+Step 7: Update Package.xml
+If you want to specify the metadata components to retrieve from your Salesforce org, you can update the package.xml file located in the "manifest" folder.
+Open the package.xml file in a text editor and modify it according to your requirements. You can specify the metadata components to retrieve by adding or removing entries in the package.xml file, following the Salesforce Metadata API format.
+
+Step 8: Save Changes
+Save the changes in the package.xml file, if you have updated it, and make sure all the metadata files that you copied into the "manifest" folder are saved as well.
+
+Step 9: Navigate to Terminal
+In VS Code, go to the "View" menu in the top menu bar.
+From the drop-down menu, select "Terminal" to open the terminal window.
+
+Step 10: Enter Retrieve Command
+"sfdx force:mdapi:retrieve -r ./force-app -k ./manifest/package.xml"
+This command is used to retrieve metadata from a Salesforce organization (Dev) using the Metadata API, specifying the target directory where the metadata will be stored, and the package.xml file that contains the definition of the metadata components to be retrieved.
+
+detailed:
+"sfdx": Salesforce CLI (SFDX) base command.
+"force:mdapi:retrieve": Specific command for retrieving metadata using the Metadata API.
+"-r ./force-app": Option that specifies the target directory where the metadata will be stored. In this case, metadata will be stored in the local directory "./force-app".
+"-k ./manifest/package.xml": Option that specifies the package.xml file that contains the definition of the metadata components to be retrieved. In this case, the package.xml file is located in the local directory "./manifest" with the name "package.xml".
+
+Retrieve is done!
+
+From this point on, I performed the same steps for both the DEV and TEST environments, retrieving all the metadata specified in the XML file for both environments. I was able to compare them using GIT within the VS Code. If you need further details on the comparison process, please let me know.
+
+========================================================================================================================================================================================================================================================================================================
+
+Steps to deploy metadata API format to an org
+
+Step 1: Open VS Code and Navigate to Your Project Directory (Destination Enviroment, in this case was Test)
+Open Visual Studio Code (VS Code) on your computer.
+Use the File > Open Folder option to navigate and open your Salesforce project directory in VS Code.
+
+
+Step 2: Create a Folder for Deployment
+In VS Code's Explorer view, navigate to the root directory of your Salesforce project.
+Right-click on the root directory, select "New Folder" from the context menu, and give it a name, such as "DeployTest". Press Enter to create the folder.
+
+
+Step 3: Copy the Metadata Files to the Deployment Folder
+Open another file explorer window or use a terminal to navigate to the location of the metadata files that you want to deploy.
+Select all the metadata files and folders that you want to deploy and copy them (Ctrl+C).
+Go back to VS Code, right-click on the "DeployTest" folder you created in Step 2, and select "Paste" from the context menu (Ctrl+V). This will paste the copied metadata files into the "DeployTest" folder in your project directory.
+
+
+Step 4: Run the Deployment Command
+Open a new terminal window within VS Code by going to Terminal > New Terminal.
+In the terminal, type the following command and press Enter to run the deployment command:
+
+"sfdx force:mdapi:deploy --deploydir=DeployTest --testlevel=NoTestRun"
+
+This command is used to deploy metadata to a Salesforce organization (Test) using the Metadata API, specifying the source directory where the metadata is located, and the test level to be executed during the deploy.
+
+detailed:
+"sfdx": Salesforce CLI (SFDX) base command.
+"force:mdapi:deploy": Specific command for deploying metadata using the Metadata API.
+"--deploydir=DeployTest": Option that specifies the source directory where the metadata is located. In this case, the metadata is located in the local directory "DeployTest".
+"--testlevel=NoTestRun": Option that specifies the test level to be executed during the deploy. In this case, the value "NoTestRun" indicates that no automated tests will be executed during the deploy.
