@@ -37,6 +37,11 @@ Deploy source to an org Use this command to deploy source :https://developer.sal
 sfdx force:source:deploy
 
 Run Apex Tests: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_testing.htm
+--testlevel:
+--runtests=
+sfdx force:mdapi:deploy --deploydir=DeployProd --testlevel=RunSpecifiedTests --runtests= osfAssetManagerPromoControllerTest, osfRecordDatatableControllerTest, osfSharepointConnectionTest --checkonly
+
+Validate deploy (--checkonly)
 
 O comando "convert" no Salesforce DX (SFDX) é usado para converter projetos de organizações tradicionais (ou seja, que usam o modelo de desenvolvimento baseado em Metadata API) para o modelo de desenvolvimento baseado em Scratch Orgs. Isso permite que os desenvolvedores trabalhem com projetos de forma mais ágil e colaborativa, utilizando recursos como Scratch Orgs e Git.
 Ao usar o comando "convert", os projetos de organizações tradicionais são convertidos para um formato compatível com Scratch Orgs, incluindo arquivos de configuração e arquivos de código. Isso significa que os desenvolvedores podem usar recursos como o Fluxo de Trabalho de Desenvolvimento de Nuvem (Cloud Development Workflow) para desenvolver, testar e implementar soluções no Salesforce, usando ferramentas como o Git e o Visual Studio Code.
