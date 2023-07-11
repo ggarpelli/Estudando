@@ -279,3 +279,8 @@ versão: referente a um estado específico do código-fonte de um projeto, regis
 version control: gerenciamento de mudanças em arquivos.
 
 webhooks: mecanismo para notificações automatizadas quando um evento ocorre no repositório.
+
+para deletar Branch do repositorio a partir do vs code local, precisa seguir:
+estar fora da branch que quer deletar, 
+dar o comando para deletar a branch git branch -d <nome-da-branch>
+e para dar o push para o repositorio: git push origin --delete <nome-da-branch>
