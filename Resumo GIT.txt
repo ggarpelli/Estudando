@@ -285,4 +285,4 @@ estar fora da branch que quer deletar,
 dar o comando para deletar a branch git branch -d <nome-da-branch>
 e para dar o push para o repositorio: git push origin --delete <nome-da-branch>
 
-update 12-07
+update 12-07 time 13:45h - updating time.
