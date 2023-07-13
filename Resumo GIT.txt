@@ -287,3 +287,5 @@ e para dar o push para o repositorio: git push origin --delete <nome-da-branch>
 
 update 12-07 time 13:45h - updating time.
 update from github - 2teste branch
+
+commit from ticket-001 time 15:43h
