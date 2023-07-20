@@ -7,3 +7,6 @@ To add a particular file, use the following command: $ git add path/to/file
 To add all changed files, use the following command: $ git add .
 To add all changed files of a directory, use the following command: $ git add path/to/directoryOnly
 Once you have finished adding all your changes, you can commit again, and now your new source of truth is the folder where you made the changes.
+
+
+updating from Ticket-002
