@@ -38,16 +38,16 @@ sfdx force:mdapi:convert --rootdir=force-app --outputdir=convert  (from XML) -->
 
 Deploy metadata to an org using Metadata API: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_develop_any_org.htm
 sfdx force:mdapi:deploy --deploydir=Covid19 --testlevel=RunLocalTests --> Deploy de um especifico diretorio e rodar os testes locais (Apex)
-sfdx force:mdapi:deploy --deploydir=DeployTest ---testlevel=RunSpecifiedTests --runtests=CommunitiesSelfRegControllerTest, osfAssetManagerPromoControllerTest, osfRecordDatatableControllerTest, osfSharepointConnectionTest --checkonly
+sfdx force:mdapi:deploy --deploydir=DeployTest ---testlevel=RunSpecifiedTests --runtests=CommunitiesSelfRegControllerTest, AssetManagerPromoControllerTest, RecordDatatableControllerTest, SharepointConnectionTest --checkonly
 
 Deploy source to an org Use this command to deploy source :https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm#cli_reference_force_source_deploy
 sfdx force:source:deploy
-sfdx force:source:deploy --sourcepath=DeployProd --testlevel=RunSpecifiedTests --runtests=CommunitiesSelfRegControllerTest, osfAssetManagerPromoControllerTest, osfRecordDatatableControllerTest, osfSharepointConnectionTest --checkonly
+sfdx force:source:deploy --sourcepath=DeployProd --testlevel=RunSpecifiedTests --runtests=CommunitiesSelfRegControllerTest, AssetManagerPromoControllerTest, RecordDatatableControllerTest, SharepointConnectionTest --checkonly
 
 Run Apex Tests: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_testing.htm
 --testlevel:
 --runtests=
-sfdx force:mdapi:deploy --deploydir=DeployProd --testlevel=RunSpecifiedTests --runtests= osfAssetManagerPromoControllerTest, osfRecordDatatableControllerTest, osfSharepointConnectionTest --checkonly
+sfdx force:mdapi:deploy --deploydir=DeployProd --testlevel=RunSpecifiedTests --runtests= AssetManagerPromoControllerTest, RecordDatatableControllerTest, SharepointConnectionTest --checkonly
 
 Validate deploy (--checkonly)
 
