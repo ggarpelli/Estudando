@@ -29,6 +29,11 @@ sfdx force:source:retrieve -x manifest/Metadata4.xml --> retrieve all metadata f
 sfdx force:source:retrieve -x manifest/Metadata4.xml -r path/to/unpackaged --> retrieve all metadata from a package | --r para alterar o diretorio padrão do sfdx-project.json (sfdx force:source:retrieve --help)
 sfdx force:source:retrieve -x manifest/package.xml -r path/to/unpackaged
 
+Retrieve de metadata sem criar package.xml
+sfdx force:source:retrieve -m "ValidationRule:MyRuleName" - Nesse caso o retrieve vai ser de uma validation Rule, mas isso pode ser usado para Apex e outros...
+sfdx force:source:retrieve -m "ApexClass:MyClassName" "Retrieve using Source Format"
+sfdx force:mdapi:retrieve -m "ApexClass:MyClassName" "Retrieve using Metadata API Format"
+
 Convert source into Metadata API format: https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm#cli_reference_force_source_convert
 sfdx force:source:convert --manifest=manifest/Covid19.xml --outputdir=Covid19  (from manifest) --> Criar pasta Covid19 para receber os metadados do XML
 sfdx force:source:convert --rootdir=force-app --outputdir=convert  (from XML) --> Criar pasta convert para receber os metadados covertidos da pasta force-app
