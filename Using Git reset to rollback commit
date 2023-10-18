@@ -1,0 +1,6 @@
+O comando git reset --soft HEAD~ é usado para desfazer o último commit mantendo os arquivos no estado de preparação (staging area) para um novo commit. Vamos quebrar isso em partes:
+
+git reset: Este comando é utilizado para desfazer ações no repositório Git.
+--soft: Esta opção indica que o reset deve ser "suave", o que significa que o Git irá desfazer o commit, mas manterá os arquivos no estado de preparação.
+HEAD~: Refere-se ao commit imediatamente anterior ao atual.
+Portanto, o comando git reset --soft HEAD~ desfaz o último commit, mantendo os arquivos no estado de preparação, o que permite que você faça ajustes e crie um novo commit com as mudanças corrigidas.
