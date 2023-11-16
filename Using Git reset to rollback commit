@@ -1,3 +1,6 @@
+site com sugestões de como desfazer cagadas no github
+https://ohshitgit.com/
+
 O comando git reset --soft HEAD~ é usado para desfazer o último commit mantendo os arquivos no estado de preparação (staging area) para um novo commit. Vamos quebrar isso em partes:
 
 git reset: Este comando é utilizado para desfazer ações no repositório Git.
