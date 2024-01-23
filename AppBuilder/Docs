@@ -1,1 +1,38 @@
 Doc to add all about SF App Builder Certification
+
+
+23% - Salesforce Fundamentals
+  - Object, record and field access
+  - Sharing Solutions
+  - Reports
+  - Dashboards
+  - Chatter
+  - AppExchange
+
+22% - Data Modeling & Management
+  - Standards Objects
+  - Custom objects
+  - Fields (diferenças entre eles e quando usar / mudança de tipo de campo e perda de dados)
+  - Relationships (Lookup and Master detail / Many-to-Many)
+  - Schema Builder
+  - Data import / Data export (tools available / Considerantion)
+
+28% - Business Logic and Process Automation
+  - Formula Fields
+  - Roll-Up Summary Fields
+  - Validation Rules
+  - Approval Processes
+  - Automation
+
+17% - User Interface
+  - Understanding how Lightining Components can be used
+  - Standard Components
+  - Custom Components
+  - AppExchange Components
+  - Custom Buttons / Links and Actions
+
+10% - App Deployment
+  - Good undersatantin of changes
+  - When you can use them
+  - When they are no appropriate
+  - Diff (Managed package / Unmanaged package)
