@@ -2,11 +2,18 @@ Doc to add all about SF App Builder Certification
 
 
 23% - Salesforce Fundamentals
-  - Object, record and field access
-  - Sharing Solutions
+   - Object, record and field access
+      - Um objeto no Salesforce é uma tabela que armazena dados. Pode ser padrão (como Conta, Contato) ou personalizado (criado para atender às necessidades específicas).
+      - Um registro é uma instância específica de um objeto, representando uma entrada única na tabela. Por exemplo, uma Conta específica seria um registro da tabela de Contas.
+      - Filed Access: Refere-se ao controle de acesso aos campos em objetos. Pode ser configurado para determinar quem pode visualizar, editar ou excluir dados em campos específicos.
+  - Sharing Solutions 
+      - Trata das configurações de compartilhamento de dados no Salesforce, permitindo controlar quem pode acessar ou editar registros. Inclui regras de compartilhamento, grupos de propriedade e configurações de compartilhamento manual.
   - Reports
+      - Ferramenta no Salesforce para criar, visualizar e analisar dados. Relatórios oferecem insights visuais sobre os registros armazenados nos objetos.
   - Dashboards
+      - Dashboards são painéis visuais que consolidam dados de vários relatórios em gráficos e tabelas, proporcionando uma visão abrangente dos dados.
   - Chatter
+      - Chatter é uma plataforma de colaboração social no Salesforce, permitindo que usuários compartilhem informações, colaborem em registros e sigam atualizações em tempo real.
   - AppExchange
 
 22% - Data Modeling & Management
