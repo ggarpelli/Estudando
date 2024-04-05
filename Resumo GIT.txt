@@ -44,6 +44,7 @@ $ git remote add origin link-do-github.com
 
 O remote irá fazer a conexão entre o repositório da máquina e o github. Em seguida, utilizamos o push para poder "empurrar" nosso repositório para o github:
 $ git push -u origin main
+$ git push --set-upstream origin Atlas-1 - Empurrando uma nova branch "Atlas-1" para o repositorio registrado em 'origin'
 
 Na primeira vez que fizermos o push para o github, aparecerá uma tela de login e em seguida uma tela de autorização no browser, clique no botão de autorização verde e confirme sua senha. Feito isso, a primeira versão do seu arquivo estará no github.
 Caso deseje adicionar uma nova versão do seu arquivo ou arquivos novos, basta voltar repetir os comandos de add, commit e push.
