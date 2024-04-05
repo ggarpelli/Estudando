@@ -89,6 +89,10 @@ git push --force origin main, caso tente usar git push origin mainnão vai dar p
 1-precisa alterar criar uma pasta e colocar a past no path dentro do arquivo json da org.
 2-usar o comando: sfdx force:source:retrieve --manifest  manifest\Package.xml 'apontando o nome do arquivo .xml que quer fazer retrieve'
 
+git branch -r -Mostra todas branches remotas que estão atualmente no seu repositório.
+git push <nome_do_repositório_remoto> --delete <nome_da_branch_remota> - Para excluir uma branch remota específica
+git fetch --prune - Isso removerá qualquer referência a branches remotas que foram excluídas do repositório remoto.
+
 Glosário de Termos Git e GitHub
 
 árvore de objetos: é a estrutura de dados interna utilizada pelo Git para armazenar o histórico de alterações do repositório, onde cada nó representa um commit específico e suas relações com os commits anteriores e posteriores.
