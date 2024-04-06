@@ -1,0 +1,184 @@
+# Nome único para este fluxo de trabalho
+name: Validar PR na branch develop
+
+# Definição de quando o fluxo de trabalho deve ser executado
+on:
+  # O fluxo de trabalho será executado sempre que um evento ocorrer em uma pull request
+  pull_request:
+    # Os eventos são quando uma PR é aberta, ou quando um commit é enviado
+    # para uma branch que possui uma pull request existente
+    types: [opened, synchronize]
+    # O filtro de branches permite especificar que este fluxo de trabalho deve ser executado apenas se o nome da branch for "develop".
+    # Dessa forma, impedimos que esse fluxo de trabalho seja executado quando PRs são abertas em outras branches
+    branches: [develop]
+    # Nos importamos apenas com alterações no diretório force-app, que é o
+    # diretório raiz do projeto sfdx. Isso evita que o trabalho seja executado
+    # ao alterar arquivos não relacionados ao Salesforce (como este arquivo yml).
+    paths:
+      - 'force-app/**'
+
+# Jobs a serem executados quando as condições acima forem atendidas
+jobs:
+  # Este é o nome do job. Você pode dar o nome que desejar
+  validate-deployment-on-develop-org:
+    # Como mencionado no post do blog, este job é executado dentro de uma VM. Aqui nós
+    # podemos especificar em qual sistema operacional esta VM deve rodar.
+    # Neste caso, vamos rodar nossos comandos na versão mais recente
+    # do Ubuntu
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      # Agora, instalamos o nodejs na VM e especificamos a versão 14
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      # A ideia é que a VM possa acessar seu repositório remoto
+      # porque seu repositório é um projeto sfdx.
+      # Esta é uma ação padrão que nos permite entrar no diretório raiz
+      # do repositório
+
+      # Certifique-se de especificar fetch-depth:0. Isso nos permite
+      # acessar commits anteriores que foram enviados para o repositório.
+
+      # Vamos precisar disso depois quando tentarmos descobrir quais metadados foram
+      # alterados entre commits, para que possamos implantar apenas esses metadados
+      # para a organização de destino
+
+      - name: 'Checkout do código-fonte'
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      # Agora, precisamos de uma maneira de permitir que o desenvolvedor especifique quais testes devem ser executados, que
+      # podem ser todos os testes ou apenas os testes relevantes para a implantação deles.
+
+      # Para fazer isso, podemos pedir ao desenvolvedor que nomeie suas classes de teste no
+      # corpo da PR, usando a seguinte sintaxe
+
+      # Apex::[CommunitiesLoginControllerTest,MyProfilePageControllerTest]::Apex
+      # ou Apex::[all]::Apex para executar todos os testes
+
+      # Este delimitador especial pode ser adicionado ao modelo de PR para que sua
+      # equipe não precise lembrar da sintaxe.
+
+      # Assim que um desenvolvedor tiver especificado uma lista de classes para executar, precisamos ser capazes
+      # de extrair essa informação da PR e passá-la para a VM.
+
+      - name: 'Ler o corpo da PR'
+        env:
+          # O corpo da PR está disponível por meio do objeto de contexto do github
+          # colocamos o corpo da pull request em uma variável de ambiente (disponível apenas para esta etapa)
+          PR_BODY: ${{github.event.pull_request.body}}
+
+        # Aqui imprimimos o conteúdo da variável de ambiente e
+        # redirecionamos para um arquivo de texto.
+
+        # Em seguida, chamamos o script local parsePR.js, que criará
+        # um novo arquivo chamado testsToRun.txt. Este arquivo terá a lista
+        # de testes para executar separados por vírgula
+
+        # Finalmente, adicionamos a lista de testes à variável $GITHUB_ENV
+        # pois isso nos permite fazer referência à lista em uma etapa subsequente. Se você
+        # estivesse usando uma variável de ambiente normal, seu valor não estaria disponível fora desta etapa.
+        run: |
+          echo $PR_BODY > ./pr_body.txt
+          node ./parsePR.js
+          TESTS=$(cat testsToRun.txt)
+          echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
+          
+      # Agora, instalamos o Salesforce CLI
+      - name: 'Instalar o Salesforce CLI'
+        run: |
+          wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
+          mkdir ~/sfdx
+          tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
+          echo "$HOME/sfdx/bin" >> $GITHUB_PATH
+          ~/sfdx/bin/sfdx version
+
+      # Em seguida, instalamos o plugin SFDX-Git-Delta - https://github.com/scolladon/sfdx-git-delta
+      # Este é um plugin incrível que nos permite extrair um package.xml com os metadados
+      # que foram alterados entre commits. Recomendo muito ler o readme do github
+      # para mais informações sobre como isso funciona.
+
+      - name: 'Instalando o sfdx git delta'
+        run: | 
+          echo y | sfdx plugins:install sfdx-git-delta
+          sfdx plugins 
+
+      # Instalar java, pois é necessário para a próxima etapa
+      - name: 'Instalando o Java'
+        run: |
+          sudo apt-get update
+          sudo apt install default-jdk
+
+      # Instalar SFDX scanner
+      - name: 'Instalando o scanner SFDX'
+        run: sfdx plugins:install @salesforce/sfdx-scanner
+
+      # Antes de configurar este fluxo de trabalho, você precisa criar um Segredo do Github
+      # que contenha o URL do sfdx da organização de integração/qa.
+
+      # Os passos para gerar o URL estão aqui
+      # https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_auth_sfdxurl.htm
+
+      # Este URL pode então ser usado com o sfdx auth:sfdxurl:store para autenticar
+      # o projeto sfdx no repositório, contra a organização de onde o URL
+      # foi gerado. Isso funciona assim mesmo, não há necessidade de criar
+      # aplicativos conectados ou qualquer outra coisa.
+
+      # O URL é armazenado no Segredo do Github chamado SFDX_INTEGRATION_URL
+      # então aqui nós armazenamos o URL em um arquivo de texto
+      - name: 'Popular arquivo de autenticação com o URL secreto do SFDX da organização de integração'
+        shell: bash
+        run: |
+          echo ${{ secrets.SFDX_INTEGRATION_URL}} > ./SFDX_INTEGRATION_URL.txt
+
+      # Autenticar na organização usando o URL armazenado no arquivo de texto
+      - name: 'Autenticar na Org de Integração'
+        run: sfdx auth:sfdxurl:store -f ./SFDX_INTEGRATION_URL.txt -s -a integration
+
+      # Usamos o SFDX Git Delta para criar um diretório apenas com os metadados que mudaram.
+      # isso nos permite implantar apenas essas alterações, em vez de implantar toda a branch.
+      # Isso ajuda a reduzir o tempo de implantação
+      - name: 'Criar pacotes delta para metadados novos, modificados ou deletados'
+        run: | 
+          mkdir changed-sources
+          sfdx sgd:source:delta --to "HEAD" --from "HEAD^" --output changed-sources/ --generate-delta --source force-app/ 
+
+      # Agora podemos usar o scanner sfdx para escanear o código no diretório delta
+      # A saída do scan é armazenada em um arquivo chamado apexScanResults.sarif
+
+      # O arquivo .sarif pode ser enviado para o github posteriormente, para que possamos ver o
+      # resultado do scan diretamente da PR.
+
+      - name: 'Escaneamento de código'
+        run: |
+          cd changed-sources
+          sfdx scanner:run --format sarif --target './**/*.cls' --category "Design,Best Practices,Performance" --outfile 'apexScanResults.sarif'  
+          cd ..
+
+      # Agora fazemos o upload do arquivo .sarif como explicado na etapa anterior
+      - name: Upload arquivo SARIF
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: changed-sources/apexScanResults.sarif
+
+      # Fazemos uma implantação de verificação apenas e apenas executamos os testes especificados na PR
+      # Se a variável de ambiente não for igual a 'all', sabemos que há uma lista de
+      # testes que podem ser executados
+
+      - name: 'Implantação de verificação apenas de alterações delta - executar testes especificados'
+        if: ${{ env.APEX_TESTS != 'all' }}
+        run: |
+          echo ${{env.APEX_TESTS}}
+          sfdx force:source:deploy -p "changed-sources/force-app" --checkonly --testlevel RunSpecifiedTests --runtests ${{env.APEX_TESTS}} --json
+
+      # Se a variável de ambiente for igual a all, executamos todos os testes
+      - name: 'Implantação de verificação apenas de alterações delta - executar todos os testes'
+        if: ${{ env.APEX_TESTS == 'all' }}
+        run: |
+          sfdx force:source:deploy -p "changed-sources/force-app" --checkonly --testlevel RunLocalTests  --json
+
+      - name: 'Implantar alterações destrutivas (se houver)'
+        run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings
