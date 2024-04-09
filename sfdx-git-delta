@@ -1,0 +1,55 @@
+sfdx sgd:source:delta --to MergeToOSF --from develop --output .
+
+
+Instalar sfdx git delta
+sfdx plugins:install sfdx-git-delta
+
+
+tenho a possibilidade de ver a diferença de uma branch para a outra e gerar 1 package.
+mkdir changed-sources (para criar na main)
+sfdx sgd:source:delta --to OSF --from develop --output changed-sources/ --generate-delta --source force-app/
+
+mkdir manifest/changed-sources (para criar dentro da pasta manifest por exemplo)
+sfdx sgd:source:delta --to OSF --from develop --output manifeste/changed-sources/ --generate-delta --source force-app/
+
+tenho a possibilidade de ver a diferença de um commit para o outro e gerar 1 package.
+sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output changed-sources/ --generate-delta
+
+
+
+3 Orgs
+OSF
+UAT
+PROD
+
+3 Branchs
+OSF
+UAT
+develop (main)
+
+=================================================================
+Feature Branchs - Flow
+
+Toda alteração em OSF vai ser feita atravez de uma Feature branch, criada a partir da develop (main) branch.
+Apos finalizar as alterações, fazer os commit na feature branch e fazer o push da branch nova para o gitHub.
+Criar um P.R da Feature branch para OSF org.
+
+OSF = OSF org (abrir o P.R da Feature Branch --> OSF branch)
+- Sempre que um P.R for aberto para a OSF branch, validar as alterações em OSF org (Rodar somente os testes do P.R)
+- Sempre que um P.R for aprovado (merge) para OSF branch, fazer o deploy (quick deploy - usar a validação) das alterações para OSF org.
+
+testar alterações em OSF.
+
+
+UAT = UAT org (abrir o P.R da Feature Branch --> UAT branch)
+- Sempre que um P.R for aberto para a UAT branch, validar as alterações em UAT org (Rodar somente os testes do P.R)
+- Sempre que um P.R for aprovado (merge) para UAT branch, fazer o deploy (quick deploy - usar a validação) das alterações para UAT org. - Rodar todos testes da ORG
+
+
+develop = PROD org (abrir o P.R da Feature Branch --> develop branch)
+- Sempre que um P.R for aberto para a develop branch, validar as alterações em PROD (Rodar somente os testes do P.R)
+- Sempre que um P.R for aprovado (merge) para develop branch, fazer o deploy das alterações para PROD org. - Rodar todos testes da ORG
+
+==================================================================
+
+
