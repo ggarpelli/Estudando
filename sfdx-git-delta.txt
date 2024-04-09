@@ -6,8 +6,10 @@ sfdx plugins:install sfdx-git-delta
 
 
 tenho a possibilidade de ver a diferença de uma branch para a outra e gerar 1 package.
-mkdir changed-sources (para criar na main)
+mkdir changed-sources (para criar uma pasta na main para armazenar os arquivos que serão gerados)
+sfdx sgd:source:delta --to OSF --from develop --output changed-sources/ --generate-delta na main)
 sfdx sgd:source:delta --to OSF --from develop --output changed-sources/ --generate-delta --source force-app/
+rm -rf changed-sources (para remover da main)
 
 mkdir manifest/changed-sources (para criar dentro da pasta manifest por exemplo)
 sfdx sgd:source:delta --to OSF --from develop --output manifeste/changed-sources/ --generate-delta --source force-app/
