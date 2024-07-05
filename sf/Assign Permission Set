@@ -1,0 +1,33 @@
+USAGE
+  $ sf force user permset assign -n <value> -u <value> [--json] [-o <value>] [--api-version <value>]
+
+FLAGS
+  -n, --perm-set-name=<value>...  (required) Permission set to assign.
+  -o, --on-behalf-of=<value>...   Username or alias to assign the permission set to.
+  -u, --target-org=<value>        (required) [default: ggarpelli@harpiacloud.com] Scratch org alias or login user.
+  --api-version=<value>           Override the api version used for api requests made by this command
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Assign a permission set to one or more users of a scratch org.
+
+  To specify an alias for the --target-org or --on-behalf-of flags, use the CLI username alias, such as the one you set with the "alias set" command. Don't use the value of the Alias field of the    
+  User Salesforce object for the org user.
+
+  To assign multiple permission sets, either set multiple --perm-set-name flags or a single --perm-set-name flag with multiple names separated by spaces. Enclose names that contain spaces in one set 
+  of double quotes. The same syntax applies to --on-behalf-of.
+
+EXAMPLES
+  Assign two permission sets called DreamHouse and CloudHouse to original admin user of your default scratch org:
+
+    $ sf force user permset assign --perm-set-name DreamHouse --perm-set-name CloudHouse
+
+  Assign the Dreamhouse permission set to the original admin user of the scratch org with alias "my-scratch":
+
+    $ sf force user permset assign --perm-set-name DreamHouse --target-org my-scratch
+
+  Assign the Dreamhouse permission set to the specified list of users of your default scratch org:
+
+    $ sf force user permset assign --perm-set-name DreamHouse --on-behalf-of user1@my.org --on-behalf-of user2 --on-behalf-of user
