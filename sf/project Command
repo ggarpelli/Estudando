@@ -1,0 +1,14 @@
+USAGE
+  $ sf project COMMAND
+
+TOPICS
+  project convert   Commands to convert metadata from one format to another.
+  project delete    Commands to delete metadata from a Salesforce org.
+  project deploy    Commands to deploy metadata to a Salesforce org.
+  project generate  Commands to create a manifest file.
+  project list      Commands to list metadata in a Salesforce project.
+  project reset     Commands to reset the source tracking state.
+  project retrieve  Commands to retrieve metadata from a Salesforce org
+
+COMMANDS
+  project generate  Generate a Salesforce DX project.
