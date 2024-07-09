@@ -1,0 +1,22 @@
+how to create a new sandbox:
+sf org create sandbox --name mysandbox --license-type Developer --alias MyDevSandbox --target-org prodOrg --set-default
+
+how to clone a sandbox:
+sf org create sandbox --name mysandbox --license-type Developer --alias MyClonedDevSandbox --target-org prodOrg --clone MyDevSandbox
+
+how to create a ScratchOrg:
+sf org create scratch --target-dev-hub MyHub --definition-file config/project-scratch-def.json --set-default --duration-days 3
+
+check sforce.co/org-shapes to know more about scratch org-shapes.
+
+generate a package for all metadata in our org:
+sf project generate manifest --from-org myOrgAlias
+
+retrieve all metadata from an org, from a package.xml:
+sf project retrieve start --manifest package.xml
+
+how to setup only users for a new sandbox:
+sforce.co/prepare-sandbox
+
+how to setup permission set to the logged user:
+sf force user permset assign --perm-set-name PermissionSetName --perm-set-name PermissionSetName2
