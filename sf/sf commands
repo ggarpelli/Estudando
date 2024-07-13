@@ -1,3 +1,20 @@
+Awesome SFDX Plugins: https://github.com/mshanemc/awesome-sfdx-plugins?tab=readme-ov-file
+
+how to login an org:
+sf org login web --alias MyOrgAlias --set-default --set-default-dev-hub
+
+to check all orgs authenticated:
+sf org list
+
+how to switch between orgs on vs code:
+sf config set target-org=MyOrgAlias
+
+how to create a new project
+sf generate project --name my_sf_project
+
+how to open an org in a browser
+sf env open -e OrgAlias
+
 how to create a new sandbox:
 sf org create sandbox --name mysandbox --license-type Developer --alias MyDevSandbox --target-org prodOrg --set-default
 
@@ -8,15 +25,38 @@ how to create a ScratchOrg:
 sf org create scratch --target-dev-hub MyHub --definition-file config/project-scratch-def.json --set-default --duration-days 3
 
 check sforce.co/org-shapes to know more about scratch org-shapes.
+https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_shape_scratch_def.htm
 
 generate a package for all metadata in our org:
 sf project generate manifest --from-org myOrgAlias
 
+to check changes by source-tracking orgs:
+sf project retrieve preview
+
 retrieve all metadata from an org, from a package.xml:
 sf project retrieve start --manifest package.xml
+
+retrieve specific metadata from an org:
+sf project retrieve start --metadata flexipage:FlexiPageApiName
 
 how to setup only users for a new sandbox:
 sforce.co/prepare-sandbox
 
 how to setup permission set to the logged user:
 sf force user permset assign --perm-set-name PermissionSetName --perm-set-name PermissionSetName2
+
+how to install package (App Exchange) in your Scratch org:
+sf package install --package 04t3g000000cCaHAAU --target-org MyOrgAlias
+
+list of metadata not supported on MDAPI (for sandboxes it comes automatically, but for Scratch orgs you need to do it manually or use some tool to automate it)
+sforce.co/unsupported-metadata-types
+Tools like: Selenium or Puppeteer (tools to write scripts to execute configurations steps automatically)
+
+Easily switch integration and points between production and dev environments 
+- To replace strings in your metadata before deployment via CLI (custom metadata and named credentials) you can write custom scripts and automate this entire process (sforce.co/replace-strings-in-metadata) 
+
+tool to populate mock data in scratch ors or sandboxes
+sf data upsert bulk --sobject Contact --file files/contacts.csv --external-id Id
+- Snowfakery (sforce.co/snowfakery)
+- SFDMU (help.sfdmu.com/get-started / sforce.co/sfdmu)
+- texei (https://texei.com/en/advices/easily-load-data-into-your-scratch-org-or-sandbox-part-1/)
