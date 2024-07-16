@@ -9,11 +9,26 @@ sf org list
 how to switch between orgs on vs code:
 sf config set target-org=MyOrgAlias
 
+how to setup an alias for an org
+sf alias set MyScratchOrg=test-gixs9bvtwceq@example.com (Alias=username)
+
 how to create a new project
 sf generate project --name my_sf_project
 
 how to open an org in a browser
 sf env open -e OrgAlias
+
+how to see all information about org:
+sf org display --target-org test-gixs9bvtwceq@example.com (Alias or Username)
+
+how to query via Salesforce CLI:
+sf data query --query "SELECT Id, Name FROM Account"
+
+how to query via Salesforce CLI and export to excel file called account.csv
+sf data query --query "SELECT Id, Name FROM Account" --result-format csv > accounts.csv
+
+how to check metadata dependecies via query:
+sf data query --query "SELECT MetadataComponentName, RefMetadataComponentName, RefMetadataComponentType FROM MetadataComponentDependency WHERE MetadataComponentId = 'Id do componente'" --use-tooling-api
 
 how to create a new sandbox:
 sf org create sandbox --name mysandbox --license-type Developer --alias MyDevSandbox --target-org prodOrg --set-default
