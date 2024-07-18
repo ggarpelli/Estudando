@@ -10,7 +10,7 @@ how to switch between orgs on vs code:
 sf config set target-org=MyOrgAlias
 
 how to setup an alias for an org
-sf alias set MyScratchOrg=test-gixs9bvtwceq@example.com (Alias=username)
+sf alias set OrgAlias=test-gixs9bvtwceq@example.com (Alias=username)
 
 how to create a new project
 sf generate project --name my_sf_project
@@ -20,6 +20,8 @@ sf env open -e OrgAlias
 
 how to see all information about org:
 sf org display --target-org test-gixs9bvtwceq@example.com (Alias or Username)
+sf org display --verbose --json -o MyOrgAlias
+sf org display -o MyOrgAlias --verbose --json >authfile.json (>authfile.json vai criar um arquivo chamado authfile)
 
 how to query via Salesforce CLI:
 sf data query --query "SELECT Id, Name FROM Account"
