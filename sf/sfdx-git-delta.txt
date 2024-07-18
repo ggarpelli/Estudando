@@ -1,4 +1,4 @@
-sfdx sgd:source:delta --to MergeToOSF --from develop --output .
+sfdx sgd:source:delta --to MergeToDev --from develop --output .
 
 
 Instalar sfdx git delta
@@ -7,12 +7,12 @@ sfdx plugins:install sfdx-git-delta
 
 tenho a possibilidade de ver a diferença de uma branch para a outra e gerar 1 package.
 mkdir changed-sources (para criar uma pasta na main para armazenar os arquivos que serão gerados)
-sfdx sgd:source:delta --to OSF --from develop --output changed-sources/ --generate-delta na main)
-sfdx sgd:source:delta --to OSF --from develop --output changed-sources/ --generate-delta --source force-app/
+sfdx sgd:source:delta --to Dev --from develop --output changed-sources/ --generate-delta na main)
+sfdx sgd:source:delta --to Dev --from develop --output changed-sources/ --generate-delta --source force-app/
 rm -rf changed-sources (para remover da main)
 
 mkdir manifest/changed-sources (para criar dentro da pasta manifest por exemplo)
-sfdx sgd:source:delta --to OSF --from develop --output manifeste/changed-sources/ --generate-delta --source force-app/
+sfdx sgd:source:delta --to Dev --from develop --output manifeste/changed-sources/ --generate-delta --source force-app/
 
 tenho a possibilidade de ver a diferença de um commit para o outro e gerar 1 package.
 sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output changed-sources/ --generate-delta
@@ -20,27 +20,27 @@ sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output changed-sources/ --ge
 
 
 3 Orgs
-OSF
+Dev
 UAT
 PROD
 
 3 Branchs
-OSF
+Dev
 UAT
 develop (main)
 
 =================================================================
 Feature Branchs - Flow
 
-Toda alteração em OSF vai ser feita atravez de uma Feature branch, criada a partir da develop (main) branch.
+Toda alteração em Dev vai ser feita atravez de uma Feature branch, criada a partir da develop (main) branch.
 Apos finalizar as alterações, fazer os commit na feature branch e fazer o push da branch nova para o gitHub.
-Criar um P.R da Feature branch para OSF org.
+Criar um P.R da Feature branch para Dev org.
 
-OSF = OSF org (abrir o P.R da Feature Branch --> OSF branch)
-- Sempre que um P.R for aberto para a OSF branch, validar as alterações em OSF org (Rodar somente os testes do P.R)
-- Sempre que um P.R for aprovado (merge) para OSF branch, fazer o deploy (quick deploy - usar a validação) das alterações para OSF org.
+Dev = Dev org (abrir o P.R da Feature Branch --> Dev branch)
+- Sempre que um P.R for aberto para a Dev branch, validar as alterações em Dev org (Rodar somente os testes do P.R)
+- Sempre que um P.R for aprovado (merge) para Dev branch, fazer o deploy (quick deploy - usar a validação) das alterações para Dev org.
 
-testar alterações em OSF.
+testar alterações em Dev.
 
 
 UAT = UAT org (abrir o P.R da Feature Branch --> UAT branch)
