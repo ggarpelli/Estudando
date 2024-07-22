@@ -112,6 +112,7 @@ check-in de código: adicionar ou fazer upload de alterações no código para o
 check-out de código: baixar ou pegar uma cópia de um código existente de um repositório para trabalhar localmente. Isso pode incluir mudar para um branch específico ou verificar uma versão específica do código.
 
 cherry-pick: aplicar uma ou mais alterações de um commit específico em outro branch.
+git cherry-pick --no-commit  8f964db3 9e8ccd9 (para pegar os arquivos, mas nao fazer o commit direto)
 
 classe: é um modelo para criar objetos (instâncias) que possuem atributos e comportamentos específicos, compartilhando a mesma estrutura e dados.
 
