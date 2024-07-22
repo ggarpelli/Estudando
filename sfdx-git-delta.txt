@@ -16,6 +16,7 @@ sfdx sgd:source:delta --to Dev --from develop --output manifeste/changed-sources
 
 tenho a possibilidade de ver a diferença de um commit para o outro e gerar 1 package.
 sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output changed-sources/ --generate-delta
+sfdx sgd:source:delta --to a34ce984 --from e27d1024 --output manifest/changed-sources/ --generate-delta --source force-app/
 
 
 
