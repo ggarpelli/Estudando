@@ -1,7 +1,10 @@
 Awesome SFDX Plugins: https://github.com/mshanemc/awesome-sfdx-plugins?tab=readme-ov-file
 
-how to login an org:
+how to login an org using browser:
 sf org login web --alias MyOrgAlias --set-default --set-default-dev-hub
+
+how to login using sfdx auth file
+sf org login sfdx-url --sfdx-url-file authfiles/Devauthfile.json
 
 to check all orgs authenticated:
 sf org list
@@ -42,7 +45,7 @@ how to create a ScratchOrg:
 sf org create scratch --target-dev-hub MyHub --definition-file config/project-scratch-def.json --set-default --duration-days 3 -a <Alias>
 
 how to delete a scratch org
-sf org delete scratch --target-org <alias>
+sf org delete scratch --target-org <alias> --no-prompt (para não precisar confirmar a deleção)
 
 check sforce.co/org-shapes to know more about scratch org-shapes.
 https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_shape_scratch_def.htm
