@@ -39,7 +39,10 @@ how to clone a sandbox:
 sf org create sandbox --name mysandbox --license-type Developer --alias MyClonedDevSandbox --target-org prodOrg --clone MyDevSandbox
 
 how to create a ScratchOrg:
-sf org create scratch --target-dev-hub MyHub --definition-file config/project-scratch-def.json --set-default --duration-days 3
+sf org create scratch --target-dev-hub MyHub --definition-file config/project-scratch-def.json --set-default --duration-days 3 -a <Alias>
+
+how to delete a scratch org
+sf org delete scratch --target-org <alias>
 
 check sforce.co/org-shapes to know more about scratch org-shapes.
 https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_shape_scratch_def.htm
