@@ -93,6 +93,13 @@ git branch -r -Mostra todas branches remotas que estão atualmente no seu reposi
 git push <nome_do_repositório_remoto> --delete <nome_da_branch_remota> - Para excluir uma branch remota específica
 git fetch --prune - Isso removerá qualquer referência a branches remotas que foram excluídas do repositório remoto.
 
+#Para fazer checkout de um arquivo específico de um branch específico
+git checkout <nome_do_branch> -- <caminho_do_arquivo>
+Exemplo: git checkout develop -- .github/workflows/push-develop-branch.yml
+Para fazer checkout de vários arquivos de um branch específico, basta adicionar os caminhos dos arquivos separados por espaço:
+git checkout <nome_do_branch> -- <caminho_do_arquivo1> <caminho_do_arquivo2> <caminho_do_arquivo3>
+Exemplo: git checkout develop -- .github/workflows/push-develop-branch.yml -- text.txt
+
 Glosário de Termos Git e GitHub
 
 árvore de objetos: é a estrutura de dados interna utilizada pelo Git para armazenar o histórico de alterações do repositório, onde cada nó representa um commit específico e suas relações com os commits anteriores e posteriores.
