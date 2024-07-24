@@ -17,7 +17,59 @@ sfdx sgd:source:delta --to Dev --from develop --output manifeste/changed-sources
 tenho a possibilidade de ver a diferença de um commit para o outro e gerar 1 package.
 sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output changed-sources/ --generate-delta
 
+==================================================================
 
+Explicação dos Comandos
+Primeiro Comando:
+
+sfdx sgd:source:delta --to "Feature2" --from "develop" --output changed-sources/ --generate-delta --source force-app/
+--to "Feature2": Branch de destino (Feature2).
+--from "develop": Branch de origem (develop).
+Gera o delta das mudanças que estão em develop e que não estão em Feature2.
+
+Segundo Comando:
+sfdx sgd:source:delta --to "develop" --from "Feature2" --output changed-sources/ --generate-delta --source force-app/
+--to "develop": Branch de destino (develop).
+--from "Feature2": Branch de origem (Feature2).
+Gera o delta das mudanças que estão em Feature2 e que não estão em develop.
+
+Impacto no Resultado
+Primeiro Comando (--to "Feature2" e --from "develop"):
+Compara as mudanças que foram introduzidas na branch develop em relação à branch Feature2.
+Mostra o que foi adicionado, modificado ou removido em develop que não está presente em Feature2.
+
+Segundo Comando (--to "develop" e --from "Feature2"):
+Compara as mudanças que foram introduzidas na branch Feature2 em relação à branch develop.
+Mostra o que foi adicionado, modificado ou removido em Feature2 que não está presente em develop.
+
+Exemplo Prático
+Considere que as branches têm as seguintes mudanças:
+
+Branch develop:
+Commit A
+Commit B
+
+Branch Feature2:
+Commit A
+Commit C
+
+Primeiro Comando:
+Delta gerado mostrará as mudanças de Commit B (em develop), pois Commit B está em develop mas não está em Feature2.
+
+Segundo Comando:
+Delta gerado mostrará as mudanças de Commit C (em Feature2), pois Commit C está em Feature2 mas não está em develop.
+
+Conclusão
+Os comandos são diferentes porque invertem as referências das branches de origem e destino. A direção da comparação (--from e --to) é crucial para determinar quais mudanças são capturadas no delta.
+
+Para obter resultados consistentes, decida qual direção de comparação é relevante para o seu caso de uso:
+
+Se você quer ver o que foi adicionado em develop em relação a Feature2, use:
+sfdx sgd:source:delta --to "Feature2" --from "develop" --output changed-sources/ --generate-delta --source force-app/
+
+
+Se você quer ver o que foi adicionado em Feature2 em relação a develop, use:
+sfdx sgd:source:delta --to "develop" --from "Feature2" --output changed-sources/ --generate-delta --source force-app/
 
 3 Orgs
 Dev
@@ -51,7 +103,4 @@ UAT = UAT org (abrir o P.R da Feature Branch --> UAT branch)
 develop = PROD org (abrir o P.R da Feature Branch --> develop branch)
 - Sempre que um P.R for aberto para a develop branch, validar as alterações em PROD (Rodar somente os testes do P.R)
 - Sempre que um P.R for aprovado (merge) para develop branch, fazer o deploy das alterações para PROD org. - Rodar todos testes da ORG
-
-==================================================================
-
 
