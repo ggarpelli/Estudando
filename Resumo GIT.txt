@@ -98,7 +98,7 @@ git checkout <nome_do_branch> -- <caminho_do_arquivo>
 Exemplo: git checkout develop -- .github/workflows/push-develop-branch.yml
 Para fazer checkout de vários arquivos de um branch específico, basta adicionar os caminhos dos arquivos separados por espaço:
 git checkout <nome_do_branch> -- <caminho_do_arquivo1> <caminho_do_arquivo2> <caminho_do_arquivo3>
-Exemplo: git checkout develop -- .github/workflows/push-develop-branch.yml -- text.txt
+Exemplo: git checkout develop -- .github/workflows/push-develop-branch.yml text.txt
 
 Glosário de Termos Git e GitHub
 
