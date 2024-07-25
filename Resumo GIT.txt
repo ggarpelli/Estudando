@@ -92,6 +92,7 @@ git push --force origin main, caso tente usar git push origin mainnão vai dar p
 git branch -r -Mostra todas branches remotas que estão atualmente no seu repositório.
 git push <nome_do_repositório_remoto> --delete <nome_da_branch_remota> - Para excluir uma branch remota específica
 git fetch --prune - Isso removerá qualquer referência a branches remotas que foram excluídas do repositório remoto.
+git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D - Para excluir todas as branches locais que não existem mais no repositório remoto.
 
 #Para fazer checkout de um arquivo específico de um branch específico
 git checkout <nome_do_branch> -- <caminho_do_arquivo>
