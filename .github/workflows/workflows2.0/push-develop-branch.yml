@@ -1,0 +1,106 @@
+name: "Deploy Develop"
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'force-app/**'
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  deployment-on-develop-org:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.15.1'
+
+      - name: 'Checkout source code'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 'Download tests to run'
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workflow: pr-develop-branch.yml
+          name: tests_to_run
+          path: .
+          
+      - name: 'Read tests to run'
+        run: |
+          TESTS=$(cat tests_to_run.txt)
+          echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
+          
+      - name: 'Install Salesforce CLI'
+        run: |
+          wget https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.xz
+          mkdir -p ~/cli/sf
+          tar xJf sf-linux-x64.tar.xz -C ~/cli/sf --strip-components 1
+          echo "$HOME/cli/sf/bin" >> $GITHUB_PATH
+          ~/cli/sf/bin/sf version
+
+      - name: 'Installing sfdx git delta'
+        run: | 
+          echo y | sfdx plugins:install sfdx-git-delta
+          sfdx plugins 
+
+      - name: 'Installing java'
+        run: |
+          sudo apt-get update
+          sudo apt install openjdk-11-jdk
+
+      - name: 'Populate auth file with SFDX_URL secret of Dev org'
+        shell: bash
+        run: |
+          echo ${{ secrets.SFDX_DEV_URL}} > ./SFDX_DEV_URL.txt
+
+      - name: 'Authenticate to Dev Org'
+        run: sfdx auth:sfdxurl:store -f ./SFDX_DEV_URL.txt -s -a Dev
+
+      - name: 'Create delta packages for new, modified or deleted metadata'
+        run: | 
+          mkdir changed-sources
+          sfdx sgd:source:delta --to "HEAD" --from "HEAD~1" --output changed-sources/ --generate-delta
+
+      - name: 'Upload metadata artifact'
+        uses: actions/upload-artifact@v4
+        with:
+          name: metadata
+          path: changed-sources
+
+      - name: Installing SFDX scanner
+        run: sfdx plugins:install @salesforce/sfdx-scanner
+
+      - name: 'Scan code'
+        run: |
+          cd changed-sources
+          sfdx scanner:run --format sarif --target './**/*.cls' --category "Design,Best Practices,Performance,Code Style,Security" --outfile 'apexScanResults2.sarif'  
+          cd ..
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: changed-sources/apexScanResults2.sarif
+          token: ${{ secrets.GITHUB_TOKEN }}
+          wait-for-processing: true
+
+      - name: 'Check-only deploy delta changes - run specified tests'
+        if: ${{ env.APEX_TESTS != 'all' }}
+        run: |
+          echo ${{env.APEX_TESTS}}
+          sfdx force:source:deploy -p "changed-sources/force-app" --testlevel RunSpecifiedTests --runtests ${{env.APEX_TESTS}} --json
+
+      - name: 'Check-only deploy delta changes - run all tests'
+        if: ${{ env.APEX_TESTS == 'all' }}
+        run: |
+          sfdx force:source:deploy -p "changed-sources/force-app" --testlevel RunLocalTests --json
+
+      - name: 'Deploy destructive changes (if any)'
+        run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --ignorewarnings

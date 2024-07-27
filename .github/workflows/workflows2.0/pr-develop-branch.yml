@@ -1,0 +1,122 @@
+name: "Validate PR Dev"
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - develop
+    paths:
+      - 'force-app/**'
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  validate-deployment-on-develop-org:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.15.1'
+
+      - name: 'Checkout source code'
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: 'Read PR Body'
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          echo $PR_BODY > ./pr_body.txt
+          node ./parsePR.js              
+          TESTS=$(cat testsToRun.txt)       
+          echo "APEX_TESTS=$TESTS" >> $GITHUB_ENV
+
+      - name: 'Store tests to run'
+        run: |
+          echo ${{ env.APEX_TESTS }} > tests_to_run.txt
+        if: success()
+
+      - name: 'Upload tests to run'  
+        uses: actions/upload-artifact@v4
+        with:
+          name: tests_to_run
+          path: tests_to_run.txt
+          
+      - name: 'Install Salesforce CLI'
+        run: |
+          wget https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.xz
+          mkdir -p ~/cli/sf
+          tar xJf sf-linux-x64.tar.xz -C ~/cli/sf --strip-components 1
+          echo "$HOME/cli/sf/bin" >> $GITHUB_PATH
+          ~/cli/sf/bin/sf version
+
+      - name: 'Installing sfdx git delta'
+        run: | 
+          echo y | sf plugins install sfdx-git-delta
+          sf plugins 
+
+      - name: 'Installing java'
+        run: |
+          sudo apt-get update
+          sudo apt install openjdk-11-jdk
+
+      - name: 'Populate auth file with SFDX_URL secret of Dev org'
+        shell: bash
+        run: |
+          echo ${{ secrets.SFDX_DEV_URL}} > ./SFDX_DEV_URL.txt
+
+      - name: 'Authenticate to Dev Org'
+        run: sf org login sfdx-url -f ./SFDX_DEV_URL.txt --set-default --alias Dev
+
+      - name: 'Create delta packages for new, modified or deleted metadata'
+        run: | 
+          mkdir changed-sources
+          BRANCH_ORIGEM=$(git rev-parse --abbrev-ref HEAD)
+          BRANCH_DESTINO=${{ github.base_ref }}
+          git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+          BRANCH_DESTINO_SHA=$(git rev-parse origin/"$BRANCH_DESTINO")
+          echo "Branch de origem: $BRANCH_ORIGEM"
+          echo "Branch de destino: $BRANCH_DESTINO"
+          echo "SHA da branch de destino: $BRANCH_DESTINO_SHA"
+          sfdx sgd:source:delta --to "$BRANCH_ORIGEM" --from "$BRANCH_DESTINO_SHA" --output changed-sources/ --generate-delta --source force-app/ 
+
+      - name: 'Upload metadata artifact'
+        uses: actions/upload-artifact@v4
+        with:
+          name: metadata
+          path: changed-sources
+
+      - name: Installing SFDX scanner
+        run: sf plugins install @salesforce/sfdx-scanner
+          
+      - name: 'Scan code'
+        run: |
+          cd changed-sources/
+          sf scanner run --format sarif --target './**/*.cls' './**/*.js' './**/*.trigger' --category "Design,Best Practices,Error Prone,Performance,Documentation,Code Style,Security" --outfile 'apexScanResults.sarif'
+          cd ..
+
+      - name: 'Upload SARIF file'
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: changed-sources/apexScanResults.sarif
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 'Validate Deployment to Org - run specified tests'
+        if: ${{ env.APEX_TESTS != 'all' }}
+        run: |
+          echo ${{env.APEX_TESTS}}
+          sf project deploy validate --source-dir "changed-sources/force-app" --test-level RunSpecifiedTests --tests ${{env.APEX_TESTS}} --json
+
+      - name: 'Validate Deployment to Org - run all tests'
+        if: ${{ env.APEX_TESTS == 'all' }}
+        run: |
+          sf project deploy validate --source-dir "changed-sources/force-app" --test-level RunLocalTests --json
+
+      - name: 'Deploy destructive changes (if any)'
+        run: sf project deploy validate --metadata-dir "changed-sources/destructiveChanges" --ignore-warnings --json
