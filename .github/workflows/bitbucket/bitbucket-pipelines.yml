@@ -1,0 +1,158 @@
+image: cloudgaia/sfdx-delta-cli:latest_v1
+clone:
+  depth: full
+definitions:
+  steps:
+    - step: &DeployDelta
+        name: Delta Deployment
+        deployment: develop
+        script: 
+          - echo "Delta Deployment between $FROM_BRANCH branch and $TO_BRANCH branch to the $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+          # Authorize target org
+          - echo $AUTH_URL >> authurl
+          - sf org login sfdx-url -f ./authurl -s --alias ORG
+          # Obtain Delta
+          - echo "$FROM_BRANCH"
+          - echo "$TO_BRANCH"
+          - sfdx sgd:source:delta --to origin/$FROM_BRANCH --from origin/$TO_BRANCH --output .
+          # Deploying added and modified metadata
+          - cat package/package.xml
+          - sf project deploy start --manifest package/package.xml --wait 10 --test-level $TESTLEVEL --verbose
+    - step: &DeployDeltaCheckOnly
+        name: Delta Deployment Check Only
+        deployment: develop
+        script: 
+          - echo "Delta Deployment between $FROM_BRANCH branch and $TO_BRANCH branch to the $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+          # Authorize target org
+          - echo $AUTH_URL >> authurl
+          - sf org login sfdx-url -f ./authurl -s --alias ORG
+          # Obtain Delta
+          - echo "$FROM_BRANCH"
+          - echo "$TO_BRANCH"
+          - sfdx sgd:source:delta --to origin/$FROM_BRANCH --from origin/$TO_BRANCH --output .
+          # Deploying added and modified metadata
+          - cat package/package.xml
+          - sf project deploy validate --manifest package/package.xml --wait 10 --test-level $TESTLEVEL --verbose
+    - step: &DeployFull
+        name: Full Deployment
+        deployment: develop
+        script:
+          - echo "Full Deployment Source from force-app folder to $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+          # Authorize target org
+          - echo $AUTH_URL >> authurl
+          - sf org login sfdx-url -f ./authurl -s --alias ORG
+          # Deploying full source metadata
+          - sf project deploy start --manifest package/package.xml --wait 10 --test-level $TESTLEVEL --verbose
+    - step: &DeployFullCheckOnly
+        name: Full Deployment Check Only
+        deployment: develop
+        script:
+          - echo "Full Deployment Source from force-app folder to $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+          # Authorize target org
+          - echo $AUTH_URL >> authurl
+          - sf org login sfdx-url -f ./authurl -s --alias ORG
+          # Deploying full source metadata
+          - sf project deploy validate --manifest package/package.xml --wait 10 --test-level $TESTLEVEL --verbose
+    - step: &DeployDeltaWithPreDestructiveChanges
+        name: Delta Deployment With Pre Destructive Changes
+        deployment: develop
+        script: 
+          - echo "Delta Deployment With Pre Destructive Changes between $FROM_BRANCH branch and $TO_BRANCH branch to the $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+          # Authorize target org
+          - echo $AUTH_URL >> authurl
+          - sf org login sfdx-url -f ./authurl -s --alias ORG
+          # Obtain Delta
+          - echo "$FROM_BRANCH"
+          - echo "$TO_BRANCH"
+          - sfdx sgd:source:delta --to origin/$FROM_BRANCH --from origin/$TO_BRANCH --output .
+          # Deleting removed metadata
+          - cat destructiveChanges/destructiveChanges.xml
+          - sf project deploy start --manifest destructiveChanges/package.xml --predestructivechanges destructiveChanges/destructiveChanges.xml --ignorewarnings
+          # Deploying added and modified metadata
+          - cat package/package.xml
+          - sf project deploy start --manifest package/package.xml --wait 10 --test-level $TESTLEVEL --verbose
+    - step: &DeployDeltaWithPostDestructiveChanges
+        name: Delta Deployment With Post Destructive Changes
+        deployment: develop
+        script: 
+          - echo "Delta Deployment With Post Destructive Changes between $FROM_BRANCH branch and $TO_BRANCH branch to the $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+          # Authorize target org
+          - echo $AUTH_URL >> authurl
+          - sf org login sfdx-url -f ./authurl -s --alias ORG
+          # Obtain Delta
+          - echo "$FROM_BRANCH"
+          - echo "$TO_BRANCH"
+          - sfdx sgd:source:delta --to origin/$FROM_BRANCH --from origin/$TO_BRANCH --output .
+          # Deploying added and modified metadata
+          - cat package/package.xml
+          - sf project deploy start --manifest package/package.xml --wait 10 --test-level $TESTLEVEL --verbose
+          # Deleting removed metadata
+          - cat destructiveChanges/destructiveChanges.xml
+          - sf project deploy start --manifest destructiveChanges/package.xml --postdestructivechanges destructiveChanges/destructiveChanges.xml --ignorewarnings    
+    - step: &BuildToDev
+        name: CI Build to develop
+        deployment: develop
+        script:
+          - echo "CI Check Only Delta Deployment for Open Pull Request between feature branch $BITBUCKET_BRANCH and dev"
+          - echo "to deploy to the $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+          # Authorize target org
+          - echo $AUTH_URL >> authurl
+          - sf org login sfdx-url -f ./authurl -s --alias ORG
+          # Create directory for changed sources
+          - mkdir -p changed-sources
+          # Obtain Delta and create Package
+          - echo "$BITBUCKET_BRANCH"
+          - echo "$BITBUCKET_PR_DESTINATION_BRANCH"
+          - sfdx sgd:source:delta --to $BITBUCKET_BRANCH --from origin/$BITBUCKET_PR_DESTINATION_BRANCH --output changed-sources/ --generate-delta --source force-app/
+          # Deploying added and modified metadata
+          - cat changed-sources/package/package.xml
+          - sf project deploy validate --manifest changed-sources/package/package.xml --wait 60 --test-level $TESTLEVEL --verbose
+          # Updating package artifact
+        artifacts:
+          - changed-sources/**
+pipelines:
+  custom:
+    delta-deploy-to-Dev:
+      - variables:
+        - name: FROM_BRANCH
+        - name: TO_BRANCH
+      - step:
+          <<: *DeployDelta
+          deployment: develop
+    delta-deploy-to-Dev-checkonly:
+      - variables:
+        - name: FROM_BRANCH
+        - name: TO_BRANCH
+      - step:
+          <<: *DeployDeltaCheckOnly
+          deployment: develop
+    full-deploy-to-Dev:
+      - step:
+          <<: *DeployFull
+          deployment: develop
+    full-deploy-to-Dev-checkonly:
+      - step:
+          <<: *DeployFullCheckOnly
+          deployment: develop
+  branches:
+    develop:
+      - step:
+          name: CI Delta Deploy to develop
+          deployment: develop
+          script:
+            - echo "CI Delta Deployment for changes pushed to Dev branch between $BITBUCKET_BRANCH branch and previous commit"
+            - echo "to deploy to the $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+            # Authorize target org
+            - echo $AUTH_URL >> authurl
+            - sf org login sfdx-url -f ./authurl -s --alias ORG
+            # Obtain Delta
+            - echo "$BITBUCKET_BRANCH"
+            - sfdx sgd:source:delta --from HEAD^ --to HEAD --output .
+            # Deploying added and modified metadata
+            - cat package/package.xml
+            - sf project deploy start --manifest package/package.xml --wait 10 --test-level $TESTLEVEL --verbose
+  pull-requests:
+    '{feature/*,Feature/*,FEATURE/*}':
+      - step:
+          <<: *BuildToDev
+          deployment: develop
