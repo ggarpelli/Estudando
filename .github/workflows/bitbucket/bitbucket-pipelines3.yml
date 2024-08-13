@@ -1,0 +1,116 @@
+image: cloudgaia/sfdx-delta-cli:latest_v1
+clone:
+  depth: full
+definitions:
+  steps:
+    - step: &BuildToBilling
+        name: CI Build to Billing
+        deployment: billing
+        script:
+          - echo "CI Check Only Delta Deployment for Open Pull Request between feature branch $BITBUCKET_BRANCH and Billing Dev"
+          - echo "to deploy to the $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+          # Authorize target org
+          - echo $AUTH_URL >> authurl
+          - sf org login sfdx-url -f ./authurl -s --alias ORG
+          # Create directory for changed sources
+          - mkdir -p changed-sources
+          # Obtain Delta and create Package
+          - echo "$BITBUCKET_BRANCH"
+          - echo "$BITBUCKET_PR_DESTINATION_BRANCH"
+          - sfdx sgd:source:delta --to $BITBUCKET_BRANCH --from origin/$BITBUCKET_PR_DESTINATION_BRANCH --output changed-sources/ --generate-delta --source force-app/
+          # Read the content of the file ApexTest.txt and store it in the variable TESTS.
+          - TESTS=$(cat ApexTest.txt)
+          # Check if the variable was read correctly
+          - echo "Apex Tests to Run :$TESTS"
+          # Deploying added and modified metadata
+          - cat changed-sources/package/package.xml
+          - sf project deploy validate --manifest changed-sources/package/package.xml --wait 60 --test-level RunSpecifiedTests --tests $TESTS --verbose
+          # Updating package artifact
+        artifacts:
+          - changed-sources/**
+    - step: &BuildToGimi
+        name: CI Build to Gimi
+        deployment: gimi
+        script:
+          - echo "CI Check Only Delta Deployment for Open Pull Request between feature branch $BITBUCKET_BRANCH and Gimi Dev"
+          - echo "to deploy to the $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+          # Authorize target org
+          - echo $AUTH_URL >> authurl
+          - sf org login sfdx-url -f ./authurl -s --alias ORG
+          # Create directory for changed sources
+          - mkdir -p changed-sources
+          # Obtain Delta and create Package
+          - echo "$BITBUCKET_BRANCH"
+          - echo "$BITBUCKET_PR_DESTINATION_BRANCH"
+          - sfdx sgd:source:delta --to $BITBUCKET_BRANCH --from origin/$BITBUCKET_PR_DESTINATION_BRANCH --output changed-sources/ --generate-delta --source force-app/
+          # Read the content of the file ApexTest.txt and store it in the variable TESTS.
+          - TESTS=$(cat ApexTest.txt)
+          # Check if the variable was read correctly
+          - echo "Apex Tests to Run :$TESTS"
+          # Deploying added and modified metadata
+          - cat changed-sources/package/package.xml
+          - sf project deploy validate --manifest changed-sources/package/package.xml --wait 60 --test-level RunSpecifiedTests --tests $TESTS --verbose
+          # Updating package artifact
+        artifacts:
+          - changed-sources/**
+pipelines:
+  pull-requests:
+    '{feature/billing*,Feature/Billing*,FEATURE/Billing*}':
+      - step:
+          <<: *BuildToBilling
+          deployment: billing
+    '{feature/gimi*,Feature/gimi*,FEATURE/gimi*}':
+      - step:
+          <<: *BuildToGimi
+          deployment: gimi
+  branches:
+    SB-Billing:
+      - step:
+          name: CI Delta Deploy to Billing
+          deployment: billing
+          script:
+            - echo "CI Delta Deployment for changes pushed to SB-Billing branch between $BITBUCKET_BRANCH branch and previous commit"
+            - echo "to deploy to the $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+            # Authorize target org
+            - echo $AUTH_URL >> authurl
+            - sf org login sfdx-url -f ./authurl -s --alias ORG
+            # Create directory for changed sources
+            - mkdir -p changed-sources
+            # Obtain Delta
+            - echo "$BITBUCKET_BRANCH"
+            - sfdx sgd:source:delta --from HEAD^ --to HEAD --output changed-sources/ --generate-delta --source force-app/
+            # Read the content of the file ApexTest.txt and store it in the variable TESTS.
+            - TESTS=$(cat ApexTest.txt)
+            # Check if the variable was read correctly
+            - echo "Apex Tests to Run :$TESTS"
+            # Deploying added and modified metadata
+            - cat changed-sources/package/package.xml
+            - sf project deploy start --manifest changed-sources/package/package.xml --wait 10 --test-level RunSpecifiedTests --tests $TESTS --verbose
+            # Updating package artifact
+          artifacts:
+            - changed-sources/**
+    SB-GIMI:
+      - step:
+          name: CI Delta Deploy to GIMI
+          deployment: gimi
+          script:
+            - echo "CI Delta Deployment for changes pushed to SB-GIMI branch between $BITBUCKET_BRANCH branch and previous commit"
+            - echo "to deploy to the $BITBUCKET_DEPLOYMENT_ENVIRONMENT org"
+            # Authorize target org
+            - echo $AUTH_URL >> authurl
+            - sf org login sfdx-url -f ./authurl -s --alias ORG
+            # Create directory for changed sources
+            - mkdir -p changed-sources
+            # Obtain Delta
+            - echo "$BITBUCKET_BRANCH"
+            - sfdx sgd:source:delta --from HEAD^ --to HEAD --output changed-sources/ --generate-delta --source force-app/
+            # Read the content of the file ApexTest.txt and store it in the variable TESTS.
+            - TESTS=$(cat ApexTest.txt)
+            # Check if the variable was read correctly
+            - echo "Apex Tests to Run :$TESTS"
+            # Deploying added and modified metadata
+            - cat changed-sources/package/package.xml
+            - sf project deploy start --manifest changed-sources/package/package.xml --wait 10 --test-level RunSpecifiedTests --tests $TESTS --verbose
+            # Updating package artifact
+          artifacts:
+            - changed-sources/**
