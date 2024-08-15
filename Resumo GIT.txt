@@ -97,9 +97,14 @@ git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D - Para 
 #Para fazer checkout de um arquivo específico de um branch específico
 git checkout <nome_do_branch> -- <caminho_do_arquivo>
 Exemplo: git checkout develop -- .github/workflows/push-develop-branch.yml
-Para fazer checkout de vários arquivos de um branch específico, basta adicionar os caminhos dos arquivos separados por espaço:
+#Para fazer checkout de vários arquivos de um branch específico, basta adicionar os caminhos dos arquivos separados por espaço:
 git checkout <nome_do_branch> -- <caminho_do_arquivo1> <caminho_do_arquivo2> <caminho_do_arquivo3>
 Exemplo: git checkout develop -- .github/workflows/push-develop-branch.yml text.txt
+#Para trazer uma branch inteira de outro repositorio (3 passos)
+1- git remote add other-repo <URL-do-outro-repositório>
+2- git fetch other-repo <nome-da-branch>
+3- git checkout -b <nome-da-branch-local> other-repo/<nome-da-branch>
+
 
 Glosário de Termos Git e GitHub
 
