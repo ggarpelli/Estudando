@@ -83,3 +83,13 @@ sf data upsert bulk --sobject Contact --file files/contacts.csv --external-id Id
 - Snowfakery (sforce.co/snowfakery)
 - SFDMU (help.sfdmu.com/get-started / sforce.co/sfdmu)
 - texei (https://texei.com/en/advices/easily-load-data-into-your-scratch-org-or-sandbox-part-1/)
+
+
+How to retrieve Validate and Deploy a Package to an specific org
+1. Retrieve from an org using package called fullpackage to a folder called DeployUAT
+sf project retrieve start --manifest manifest/fullpackage.xml --output-dir path/to/DeployUAT --target-org <alias_or_username>
+2. Validate (check-only deploy) using specific tests folder DeployUAT
+sf project deploy validate --source-dir DeployUAT --test-level RunSpecifiedTests --runtests Test1,Test2,Test3 --target-org <alias_or_username>
+3. Deploy folder DeployUAT
+sf project deploy start --source-dir DeployUAT --test-level RunSpecifiedTests --runtests Test1,Test2,Test3 --target-org <alias_or_username>
+Note: Replace <alias_or_username> with the alias of the org you authenticated
