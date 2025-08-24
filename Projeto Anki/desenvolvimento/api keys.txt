@@ -1,0 +1,21 @@
+Gui gmail
+set ELEVEN_API_KEY=sk_9f56823e5c95e9e9cda2bebb4af313f124c4964190db8fd8
+
+set ELEVEN_API_KEY=sk_bcc4e27fe27305c60e1a42f12c0fbab9ac04acd7b6102e2e
+echo %ELEVEN_API_KEY%
+
+Gui icloud
+set ELEVEN_API_KEY=sk_267e1f826a4e9b4553593344348862abc717266273dbf84e
+echo %ELEVEN_API_KEY%
+
+Pamela gmail (acabou token)
+set ELEVEN_API_KEY=sk_c0fcbba4c487dd387f29d15e26a971dd809042fb771e639d
+echo %ELEVEN_API_KEY%
+
+
+
+Danish: ygiXC2Oa1BiHksD3WkJZ
+English: UgBBYS2sOqTuMpoF3BR0
+Spanish: kulszILr6ees0ArU8miO
+Portuguese: 33B4UnXyTNbgLmdEDh5P
+German: IWm8DnJ4NGjFI7QAM5lM

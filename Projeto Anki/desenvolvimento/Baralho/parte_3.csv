@@ -1,0 +1,290 @@
+Spanish,English,Portuguese
+la salida,the exit,a saída
+el ruido,the noise,o barulho
+el silencio,the silence,o silêncio
+la venta,the sale,a venda
+la compra,the purchase,a compra
+el regalo,the gift,o presente
+la deuda,the debt,a dívida
+la memoria,the memory,a memória
+el olvido,the forgetting,o esquecimento
+el calor,the heat,o calor
+el frío,the cold,o frio
+la risa,the laugh,o riso
+el llanto,the cry,o choro
+la victoria,the victory,a vitória
+la derrota,the defeat,a derrota
+la verdad,the truth,a verdade
+la mentira,the lie,a mentira
+la paz,the peace,a paz
+la guerra,the war,a guerra
+la amistad,the friendship,a amizade
+la enemistad,the enmity,a inimizade
+la salud,the health,a saúde
+la enfermedad,the illness,a doença
+la riqueza,the richness,a riqueza
+la pobreza,the poverty,a pobreza
+la libertad,the freedom,a liberdade
+la esclavitud,the slavery,a escravidão
+la justicia,the justice,a justiça
+la injusticia,the injustice,a injustiça
+la esperanza,the hope,a esperança
+la desesperación,the despair,a desesperação
+la paciencia,the patience,a paciência
+la impaciencia,the impatience,a impaciência
+la generosidad,the generosity,a generosidade
+la tacañería,the stinginess,a mesquinhez
+la humildad,the humility,a humildade
+la arrogancia,the arrogance,a arrogância
+la valentía,the bravery,a bravura
+la cobardía,the cowardice,a covardia
+la honestidad,the honesty,a honestidade
+la deshonestidad,the dishonesty,a desonestidade
+la gratitud,the gratitude,a gratidão
+la ingratitud,the ingratitude,a ingratidão
+la responsabilidad,the responsibility,a responsabilidade
+la irresponsabilidad,the irresponsibility,a irresponsabilidade
+el orden,the order,a ordem
+el desorden,the disorder,a desordem
+la sabiduría,the wisdom,a sabedoria
+la ignorancia,the ignorance,a ignorância
+la confianza,the trust,a confiança
+la desconfianza,the distrust,a desconfiança
+la lealtad,the loyalty,a lealdade
+la deslealtad,the disloyalty,a deslealdade
+la alegría,the joy,a alegria
+la melancolía,the melancholy,a melancolia
+la sencillez,the simplicity,a simplicidade
+la complejidad,the complexity,a complexidade
+la inocencia,the innocence,a inocência
+la culpa,the guilt,a culpa
+la seguridad,the safety,a segurança
+el peligro,the danger,o perigo
+la curiosidad,the curiosity,a curiosidade
+la apatía,the apathy,a apatia
+la disciplina,the discipline,a disciplina
+la indisciplina,the lack of discipline,a indisciplina
+el respeto,the respect,o respeito
+la falta de respeto,the disrespect,a falta de respeito
+la tolerancia,the tolerance,a tolerância
+la intolerancia,the intolerance,a intolerância
+la paz,the peace,a paz
+el conflicto,the conflict,o conflito
+la humildad,the humility,a humildade
+el orgullo,the pride,o orgulho
+la obediencia,the obedience,a obediência
+la desobediencia,the disobedience,a desobediência
+la paciencia,the patience,a paciência
+la prisa,the haste,a pressa
+la fuerza,the strength,a força
+la debilidad,the weakness,a fraqueza
+la valentía,the courage,a coragem
+el miedo,the fear,o medo
+la amabilidad,the kindness,a gentileza
+la crueldad,the cruelty,a crueldade
+la verdad,the truth,a verdade
+la mentira,the lie,a mentira
+la generosidad,the generosity,a generosidade
+el egoísmo,the selfishness,o egoísmo
+el éxito,the success,o sucesso
+el fracaso,the failure,o fracasso
+la victoria,the victory,a vitória
+la derrota,a derrota,
+la salud,the health,a saúde
+la enfermedad,the illness,a doença
+el amor,the love,o amor
+el odio,the hate,o ódio
+la vida,the life,a vida
+la muerte,the death,a morte
+el bien,the good,o bem
+el mal,the evil,o mal
+la luz,the light,a luz
+la oscuridad,the darkness,a escuridão
+la belleza,the beauty,a beleza
+la fealdad,the ugliness,a feiura
+el día,the day,o dia
+la noche,the night,a noite
+el cielo,the sky,o céu
+la tierra,the earth,a terra
+el sol,the sun,o sol
+la luna,the moon,a lua
+las estrellas,the stars,as estrelas
+la comida,the food,a comida
+la bebida,the drink,a bebida
+el agua,the water,a água
+el café,the coffee,o café
+el té,the tea,o chá
+el jugo,the juice,o suco
+la leche,the milk,o leite
+el pan,the bread,o pão
+el queso,the cheese,o queijo
+el huevo,the egg,o ovo
+la carne,the meat,a carne
+el pollo,the chicken,o frango
+el pescado,the fish,o peixe
+las verduras,the vegetables,os vegetais
+las frutas,the fruits,as frutas
+la sopa,the soup,a sopa
+la ensalada,the salad,a ensalada
+el arroz,the rice,o arroz
+la pasta,the pasta,a massa
+el postre,the dessert,a sobremesa
+los verbos,the verbs,os verbos
+ser,to be (permanent),ser
+estar,to be (temporary),estar
+tener,to have,ter
+ir,to go,ir
+hacer,to do / to make,fazer
+poder,to be able to,poder
+querer,to want,querer
+saber,to know (facts),saber
+conocer,to know (people/places),conhecer
+hablar,to speak,falar
+comer,to eat,comer
+beber,to drink,beber
+vivir,to live,viver
+trabajar,to work,trabalhar
+estudiar,to study,estudar
+necesitar,to need,precisar
+gustar,to like,gostar
+comprar,to buy,comprar
+vender,to sell,vender
+dar,to give,dar
+ver,to see,ver
+escuchar,to listen,escutar
+sentir,to feel,sentir
+pensar,to think,pensar
+creer,to believe,acreditar
+viajar,to travel,viajar
+abrir,to open,abrir
+cerrar,to close,fechar
+empezar,to begin,começar
+terminar,to finish,terminar
+entender,to understand,entender
+llegar,to arrive,chegar
+salir,to leave,sair
+volver,to return,voltar
+pedir,to ask for,pedir
+encontrar,to find,encontrar
+perder,to lose,perder
+ayudar,to help,ajudar
+usar,to use,usar
+escribir,to write,escrever
+leer,to read,ler
+cantar,to sing,cantar
+bailar,to dance,dançar
+correr,to run,correr
+nadar,to swim,nadar
+jugar,to play,jogar
+dormir,to sleep,dormir
+despertarse,to wake up,acordar
+levantarse,to get up,levantar-se
+sentarse,to sit down,sentar-se
+pararse,to stand up,levantar-se
+mirar,to look,olhar
+tocar,to touch,tocar
+escoger,to choose,escolher
+aprender,to learn,aprender
+enseñar,to teach,ensinar
+cocinar,to cook,cozinhar
+limpiar,to clean,limpar
+organizar,to organize,organizar
+viajar,to travel,viajar
+pasear,to stroll,passear
+visitar,to visit,visitar
+conducir,to drive,dirigir
+volar,to fly,voar
+esperar,to wait / to hope,esperar
+llamar,to call,ligar
+recibir,to receive,receber
+enviar,to send,enviar
+venir,to come,vir
+ir,to go,ir
+decir,to say,dizer
+hacer,to do,fazer
+poder,to be able to,poder
+querer,to want,querer
+saber,to know,saber
+poner,to put,pôr
+salir,to leave,sair
+traer,to bring,trazer
+ver,to see,ver
+venir,to come,vir
+ir,to go,ir
+ser,to be,ser
+estar,to be,estar
+tener,to have,ter
+venir,to come,vir
+decir,to say,dizer
+hacer,to do,fazer
+poder,to be able to,poder
+querer,to want,querer
+saber,to know,saber
+poner,to put,pôr
+salir,to leave,sair
+traer,to bring,trazer
+ver,to see,ver
+venir,to come,vir
+ir,to go,ir
+ser,to be,ser
+estar,to be,estar
+tener,to have,ter
+venir,to come,vir
+decir,to say,dizer
+hacer,to do,fazer
+poder,to be able to,poder
+querer,to want,querer
+saber,to know,saber
+poner,to put,pôr
+salir,to leave,sair
+traer,to bring,trazer
+ver,to see,ver
+venir,to come,vir
+ir,to go,ir
+el hospital,the hospital,o hospital
+la farmacia,the pharmacy,a farmácia
+el banco,the bank,o banco
+el supermercado,the supermarket,o supermercado
+la tienda,the store,a loja
+el restaurante,the restaurant,o restaurante
+el cine,the cinema,o cinema
+el teatro,the theater,o teatro
+el museo,the museum,o museu
+la escuela,the school,a escola
+la universidad,the university,a universidade
+el trabajo,the work,o trabalho
+la oficina,the office,o escritório
+el jefe / la jefa,the boss,o/a chefe
+el compañero/a,the coworker,o/a colega
+la reunión,the meeting,a reunião
+el contrato,the contract,o contrato
+"el dinero, las finanzas","the money, the finances","o dinheiro, as finanças"
+el dinero,the money,o dinheiro
+la cuenta,the bill / the account,a conta
+la tarjeta de crédito,the credit card,o cartão de crédito
+el efectivo,the cash,o dinheiro (vivo)
+Pagar con tarjeta,to pay with card,Pagar com cartão
+Pagar en efectivo,to pay in cash,Pagar em dinheiro
+"expresiones de celebración, saludos","expressions of celebration, greetings","expressões de celebração, saudações"
+¡Salud!,Cheers! / Bless you!,Saúde!
+¡Feliz cumpleaños!,Happy birthday!,Feliz aniversário!
+¡Feliz Navidad!,Merry Christmas!,Feliz Natal!
+¡Feliz Año Nuevo!,Happy New Year!,Feliz Ano Novo!
+¡Buen viaje!,Have a good trip!,Boa viagem!
+¡Buena suerte!,Good luck!,Boa sorte!
+¡Enhorabuena!,Congratulations,Parabéns!
+¡Cuídate!,Take care!,Cuide-se!
+¡Hasta pronto!,See you soon!,Até breve!
+¡Hola!,Hi,Oi!
+"¿Qué haces?, ¿Qué estás haciendo?",What are you doing?,O que você está fazendo?
+¿Qué pasa?,What's happening?,O que está acontecendo?
+"No entiendo, no comprendo",I don't understand,Eu não entendo
+¿Qué significa eso?,What does that mean?,O que isso significa?
+"¿Podrías repetirlo?, por favor","Could you repeat that?, please","Você poderia repetir?, por favor"
+¿Cómo se dice...?,How do you say...?,Como se diz...?
+¿Puedes hablar más despacio?,Can you speak more slowly?,Você pode falar mais devagar?
+Es muy interesante,It's very interesting,É muito interessante
+el hospital,the hospital,o hospital
+la farmacia,the pharmacy,a farmácia
+el banco,the bank,o banco
+el supermercado,the supermarket,o supermercado

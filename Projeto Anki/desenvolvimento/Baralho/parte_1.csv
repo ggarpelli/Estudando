@@ -1,0 +1,291 @@
+Spanish,English,Portuguese
+"Hola, ¿cómo estás?","Hello, how are you?","Olá, como você está?"
+Buenos días,Good morning,Bom dia
+Buenas tardes,Good afternoon,Boa tarde
+Buenas noches,Good evening / Good night,Boa noite
+Por favor,Please,Por favor
+Gracias,Thank you,Obrigado/a
+De nada,You're welcome,De nada
+Disculpe / Permiso,"Excuse me, Pardon me",Com licença / Desculpe
+Lo siento,I'm sorry,Sinto muito
+Adiós,Goodbye,Adeus
+Hasta luego,See you later,Até logo
+¿Cómo te llamas?,What's your name?,Como você se chama?
+Me llamo...,My name is...,Meu nome é...
+Mucho gusto,Nice to meet you,Muito prazer
+¿De dónde eres?,Where are you from?,De onde você é?
+Soy de...,I am from...,Eu sou de...
+¿Cuántos años tienes?,How old are you?,Quantos anos você tem?
+Tengo... años,I am... years old,Eu tenho... anos
+¿Qué tal?,How's it going?,E aí? / Como vai?
+"Bien, gracias","Fine, thank you","Bem, obrigado/a"
+"Mal, gracias","Bad, thank you","Mal, obrigado/a"
+Así así,So-so,Mais ou menos
+"la familia, los parientes","the family, the relatives","a família, os parentes"
+el padre,the father,o pai
+la madre,the mother,a mãe
+el hermano,the brother,o irmão
+la hermana,the sister,a irmã
+los padres,the parents,os pais
+los hijos,the children / the sons,os filhos
+el hijo,the son,o filho
+la hija,the daughter,a filha
+el abuelo,the grandfather,o avô
+la abuela,the grandmother,a avó
+el tío,the uncle,o tio
+la tía,the aunt,a tia
+el primo,the cousin (male),o primo
+la prima,the cousin (female),a prima
+el esposo / el marido,the husband,o marido
+la esposa / la mujer,the wife,a esposa
+el novio,the boyfriend,o namorado
+la novia,the girlfriend,a namorada
+el amigo,the friend (male),o amigo
+la amiga,the friend (female),a amiga
+"la casa, el hogar","the house, the home","a casa, o lar"
+el apartamento / el piso,the apartment,o apartamento
+el cuarto / la habitación,the room,o quarto
+la cocina,the kitchen,a cozinha
+el baño,the bathroom,o banheiro
+la sala de estar,the living room,a sala de estar
+el dormitorio,the bedroom,o quarto de dormir
+el jardín,the garden,o jardim
+la puerta,the door,a porta
+la ventana,the window,a janela
+la cama,the bed,a cama
+la mesa,the table,a mesa
+la silla,the chair,a cadeira
+el sofá,the sofa,o sofá
+el televisor,the television,a televisão
+el teléfono,the telephone,o telefone
+el celular,the cell phone,o celular
+"la comida, la bebida","the food, the drink","a comida, a bebida"
+el desayuno,the breakfast,o café da manhã
+el almuerzo,the lunch,o almoço
+la cena,the dinner,o jantar
+el agua,the water,a água
+el café,the coffee,o café
+el té,the tea,o chá
+el jugo,the juice,o suco
+la leche,the milk,o leite
+el pan,the bread,o pão
+el queso,the cheese,o queijo
+el huevo,the egg,o ovo
+la carne,the meat,a carne
+el pollo,the chicken,o frango
+el pescado,the fish,o peixe
+la fruta,the fruit,a fruta
+la verdura / la hortaliza,the vegetable,o vegetal
+la ensalada,the salad,a salada
+el arroz,the rice,o arroz
+la pasta,the pasta,a massa
+la sopa,the soup,a sopa
+el postre,the dessert,a sobremesa
+"los verbos comunes, la acción","the common verbs, the action","os verbos comuns, a ação"
+ser,to be (permanent),ser
+estar,to be (temporary),estar
+tener,to have,ter
+ir,to go,ir
+hacer,to do / to make,fazer
+poder,to be able to / can,poder
+querer,to want,querer
+saber,to know (facts),saber
+conocer,to know (people / places),conhecer
+hablar,to speak,falar
+comer,to eat,comer
+beber / tomar,to drink,beber / tomar
+vivir,to live,viver
+trabajar,to work,trabalhar
+estudiar,to study,estudar
+necesitar,to need,precisar
+gustar,to like,gostar
+comprar,to buy,comprar
+vender,to sell,vender
+dar,to give,dar
+ver,to see,ver
+escuchar,to listen,escutar
+sentir,to feel,sentir
+pensar,to think,pensar
+creer,to believe,acreditar
+viajar,to travel,viajar
+abrir,to open,abrir
+cerrar,to close,fechar
+empezar / comenzar,to begin / to start,começar
+terminar,to finish,terminar
+entender,to understand,entender
+llegar,to arrive,chegar
+salir,to leave,sair
+volver,to return,voltar
+pedir,to ask for,pedir
+encontrar,to find,encontrar
+perder,to lose,perder
+ayudar,to help,ajudar
+usar / utilizar,to use,usar / utilizar
+"los adjetivos, las cualidades","the adjectives, the qualities","os adjetivos, as qualidades"
+bueno/a,good,bom/boa
+malo/a,bad,mau/má
+grande,big / large,grande
+pequeño/a,small,pequeno/a
+alto/a,tall / high,alto/a
+bajo/a,short / low,baixo/a
+largo/a,long,longo/a
+corto/a,short,curto/a
+bonito/a / hermoso/a,beautiful / pretty,bonito/a / lindo/a
+feo/a,ugly,feio/a
+viejo/a,old,velho/a
+joven,young,jovem
+nuevo/a,new,novo/a
+limpio/a,clean,limpo/a
+sucio/a,dirty,sujo/a
+fácil,easy,fácil
+difícil,difficult,difícil
+rápido/a,fast,rápido/a
+lento/a,slow,lento/a
+feliz,happy,feliz
+triste,sad,triste
+caliente,hot,quente
+frío/a,cold,frio/a
+cerca,near,perto
+lejos,far,longe
+"los números, la cantidad","the numbers, the quantity","os números, a quantidade"
+cero,zero,zero
+uno,one,um
+dos,two,dois
+tres,three,três
+cuatro,four,quatro
+cinco,five,cinco
+seis,six,seis
+siete,seven,sete
+ocho,eight,oito
+nueve,nine,nove
+diez,ten,dez
+once,eleven,onze
+doce,twelve,doze
+trece,thirteen,treze
+catorce,fourteen,catorze
+quince,fifteen,quinze
+dieciséis,sixteen,dezesseis
+diecisiete,seventeen,dezessete
+dieciocho,eighteen,dezoito
+diecinueve,nineteen,dezenove
+veinte,twenty,vinte
+treinta,thirty,trinta
+cuarenta,forty,quarenta
+cincuenta,fifty,cinquenta
+sesenta,sixty,sessenta
+setenta,seventy,setenta
+ochenta,eighty,oitenta
+noventa,ninety,noventa
+cien,one hundred,cem
+mil,one thousand,mil
+"los días, los meses, las estaciones","the days, the months, the seasons","os dias, os meses, as estações"
+el lunes,Monday,a segunda-feira
+el martes,Tuesday,a terça-feira
+el miércoles,Wednesday,a quarta-feira
+el jueves,Thursday,a quinta-feira
+el viernes,Friday,a sexta-feira
+el sábado,Saturday,o sábado
+el domingo,Sunday,o domingo
+hoy,today,hoje
+ayer,yesterday,ontem
+mañana,tomorrow,amanhã
+la semana,the week,a semana
+el mes,the month,o mês
+el año,the year,o ano
+enero,January,janeiro
+febrero,February,fevereiro
+marzo,March,março
+abril,April,abril
+mayo,May,maio
+junio,June,junho
+julio,July,julho
+agosto,August,agosto
+septiembre,September,setembro
+octubre,October,outubro
+noviembre,November,novembro
+diciembre,December,dezembro
+primavera,spring,primavera
+verano,summer,verão
+otoño,autumn / fall,outono
+invierno,winter,inverno
+"el tiempo, el clima","the weather, the climate","o tempo, o clima"
+el sol,the sun,o sol
+la lluvia,the rain,a chuva
+la nieve,the snow,a neve
+el viento,the wind,o vento
+el cielo,the sky,o céu
+la nube,the cloud,a nuvem
+¿Qué tiempo hace?,What's the weather like?,Como está o tempo?
+Hace sol,It's sunny,Está ensolarado
+Está lloviendo,It's raining,Está chovendo
+Está nevando,It's snowing,Está nevando
+Hace calor,It's hot,Está calor
+Hace frío,It's cold,Está frio
+"Frases útiles, expresiones","Useful phrases, expressions","Frases úteis, expressões"
+¿Dónde está el baño?,Where is the bathroom?,Onde é o banheiro?
+¿A qué hora es?,What time is it?,Que horas são?
+Es la una,It's one o'clock,É uma hora
+Son las dos,It's two o'clock,São duas horas
+¿Cuánto cuesta?,How much does it cost?,Quanto custa?
+¿Puedes ayudarme?,Can you help me?,Você pode me ajudar?
+"No entiendo, no lo entiendo",I don't understand,Eu não entendo
+Hablo un poco de español,I speak a little Spanish,Eu falo um pouco de espanhol
+Estoy perdido/a,I'm lost,Eu estou perdido/a
+una vez,one time,uma vez
+dos veces,two times,duas vezes
+siempre,always,sempre
+nunca,never,nunca
+a menudo,often,frequentemente
+a veces,sometimes,às vezes
+"los medios de transporte, la movilidad","the means of transport, the mobility","os meios de transporte, a mobilidade"
+el coche / el carro,the car,o carro
+el autobús / el bus,the bus,o ônibus
+el tren,the train,o trem
+el avión,the plane,o avião
+la estación,the station,a estação
+el aeropuerto,the airport,o aeroporto
+el pasaporte,the passport,o passaporte
+el equipaje,the luggage,a bagagem
+la maleta,the suitcase,a mala
+el billete / el boleto,the ticket,a passagem / o bilhete
+"los lugares, la ciudad","the places, the city","os lugares, a cidade"
+¿Dónde queda...?,Where is... located?,Onde fica...?
+la calle,the street,a rua
+la avenida,the avenue,a avenida
+la plaza,the square,a praça
+el parque,the park,o parque
+ustedes,you all (formal),vocês
+el,the (masculine singular),o
+la,the (feminine singular),a
+los,the (masculine plural),os
+las,the (feminine plural),as
+un,a / an (masculine),um
+una,a / an (feminine),uma
+unos,some (masculine),uns
+unas,some (feminine),umas
+"las preposiciones, la ubicación","the prepositions, the location","as preposições, a localização"
+en,in / on / at,em
+a,to,a
+de,of / from,de
+con,with,com
+sin,without,sem
+por,by / for / through,por
+para,for / to,para
+sobre,on / about,sobre
+bajo,under,embaixo de
+entre,between / among,entre
+delante de,in front of,na frente de
+detrás de,behind,atrás de
+dentro de,inside of,dentro de
+fuera de,outside of,fora de
+al lado de,next to,ao lado de
+encima de,on top of,em cima de
+debajo de,under,debaixo de
+los días de la semana,the days of the week,os dias da semana
+lunes,Monday,segunda-feira
+martes,Tuesday,terça-feira
+miércoles,Wednesday,quarta-feira
+jueves,Thursday,quinta-feira
+viernes,Friday,sexta-feira
+sábado,Saturday,sábado
+domingo,Sunday,domingo

@@ -1,0 +1,66 @@
+Spanish,English,Portuguese
+El gerente de lanzamientos de Salesforce es responsable de la planificación y ejecución de las actualizaciones del sistema.,The Salesforce release manager is responsible for planning and executing system updates.,O gerente de lançamentos do Salesforce é responsável pelo planejamento e execução das atualizações do sistema.
+Salesforce Release Manager,Salesforce Release Manager,Gerente de Lançamentos do Salesforce
+Gestión de cambios,Change management,Gestão de mudanças
+Actualización de la plataforma,Platform update,Atualização da plataforma
+Control de versiones,Version control,Controle de versão
+Entorno de sandbox,Sandbox environment,Ambiente de sandbox
+Entorno de producción,Production environment,Ambiente de produção
+Pruebas de regresión,Regression testing,Teste de regressão
+Pruebas de aceptación del usuario (UAT),User acceptance testing (UAT),Teste de aceitação do usuário (UAT)
+Estrategia de lanzamiento,Release strategy,Estratégia de lançamento
+Calendario de lanzamiento,Release schedule,Cronograma de lançamento
+Lanzamiento semanal,Weekly release,Lançamento semanal
+Despliegue,Deployment,Implantação
+Conjunto de cambios,Change set,Conjunto de mudanças
+Salesforce DX,Salesforce DX,Salesforce DX
+Comando de despliegue,Deployment command,Comando de implantação
+Monitoreo posterior al lanzamiento,Post-release monitoring,Monitoramento pós-lançamento
+Rollback,Rollback,Rollback
+Paquete gestionado,Managed package,Pacote gerenciado
+Paquete no gestionado,Unmanaged package,Pacote não gerenciado
+Salesforce AppExchange,Salesforce AppExchange,Salesforce AppExchange
+Herramientas de automatización,Automation tools,Ferramentas de automação
+CI/CD (Integración y Despliegue Continuo),CI/CD (Continuous Integration and Continuous Deployment),CI/CD (Integração Contínua e Implantação Contínua)
+Metadatos,Metadata,Metadados
+Componente,Component,Componente
+Organización,Organization,Organização
+Línea de base,Baseline,Linha de base
+Lanzamiento de emergencia,Emergency release,Lançamento de emergência
+Notas de la versión,Release notes,Notas da versão
+Canal de comunicación,Communication channel,Canal de comunicação
+Lanzamiento de características,Feature release,Lançamento de recursos
+Lanzamiento de parches,Patch release,Lançamento de patches
+Flujo de trabajo de lanzamiento,Release workflow,Fluxo de trabalho de lançamento
+Aprobación de la junta de revisión de cambios (CRB),Change Review Board (CRB) approval,Aprovação do Comitê de Revisão de Mudanças (CRB)
+Plan de comunicación,Communication plan,Plano de comunicação
+Gestión de riesgos,Risk management,Gestão de riscos
+Documentación de la solución,Solution documentation,Documentação da solução
+Salesforce CLI,Salesforce CLI,Salesforce CLI
+Repositorio de código,Code repository,Repositório de código
+Git,Git,Git
+Despliegue automatizado,Automated deployment,Implantação automatizada
+Salesforce DevOps,Salesforce DevOps,Salesforce DevOps
+Ramificación de características,Feature branching,Ramificação de recursos
+Ramificación de lanzamiento,Release branching,Ramificação de lançamento
+Rama principal,Main branch,Ramificação principal
+Integración continua,Continuous integration,Integração contínua
+Despliegue continuo,Continuous deployment,Implantação contínua
+Pipeline de CI/CD,CI/CD pipeline,Pipeline de CI/CD
+Comprobación de la calidad del código,Code quality check,Verificação da qualidade do código
+Análisis estático,Static analysis,Análise estática
+Pruebas unitarias,Unit tests,Testes unitários
+Cobertura de código,Code coverage,Cobertura de código
+Apex,Apex,Apex
+Visualforce,Visualforce,Visualforce
+Lightning Web Components (LWC),Lightning Web Components (LWC),Lightning Web Components (LWC)
+Flujos,Flows,Fluxos
+Procesos de aprobación,Approval processes,Processos de aprovação
+Reglas de validación,Validation rules,Regras de validação
+Disparadores,Triggers,Disparadores
+Clases de Apex,Apex classes,Classes Apex
+Pruebas de Apex,Apex tests,Testes Apex
+Gestión de permisos,Permission management,Gerenciamento de permissões
+Perfiles de usuario,User profiles,Perfis de usuário
+Conjuntos de permisos,Permission sets,Conjuntos de permissões
+Compartir reglas,Sharing rules,Regras de compartilhamento

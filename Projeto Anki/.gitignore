@@ -1,0 +1,9 @@
+# Arquivos de configuração gerados
+voice_ids.json
+*_with_audio.csv
+audios/
+
+# Arquivos de sistema e ambiente virtual
+.env
+__pycache__/
+venv/
